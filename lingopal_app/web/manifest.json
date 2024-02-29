@@ -1,6 +1,6 @@
 {
-    "name": "lingopal_app",
-    "short_name": "lingopal_app",
+    "name": "lingopals_app",
+    "short_name": "lingopals_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

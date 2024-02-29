@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="lingopal_app"
+        android:label="lingopals_app"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

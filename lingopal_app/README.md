@@ -1,4 +1,4 @@
-# lingopal_app
+# lingopals_app
 
 A new Flutter project.
 
