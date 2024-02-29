@@ -1,0 +1,31 @@
+{
+    "@@locale": "en",
+    "language": "English",
+    "@language": {
+        "description": "The current Language"
+    },
+    "lingopals_title": "LingoPals",
+    "@lingopals_title": {
+        "description": "App title"
+    },
+    "home": "Home",
+    "@home": {
+        "description": "Main screen"
+    },
+    "vocabulary": "Lessons",
+    "@vocabulary": {
+        "description": "Educational sessions"
+    },
+    "lessons": "Dictionary",
+    "@lessons": {
+        "description": "Collection of words in a language"
+    },
+    "settings": "Settings",
+    "@settings": {
+        "description": "Configuration options"
+    },
+    "welcome": "Welcome to LingoPals app",
+    "@welcome": {
+        "description": "Welcome message"
+    }
+}

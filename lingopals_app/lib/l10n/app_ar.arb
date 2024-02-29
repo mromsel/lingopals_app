@@ -1,0 +1,28 @@
+{
+  "@@locale": "ar",
+  "language": "العربية",
+  "@language": {
+    "description": "اللغة الحالية"
+  },
+  "lingopals_title": "LingoPals",
+  "@lingopals_title": {
+    "description": "عنوان التطبيق"
+  },
+  "home": "الصفحة الرئيسية",
+  "@home": {
+    "description": "الشاشة الرئيسية"
+  },
+  "lessons": "الدروس",
+  "@lessons": {
+    "description": "مجموعة من الكلمات في لغة معينة"
+  },
+  "dictionary": "قاموس",
+  "@dictionary": {
+    "description": "الجلسات التعليمية"
+  },
+  "settings": "الإعدادات",
+  "@settings": {
+    "description": "خيارات التكوين"
+  },
+  "welcome": "مرحبًا بك في تطبيق LingoPals"
+}
