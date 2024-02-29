@@ -1,2 +1,2 @@
-# lingopal_app
-LingoPal App developed in Flutter
+# lingopals_app
+LingoPals App developed in Flutter
