@@ -12,12 +12,12 @@
     "@home": {
         "description": "Main screen"
     },
-    "vocabulary": "Lessons",
-    "@vocabulary": {
+    "lessons": "Lessons",
+    "@lessons": {
         "description": "Educational sessions"
     },
-    "lessons": "Dictionary",
-    "@lessons": {
+    "dictionary": "Dictionary",
+    "@dictionary": {
         "description": "Collection of words in a language"
     },
     "settings": "Settings",
