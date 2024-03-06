@@ -21,22 +21,15 @@ class _SplashScreenState extends State<SplashScreen> {
     // Shows the splash screen at least two seconds
     Timer(const Duration(seconds: 2), () {
       // Verifies if the user is logged
-      SecurityService().isUserLogged().then((isLogged) {
-        if (isLogged) {
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (_) => const MainScreen(),
-          ));
-        } else {
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (_) => const LoginScreen(),
-          ));
-        }
-      }).catchError((error) {
-        // If there's an error during the authentication process, it navigates to the error screen
+      if (SecurityService().isUserLogged()) {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (_) => ErrorScreen(error: error.toString()),
+          builder: (_) => const MainScreen(),
         ));
-      });
+      } else {
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (_) => const LoginScreen(),
+        ));
+      }
     });
   }
 
