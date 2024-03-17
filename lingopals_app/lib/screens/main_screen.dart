@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:lingopals_app/pages/dictionary_page.dart';
-import 'package:lingopals_app/pages/home_page.dart';
-import 'package:lingopals_app/pages/lessons_page.dart';
-import 'package:lingopals_app/pages/settings_page.dart';
+import 'package:lingopals_app/features/dictionary/presentation/pages/dictionary_page.dart';
+import 'package:lingopals_app/features/home/presentation/pages/home_page.dart';
+import 'package:lingopals_app/features/lessons/presentation/pages/lessons_page.dart';
+import 'package:lingopals_app/features/settings/presentation/pages/settings_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MainScreen extends StatefulWidget {
