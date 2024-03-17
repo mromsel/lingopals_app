@@ -2,10 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:lingopals_app/screens/error_screen.dart';
 import 'package:lingopals_app/screens/login_screen.dart';
 import 'package:lingopals_app/screens/main_screen.dart';
-import 'package:lingopals_app/services/security_service.dart';
+import 'package:lingopals_app/features/user_auth/services/security_service.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
