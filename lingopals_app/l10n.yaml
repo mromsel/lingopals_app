@@ -1,6 +1,0 @@
-# Location of the localization files
-arb-dir: lib/l10n 
-# Default language file
-template-arb-file: app_en.arb 
-# Location of our generated localization files
-output-localization-file: app_localizations.dart 
