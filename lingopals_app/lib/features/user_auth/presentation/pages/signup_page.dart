@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lingopals_app/widgets/header_login.dart';
-import 'package:lingopals_app/widgets/logo_header.dart';
-import 'package:lingopals_app/widgets/text_field_custom.dart';
+import 'package:lingopals_app/features/user_auth/presentation/widgets/header_login.dart';
+import 'package:lingopals_app/features/user_auth/presentation/widgets/logo_header.dart';
+import 'package:lingopals_app/features/user_auth/presentation/widgets/text_field_custom.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
