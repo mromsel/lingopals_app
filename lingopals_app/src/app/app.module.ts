@@ -13,7 +13,7 @@ import { TabsBarComponent } from './core/tabs-bar/tabs-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
-    TabsBarComponent
+    TabsBarComponent,
   ],
   imports: [
     BrowserModule,

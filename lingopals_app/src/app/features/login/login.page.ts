@@ -20,4 +20,8 @@ export class LoginPage implements OnInit {
     this.router.navigate(["/home"])
   }
 
+  goToSignUp() {
+    this.router.navigate(["/signup"])
+  }
+
 }
