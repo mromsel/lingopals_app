@@ -8,23 +8,29 @@ import { Observable, tap } from 'rxjs';
 })
 export class AuthGuard implements CanActivate {
 
-    constructor(private authService: AuthService, private router: Router) { }
+    isLogged: boolean = false
 
-    // canActivate(): boolean {
-    //     if (this.authService.isLoggedIn()) {
-    //         return true;
-    //     } else {
-    //         this.router.navigate(['/login']);
-    //         return false;
-    //     }
-    // }
-    canActivate(): Observable<boolean> {
-        return this.authService.isLoggedIn().pipe(
-            tap((loggedIn: boolean) => {
-                if (!loggedIn) {
-                    this.router.navigate(['/login']);
-                }
-            })
-        );
+    constructor(private authService: AuthService, private router: Router) {
+        authService.isLoggedIn().subscribe(isLogged => this.isLogged = isLogged)
     }
+
+    canActivate(): boolean {
+        let isLogged = false;
+        this.authService.isLoggedIn().subscribe(loggedIn => {
+            isLogged = loggedIn;
+            if (!isLogged) {
+                this.router.navigate(['/login']);
+            }
+        });
+        return isLogged;
+    }
+    // canActivate(): Observable<boolean> {
+    //     return this.authService.isLoggedIn().pipe(
+    //         tap((isUserLogged: boolean) => {
+    //             if (!isUserLogged) {
+    //                 this.router.navigate(['/login']);
+    //             }
+    //         })
+    //     );
+    // }
 }
