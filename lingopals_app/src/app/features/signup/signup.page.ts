@@ -8,6 +8,13 @@ import { Router } from '@angular/router';
 })
 export class SignupPage implements OnInit {
 
+  formData = {
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  };
+
   constructor(
     private router: Router
   ) { }
@@ -18,4 +25,6 @@ export class SignupPage implements OnInit {
   goToLogin() {
     this.router.navigate(["/login"])
   }
+
+  signup() { }
 }

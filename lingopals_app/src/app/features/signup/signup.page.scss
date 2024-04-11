@@ -1,0 +1,46 @@
+/* signup.page.scss */
+
+ion-content {
+    background-color: aqua;
+}
+
+.main-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.form-container {
+    align-items: center;
+    background-color: lightblue;
+    border: 0.1rem solid black;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    padding: 1rem;
+}
+
+ion-item {
+    margin-bottom: 20px;
+}
+
+ion-button {
+    width: 100%;
+    font-weight: bold;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
