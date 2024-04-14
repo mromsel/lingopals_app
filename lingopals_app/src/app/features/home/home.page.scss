@@ -4,16 +4,6 @@
     --ion-background-color: var(--ion-color-background);
 }
 
-// .main-container {}
-
-.grid {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-
-}
-
 .header {
     background-color: white;
     border: 0.1rem solid #ccc;
@@ -26,7 +16,7 @@
     border: 0.1rem solid #ccc;
     border-radius: 1rem;
     max-height: 15rem;
-    padding: 1.5rem;
+    padding: 1rem;
 }
 
 .card-title {

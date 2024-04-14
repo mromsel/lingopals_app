@@ -1,59 +1,52 @@
 <ion-content [fullscreen]="true" class="ion-content">
 
-  <div class="main-container">
+  <div class="d-flex flex-column">
 
-    <ion-card class="header">
-      <ion-card-content>
-        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png"
-          style="max-height: 18rem;" />
-        <div>
-          <h1 style="font-weight: bold; font-size: 2rem;">
-            {{userInfo?.username}}
-          </h1>
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <ion-card class="header">
+          <ion-card-content>
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png"
+              style="max-height: 18rem;" />
+            <div>
+              <h1 style="font-weight: bold; font-size: 2rem;">
+                {{userInfo?.username}}
+              </h1>
 
-          <div class="d-flex align-items-center" style="font-size: 1.5rem;">
-            <ion-text style="margin-right: 0.3rem;">
-              {{userProgress?.coins}}
-            </ion-text>
-            <ion-icon name="cash-outline"></ion-icon>
-          </div>
-        </div>
-      </ion-card-content>
-    </ion-card>
-
-    <div class="grid">
-
-      <ion-card class="item">
-        <ion-card-title class="card-title">Shop</ion-card-title>
-        <ion-card-content>
-          <a>
-            GO NOW
-          </a>
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card class="item">
-        <ion-card-title class="card-title">Progress</ion-card-title>
-        <ion-card-content>
-          {{userProgress?.xpPoints}} words learned
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card class="item">
-        <ion-card-title class="card-title">XP</ion-card-title>
-        <ion-card-content>
-          {{userProgress?.xpPoints}} XP points
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card class="item">
-        <ion-card-title class="card-title">Your learning streaks</ion-card-title>
-        <ion-card-content>
-          Current: {{userProgress?.currentStreak}}
-          <br />
-          Max: {{userProgress?.maxStreak}}
-        </ion-card-content>
-      </ion-card>
+              <div class="d-flex align-items-center" style="font-size: 1.5rem;">
+                <ion-text style="margin-right: 0.3rem;">
+                  {{userProgress?.coins}}
+                </ion-text>
+                <ion-icon name="cash-outline"></ion-icon>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </div>
     </div>
+
+    <div class="row">
+      <div class="col-6 col-md-6">
+        <ion-card class="item">
+          <ion-card-title class="card-title">Shop</ion-card-title>
+          <ion-card-content>
+
+            <ion-button (click)="goToShop()" expand="block">Enter</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </div>
+      <div class="col-6 col-md-6">
+        <ion-card class="item">
+          <ion-card-title class="card-title">Progress</ion-card-title>
+          <ion-card-content>
+            <ion-button id="open-progress-modal" expand="block">See now!</ion-button>
+
+            <app-progress-modal [userInfo]="userInfo" [userProgress]="userProgress"></app-progress-modal>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+
   </div>
+
 </ion-content>

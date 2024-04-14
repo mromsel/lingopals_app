@@ -16,13 +16,15 @@ export class HomePage implements OnInit {
   constructor(private userInfoService: UserInfoService) { }
 
   ngOnInit() {
-    this.userInfoService.getUserInfo(1).subscribe(userInfo => {
-      this.userInfo = userInfo;
-      this.userInfoService.getUserProgress(userInfo.idUser).subscribe(userProgress => {
-        this.userProgress = userProgress
-      }
-      )
-    })
+    this.userInfoService.getUserProgress(1).subscribe(userProgress => {
+      this.userProgress = userProgress
+      this.userInfo = userProgress.user
+    }
+    )
+  }
+
+  goToShop() {
+    // TODO: CREATE SHOP LINK
   }
 
 }
