@@ -7,10 +7,16 @@
         <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png"
           style="max-height: 18rem;" />
         <div>
-          <h1 style="font-weight: bold;">
+          <h1 style="font-weight: bold; font-size: 2rem;">
             {{userInfo?.username}}
           </h1>
-          Coins: {{userProgress?.coins}}
+
+          <div class="d-flex align-items-center" style="font-size: 1.5rem;">
+            <ion-text style="margin-right: 0.3rem;">
+              {{userProgress?.coins}}
+            </ion-text>
+            <ion-icon name="cash-outline"></ion-icon>
+          </div>
         </div>
       </ion-card-content>
     </ion-card>
@@ -43,9 +49,9 @@
       <ion-card class="item">
         <ion-card-title class="card-title">Your learning streaks</ion-card-title>
         <ion-card-content>
-          Current streak: {{userProgress?.currentStreak}}
+          Current: {{userProgress?.currentStreak}}
           <br />
-          Max streak: {{userProgress?.maxStreak}}
+          Max: {{userProgress?.maxStreak}}
         </ion-card-content>
       </ion-card>
     </div>
