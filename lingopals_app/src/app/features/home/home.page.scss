@@ -1,0 +1,39 @@
+/* home.page.scss */
+
+.ion-content {
+    --ion-background-color: var(--ion-color-background);
+}
+
+.main-container {}
+
+.grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+}
+
+.header {
+    background-color: white;
+    border: 0.1rem solid #ccc;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.item {
+    background-color: white;
+    border: 0.1rem solid #ccc;
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.card-title {
+    border: 0.1rem solid #ccc;
+    border-radius: 1rem;
+    font-weight: bold;
+    overflow: hidden;
+    padding: 1rem;
+    text-align: center;
+    text-overflow: ellipsis;
+}
