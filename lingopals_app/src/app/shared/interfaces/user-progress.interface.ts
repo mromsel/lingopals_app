@@ -1,3 +1,5 @@
+import { UserInfo } from "./user-info.interface";
+
 export interface UserProgress {
     idUserProgressData: number,
     coins: number,
@@ -5,5 +7,6 @@ export interface UserProgress {
     streakStartDate: any,
     streakEndDate: any,
     maxStreak: number,
-    xpPoints: number
+    xpPoints: number,
+    user: UserInfo
 }
