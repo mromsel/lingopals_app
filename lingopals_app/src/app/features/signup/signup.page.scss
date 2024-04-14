@@ -19,7 +19,7 @@ ion-content {
 
 .form-container {
     align-items: center;
-    background-color: lightblue;
+    background-color: var(--ion-color-background, 0);
     border: 0.1rem solid black;
     display: flex;
     flex-direction: column;
