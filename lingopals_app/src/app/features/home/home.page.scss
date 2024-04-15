@@ -1,30 +1,80 @@
 /* home.page.scss */
+@import '../../../global.scss';
 
 .ion-content {
     --ion-background-color: var(--ion-color-background);
+
+    .main-container {
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        display: flex;
+
+        .header-div {
+            .header {
+                background-color: white;
+                border: 0.1rem solid #ccc;
+                border-radius: 1rem;
+                padding: 1rem;
+            }
+        }
+
+        .buttons-div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .item-div {
+                width: 80%;
+
+                .item {
+                    background-color: white;
+                    border: 0.1rem solid #ccc;
+                    border-radius: 1rem;
+                    max-height: 15rem;
+                    padding: 1rem;
+
+                    .card-title {
+                        border: 0.1rem solid #ccc;
+                        border-radius: 1rem;
+                        font-weight: bold;
+                        overflow: hidden;
+                        padding: 1rem;
+                        text-align: center;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+        }
+    }
 }
 
-.header {
-    background-color: white;
-    border: 0.1rem solid #ccc;
-    border-radius: 1rem;
-    padding: 1rem;
+@media (max-width: $small-device-max-w) {
+
+    /* Smartphones and tablets in vertical orientation */
+    .main-container {
+        flex-direction: column;
+
+        .buttons-div {
+            width: 100%;
+        }
+    }
 }
 
-.item {
-    background-color: white;
-    border: 0.1rem solid #ccc;
-    border-radius: 1rem;
-    max-height: 15rem;
-    padding: 1rem;
-}
+@media (min-width: $large-device-min-w) {
 
-.card-title {
-    border: 0.1rem solid #ccc;
-    border-radius: 1rem;
-    font-weight: bold;
-    overflow: hidden;
-    padding: 1rem;
-    text-align: center;
-    text-overflow: ellipsis;
+    /* Laptops and tablets in horizontal orientation */
+    .main-container {
+        flex-direction: row;
+
+        .header-div {
+            width: 50%;
+        }
+
+        .buttons-div {
+            width: 50%;
+        }
+    }
 }

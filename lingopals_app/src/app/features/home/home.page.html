@@ -1,32 +1,30 @@
 <ion-content [fullscreen]="true" class="ion-content">
 
-  <div class="d-flex flex-column">
+  <div class="main-container">
 
-    <div class="row">
-      <div class="col-md-6 mb-4">
-        <ion-card class="header">
-          <ion-card-content>
-            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png"
-              style="max-height: 18rem;" />
-            <div>
-              <h1 style="font-weight: bold; font-size: 2rem;">
-                {{userInfo?.username}}
-              </h1>
+    <div class="header-div">
+      <ion-card class="header">
+        <ion-card-content>
+          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png"
+            style="max-height: 18rem;" />
+          <div>
+            <h1 style="font-weight: bold; font-size: 2rem;">
+              {{userInfo?.username}}
+            </h1>
 
-              <div class="d-flex align-items-center" style="font-size: 1.5rem;">
-                <ion-text style="margin-right: 0.3rem;">
-                  {{userProgress?.coins}}
-                </ion-text>
-                <ion-icon name="cash-outline"></ion-icon>
-              </div>
+            <div class="d-flex align-items-center" style="font-size: 1.5rem;">
+              <ion-text style="margin-right: 0.3rem;">
+                {{userProgress?.coins}}
+              </ion-text>
+              <ion-icon name="cash-outline"></ion-icon>
             </div>
-          </ion-card-content>
-        </ion-card>
-      </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
     </div>
 
-    <div class="row">
-      <div class="col-6 col-md-6">
+    <div class="buttons-div">
+      <div class="item-div">
         <ion-card class="item">
           <ion-card-title class="card-title">Shop</ion-card-title>
           <ion-card-content>
@@ -35,7 +33,7 @@
           </ion-card-content>
         </ion-card>
       </div>
-      <div class="col-6 col-md-6">
+      <div class="item-div">
         <ion-card class="item">
           <ion-card-title class="card-title">Progress</ion-card-title>
           <ion-card-content>
