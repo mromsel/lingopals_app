@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TabsBarComponent } from './core/tabs-bar/tabs-bar.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { TabsBarComponent } from './core/tabs-bar/tabs-bar.component';
     CommonModule,
     FormsModule,
     IonicModule.forRoot(),
-    AppRoutingModule],
+    AppRoutingModule,
+    HttpClientModule,
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
