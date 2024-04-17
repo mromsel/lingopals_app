@@ -5,16 +5,14 @@
       <!-- Formulario de inicio de sesión -->
       <form #loginForm="ngForm" (ngSubmit)="login()">
         <ion-item>
-          <ion-input label="Username" name="username" type="text" [(ngModel)]="formData.username"
-            labelPlacement="floating" placeholder="Enter your username" required></ion-input>
+          <ion-input label="Username or Email" name="usernameOrEmail" type="text" [(ngModel)]="formData.usernameOrEmail"
+            labelPlacement="floating" placeholder="Enter username or email" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-input label="Password" name="password" type="password" [(ngModel)]="formData.password"
             labelPlacement="floating" placeholder="Enter your password" required></ion-input>
         </ion-item>
-        <div
-          *ngIf="loginForm.submitted && (loginForm.controls['username'].invalid || loginForm.controls['password'].invalid)"
-          class="error-message">
+        <div *ngIf="loggingFailed" class="error-message">
           <p style="color: red;">Please enter valid username and password.</p>
         </div>
         <ion-button type="submit" [disabled]="loginForm.invalid">Login</ion-button>
