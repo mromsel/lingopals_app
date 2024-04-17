@@ -1,0 +1,50 @@
+<ion-content [fullscreen]="true" class="ion-content">
+
+  <div class="main-container">
+
+    <div class="header-div">
+      <ion-card class="header">
+        <ion-card-content>
+          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png"
+            style="max-height: 18rem;" />
+          <div>
+            <h1 style="font-weight: bold; font-size: 2rem;">
+              {{userInfo?.username}}
+            </h1>
+
+            <div class="d-flex align-items-center" style="font-size: 1.5rem;">
+              <ion-text style="margin-right: 0.3rem;">
+                {{userProgress?.coins}}
+              </ion-text>
+              <ion-icon name="cash-outline"></ion-icon>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <div class="buttons-div">
+      <div class="item-div">
+        <ion-card class="item">
+          <ion-card-title class="card-title">Shop</ion-card-title>
+          <ion-card-content>
+
+            <ion-button (click)="goToShop()" expand="block">Enter</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </div>
+      <div class="item-div">
+        <ion-card class="item">
+          <ion-card-title class="card-title">Progress</ion-card-title>
+          <ion-card-content>
+            <ion-button id="open-progress-modal" expand="block">See now!</ion-button>
+
+            <app-progress-modal [userInfo]="userInfo" [userProgress]="userProgress"></app-progress-modal>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>

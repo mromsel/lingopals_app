@@ -1,0 +1,32 @@
+<ion-content [fullscreen]="true">
+  <div class="main-container">
+    <ion-button (click)="goToLogin()">To login</ion-button>
+
+    <div class="form-container">
+      <!-- Formulario de creación de usuario -->
+      <form #signupForm="ngForm" (ngSubmit)="signup()">
+        <ion-item>
+          <ion-input label="Username" name="username" type="text" [(ngModel)]="formData.username"
+            labelPlacement="floating" placeholder="Enter your username" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Email" name="email" type="text" [(ngModel)]="formData.email" labelPlacement="floating"
+            placeholder="Enter your email" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Password" name="password" type="password" [(ngModel)]="formData.password"
+            labelPlacement="floating" placeholder="Enter your password" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Confirm password" name="confirmPassword" type="password"
+            [(ngModel)]="formData.confirmPassword" labelPlacement="floating" placeholder="Enter your password again"
+            required></ion-input>
+        </ion-item>
+
+        <ion-button type="submit" [disabled]="signupForm.invalid">Sign up</ion-button>
+      </form>
+    </div>
+  </div>
+
+
+</ion-content>
