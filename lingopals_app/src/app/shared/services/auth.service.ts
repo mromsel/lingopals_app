@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { UserLogin } from '../interfaces/user-login';
 
 @Injectable({
   providedIn: 'root'
@@ -7,21 +10,36 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class AuthService {
 
   private isUserLogged = new BehaviorSubject<boolean>(false);
+  private idUser: number = 0;
 
-  constructor() { }
+  backendURL: string = environment.backendURL
 
-  login() {
-    // TODO: Lógica para iniciar sesión
-    this.isUserLogged.next(true);
+  constructor(private http: HttpClient) { }
+
+  login(userToLog: UserLogin): Observable<any> {
+    return this.http.post<UserLogin>(`${this.backendURL}/users/login`, userToLog)
   }
 
   logout() {
-    // TODO: Lógica para cerrar sesión
     this.isUserLogged.next(false);
+    localStorage.removeItem("token");
+    this.idUser = 0;
   }
 
   isLoggedIn(): Observable<boolean> {
     return this.isUserLogged.asObservable();
+  }
+
+  getIdUser(): number {
+    return this.idUser;
+  }
+
+  setIsUserLogged(value: boolean) {
+    this.isUserLogged.next(value);
+  }
+
+  setIdUser(idUser: number) {
+    this.idUser = idUser;
   }
 
 }
