@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { LessonsPageRoutingModule } from './lessons-routing.module';
 
 import { LessonsPage } from './lessons.page';
+import { LanguageSelectorComponent } from 'src/app/shared/components/language-selector/language-selector.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { LessonsPage } from './lessons.page';
     IonicModule,
     LessonsPageRoutingModule
   ],
-  declarations: [LessonsPage]
+  declarations: [LessonsPage, LanguageSelectorComponent]
 })
-export class LessonsPageModule {}
+export class LessonsPageModule { }
