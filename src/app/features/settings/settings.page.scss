@@ -1,0 +1,21 @@
+ion-content {
+    --ion-background-color: var(--ion-color-background);
+
+    * {
+        background-color: white;
+    }
+
+    .header {
+        padding: 1rem;
+
+        .chip * {
+            font-size: 2rem;
+        }
+    }
+
+    .group {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+    }
+}
