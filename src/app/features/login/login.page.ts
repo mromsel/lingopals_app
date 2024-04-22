@@ -20,7 +20,11 @@ export class LoginPage implements OnInit {
   constructor(private authService: AuthService,
     private router: Router) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.formData.usernameOrEmail = "usuario"
+    this.formData.password = "usuario"
+    this.login()
+  }
 
   login() {
     let userToSend: UserLogin = new UserLogin(this.formData.usernameOrEmail, this.formData.password, Intl.DateTimeFormat().resolvedOptions().timeZone)
@@ -33,7 +37,11 @@ export class LoginPage implements OnInit {
         localStorage.setItem("token", data.token);
         this.authService.setIsUserLogged(true)
 
-        this.router.navigate(["/home"])
+        // this.router.navigate(["/home"])
+        this.router.navigate(["/lessons"])
+        // this.router.navigate(["/dictionary"])
+        // this.router.navigate(["/settings"])
+
       },
       error: () => {
         console.error();
