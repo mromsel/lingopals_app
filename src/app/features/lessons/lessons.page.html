@@ -1,13 +1,17 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>lessons</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">lessons</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <app-language-selector></app-language-selector>
+
+  <ion-button>All lessons</ion-button>
+  <div class="lessons-container">
+    <div class="lesson" *ngFor="let lesson of lessons">
+      <ion-card>
+        <ion-card-title>{{lesson.lessonName}}</ion-card-title>
+        <ion-card-content>
+          {{lesson.languageLevel.levelName}} -
+          {{lesson.idLesson}}
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
 </ion-content>
