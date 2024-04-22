@@ -1,9 +1,3 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>settings</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -11,5 +5,52 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-button (click)="logout()">Logout</ion-button>
+  <ion-card class="header">
+    <ion-chip class="chip">
+      <ion-avatar>
+        <img id="userProfileImage" alt="User profile" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+      <ion-label>{{userInfo?.username}}</ion-label>
+    </ion-chip>
+  </ion-card>
+
+  <ion-card class="group">
+
+    <ion-button>
+      Change username
+    </ion-button>
+    <ion-button>
+      Change password
+    </ion-button>
+    <ion-button>
+      Change preferred language
+    </ion-button>
+
+    <ion-button (click)="logout()">Logout</ion-button>
+
+  </ion-card>
+
+  <ion-card class="group">
+    <ion-title>Theme</ion-title>
+    <ion-segment value="default">
+      <ion-segment-button value="default">
+        <ion-label>Light</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="segment">
+        <ion-label>Dark</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-card>
+
+  <ion-card class="group">
+    <ion-button>
+      Support
+    </ion-button>
+    <ion-button>
+      About LingoPals
+    </ion-button>
+    <ion-button>
+      Credits
+    </ion-button>
+  </ion-card>
 </ion-content>
