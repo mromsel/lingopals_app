@@ -1,30 +1,13 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/guards/authGuard';
+import { LoginPage } from './features/login/login.page';
 
 const routes: Routes = [
-  // home
+  // app (tab bar)
   {
-    path: 'home',
-    loadChildren: () => import('./features/home/home.module').then(m => m.HomePageModule),
-    canActivate: [AuthGuard]
-  },
-  // lessons
-  {
-    path: 'lessons',
-    loadChildren: () => import('./features/lessons/lessons.module').then(m => m.LessonsPageModule),
-    canActivate: [AuthGuard]
-  },
-  // dictionary
-  {
-    path: 'dictionary',
-    loadChildren: () => import('./features/dictionary/dictionary.module').then(m => m.DictionaryPageModule),
-    canActivate: [AuthGuard]
-  },
-  // settings
-  {
-    path: 'settings',
-    loadChildren: () => import('./features/settings/settings.module').then(m => m.SettingsPageModule),
+    path: 'app',
+    loadChildren: () => import('./features/tabs/tabs.module').then(m => m.TabsPageModule),
     canActivate: [AuthGuard]
   },
   // login
@@ -39,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'app',
     pathMatch: 'full'
   },
 ];
