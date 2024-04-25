@@ -23,9 +23,7 @@ export class LanguageSelectorModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userInfoService.getUserLanguages(4).subscribe(
-      userLanguages => this.languagesToSelect = userLanguages
-    )
+    this.languagesToSelect = this.userInfoService.getUserLanguages()
     console.log(this.languagesToSelect)
   }
 

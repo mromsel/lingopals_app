@@ -20,8 +20,6 @@ export class LanguageSelectorComponent implements OnInit {
 
   selectedLanguages: string;
 
-  // languagesToSelect: Array<UsersLanguages> = new Array();
-
   constructor(private userInfoService: UserInfoService,
     private authService: AuthService
   ) {
