@@ -1,17 +1,13 @@
 <ion-content [fullscreen]="true">
+  <div class="main-container">
 
-  <app-language-selector></app-language-selector>
+    <app-language-selector></app-language-selector>
 
-  <ion-button>All lessons</ion-button>
-  <div class="lessons-container">
-    <div class="lesson" *ngFor="let lesson of lessons">
-      <ion-card>
-        <ion-card-title>{{lesson.lessonName}}</ion-card-title>
-        <ion-card-content>
-          {{lesson.languageLevel.levelName}} -
-          {{lesson.idLesson}}
-        </ion-card-content>
-      </ion-card>
+    <ion-button routerLink="./all-lessons">All lessons</ion-button>
+
+    <div>
+
     </div>
+
   </div>
 </ion-content>
