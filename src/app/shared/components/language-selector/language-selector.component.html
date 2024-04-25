@@ -1,5 +1,11 @@
 <div class="language-selector">
-  <img src="../../../../assets/flags/flag_es.png" alt="Bandera idioma origen" class="flag">
-  <i class="fas fa-chevron-right arrow">-></i>
-  <img src="../../../../assets/flags/flag_en.png" alt="Bandera idioma destino" class="flag">
+  <div class="languages-badge">
+    <button ion-button id="open-progress-modal" expand="block" class="button">
+      <img src={{originLanguageFlag}} alt="Origin language" class="flag">
+      <span class="arrow">-></span>
+      <img src={{destinyLanguageFlag}} alt="Destiny language" class="flag">
+    </button>
+  </div>
+
+  <app-language-selector-modal></app-language-selector-modal>
 </div>

@@ -2,21 +2,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--ion-color-medium);
+    background-color: var(--ion-color-selective-yellow);
     border-radius: 1rem;
-    width: fit-content;
     padding: 0.5rem;
 }
 
-.flag {
-    width: 30px;
-    /* Ajusta el tamaño según sea necesario */
-    height: auto;
-    margin: 0 10px;
-    /* Espacio entre las banderas */
+.languages-badge {
+    .arrow {
+        font-size: 1.5rem;
+        color: black;
+    }
+
+    .button {
+        background-color: var(--ion-color-selective-yellow);
+    }
 }
 
-.arrow {
-    font-size: 1.5rem;
-    color: black;
+.flag {
+    border: 2px solid black;
+    border-radius: 1rem;
+    width: 30px;
+    height: auto;
+    margin: 0 10px;
 }
