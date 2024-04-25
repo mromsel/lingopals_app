@@ -7,19 +7,19 @@ import { IonicModule } from '@ionic/angular';
 import { LessonsPageRoutingModule } from './lessons-routing.module';
 
 import { LessonsPage } from './lessons.page';
-import { LanguageSelectorComponent } from 'src/app/shared/components/language-selector/language-selector.component';
 import { AllLessonsComponent } from './all-lessons/all-lessons.component';
+import { SharedModule } from 'src/app/shared/module/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LessonsPageRoutingModule
+    LessonsPageRoutingModule,
+    SharedModule,
   ],
   declarations: [
     LessonsPage,
-    LanguageSelectorComponent,
     AllLessonsComponent,
   ]
 })
