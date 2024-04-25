@@ -1,0 +1,22 @@
+<ion-modal trigger="open-progress-modal">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Select the language to learn</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeModal()" [strong]="true">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <div class="languages-badge" *ngFor="let language of languagesToSelect; index as i">
+        <button ion-button expand="block" class="button" (click)="select(i)">
+          <img src={{filePrefix}}{{language.languageOrigin.flag}} alt="Origin language" class="flag">
+          ->
+          <img src={{filePrefix}}{{language.languageTarget.flag}} alt="Target language" class="flag">
+        </button>
+      </div>
+
+    </ion-content>
+  </ng-template>
+</ion-modal>
