@@ -18,9 +18,10 @@ export class AllLessonsComponent implements OnInit {
   constructor(private lessonsService: LessonsService) { }
 
   ngOnInit() {
-    this.lessonsService.getLesson(1)
+    this.lessonsService.getAllLessons()
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(lesson => {
+      .subscribe(lessons => {
+        let lesson = lessons[0]
         // AUX
         for (let index = 0; index < 10; index++) {
           let auxLesson = structuredClone(lesson)
