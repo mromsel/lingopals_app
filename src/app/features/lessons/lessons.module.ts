@@ -7,14 +7,22 @@ import { IonicModule } from '@ionic/angular';
 import { LessonsPageRoutingModule } from './lessons-routing.module';
 
 import { LessonsPage } from './lessons.page';
+import { AllLessonsComponent } from './all-lessons/all-lessons.component';
+import { SharedModule } from 'src/app/shared/module/shared.module';
+import { LessonInProgressComponent } from './lesson-in-progress/lesson-in-progress.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LessonsPageRoutingModule
+    LessonsPageRoutingModule,
+    SharedModule,
   ],
-  declarations: [LessonsPage]
+  declarations: [
+    LessonsPage,
+    AllLessonsComponent,
+    LessonInProgressComponent
+  ]
 })
-export class LessonsPageModule {}
+export class LessonsPageModule { }

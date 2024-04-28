@@ -1,0 +1,28 @@
+.lessons-container {
+    background-color: var(--ion-color-sky-blue);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    .lesson-card {
+        background-color: var(--ion-color-selective-yellow);
+        border-radius: 1rem;
+        color: black;
+        padding: 1rem;
+        width: 40%;
+
+        ion-card-title {
+            background-color: var(--ion-color-prussian-blue);
+            border: 2px solid black;
+            color: white;
+            text-align: center;
+        }
+
+        ion-card-content {
+            background-color: var(--ion-color-orange-peel);
+        }
+    }
+
+}

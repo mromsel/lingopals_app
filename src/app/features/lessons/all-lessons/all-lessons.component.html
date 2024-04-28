@@ -1,0 +1,13 @@
+<app-spinner></app-spinner>
+<app-back-button [backRoute]="backRoute"></app-back-button>
+
+<div class="lessons-container">
+  <ion-card class="lesson-card" *ngFor="let lesson of lessons">
+    <ion-card-title>{{lesson.lessonName}}</ion-card-title>
+    <ion-card-content>
+      {{lesson.languageLevel.levelName}} -
+      {{lesson.idLesson}}
+      <button routerLink="../1">Go to lesson</button>
+    </ion-card-content>
+  </ion-card>
+</div>

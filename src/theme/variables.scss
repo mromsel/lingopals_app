@@ -76,6 +76,23 @@
   --ion-color-light-tint: #f5f6f9;
 
   --ion-color-background: #add8e6;
+
+  /* SCSS RGB */
+  --ion-color-space-cadet: rgba(21, 30, 63, 1);
+  --ion-color-oxford-blue: rgba(3, 0, 39, 1);
+  --ion-color-beige: rgba(242, 243, 217, 1);
+  --ion-color-buff: rgba(220, 158, 130, 1);
+  --ion-color-old-rose: rgba(193, 110, 112, 1);
+
+  --ion-color-sky-blue: #8ecae6ff;
+  --ion-color-moonstone: #58b4d1ff;
+  --ion-color-blue-green: #219ebcff;
+  --ion-color-prussian-blue: #023047ff;
+  --ion-color-selective-yellow: #ffb703ff;
+  --ion-color-orange-peel: #fd9e02ff;
+  --ion-color-ut-orange: #fb8500ff;
+
+  --ion-color-ut-orange-shaded: rgba(251, 133, 0, 0.6)
 }
 
 @media (prefers-color-scheme: dark) {

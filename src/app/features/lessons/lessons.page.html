@@ -1,13 +1,17 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>lessons</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">lessons</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="main-container">
+
+    <app-language-selector></app-language-selector>
+
+    <div class="buttons-div">
+      <ion-button routerLink="./1" expand="block">Next lesson</ion-button>
+
+      <ion-button expand="block">Review words</ion-button>
+
+      <ion-button expand="block">Test yourself!</ion-button>
+
+      <ion-button routerLink="./all-lessons" expand="block">See all lessons</ion-button>
+    </div>
+
+  </div>
 </ion-content>

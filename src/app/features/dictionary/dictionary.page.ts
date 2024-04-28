@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject, takeUntil } from 'rxjs';
 import { Word } from 'src/app/shared/interfaces/word.interface';
 import { WordsService } from 'src/app/shared/services/words.service';
 
@@ -9,6 +10,8 @@ import { WordsService } from 'src/app/shared/services/words.service';
   styleUrls: ['./dictionary.page.scss'],
 })
 export class DictionaryPage implements OnInit {
+
+  unsubscribe$: Subject<void> = new Subject<void>();
 
   alphabet: string[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
 
@@ -22,22 +25,23 @@ export class DictionaryPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.wordsService.getAllWordsByLanguage(1).subscribe(
-      data => {
-        this.words = data
-        // #DEBUG
-        this.words.forEach(element => {
-          this.words.push(element)
-        });
-        this.words.forEach(element => {
-          this.words.push(element)
-        });
-        // #ENDDEBUG
+    this.wordsService.getAllWordsByLanguage(1)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(
+        data => {
+          this.words = data
+          // #TEST
+          this.words.forEach(element => {
+            this.words.push(element)
+          });
+          this.words.forEach(element => {
+            this.words.push(element)
+          });
+          // #END TEST
 
-        // this.words.sort((a, b) => ('' + a.word).localeCompare(b.word))
-        this.sortWords();
-      }
-    )
+          this.sortWords();
+        }
+      )
   }
 
   sortWords() {
@@ -83,5 +87,10 @@ export class DictionaryPage implements OnInit {
 
   goToDetail() {
     this.router.navigate(['dictionary/word-detail'])
+  }
+
+  ionViewWillLeave() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

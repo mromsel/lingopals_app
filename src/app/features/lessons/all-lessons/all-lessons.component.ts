@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Lesson } from 'src/app/shared/interfaces/lesson.interface';
-import { LessonsService } from './services/lessons.service';
 import { Subject, takeUntil } from 'rxjs';
+import { Lesson } from 'src/app/shared/interfaces/lesson.interface';
+import { LessonsService } from '../services/lessons.service';
 
 @Component({
-  selector: 'app-lessons',
-  templateUrl: './lessons.page.html',
-  styleUrls: ['./lessons.page.scss'],
+  selector: 'app-all-lessons',
+  templateUrl: './all-lessons.component.html',
+  styleUrls: ['./all-lessons.component.scss'],
 })
-export class LessonsPage implements OnInit {
+export class AllLessonsComponent implements OnInit {
+
+  backRoute: string = '/lessons'
 
   unsubscribe$: Subject<void> = new Subject<void>();
 
@@ -36,4 +38,5 @@ export class LessonsPage implements OnInit {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
+
 }
