@@ -30,6 +30,10 @@ export class AuthService {
     return this.isUserLogged.asObservable();
   }
 
+  isLoggedInValue(): boolean {
+    return this.isUserLogged.getValue();
+  }
+
   getIdUser(): number {
     return this.idUser;
   }
