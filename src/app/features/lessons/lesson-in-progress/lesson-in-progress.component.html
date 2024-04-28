@@ -1,7 +1,6 @@
 <app-spinner></app-spinner>
 <div class="main-container">
-  <ion-icon (click)="goBack()" slot="start" name="arrow-back-outline" class="back-button"
-    onKeyDown="goBack()"></ion-icon>
+  <app-back-button [backRoute]="backRoute"></app-back-button>
 
   <ion-button (click)="goToLastQuestion()" class="debug-button" slot="end" onKeyDown="goToLastQuestion()"><ion-icon
       name="bug"></ion-icon><span>Last

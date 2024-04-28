@@ -20,6 +20,8 @@ export interface Option {
 })
 export class LessonInProgressComponent implements OnInit {
 
+  backRoute: string = '/lessons'
+
   @Input() lessonInput: Lesson | undefined;
 
   idLesson: number | undefined;
@@ -56,7 +58,7 @@ export class LessonInProgressComponent implements OnInit {
         this.idLesson = +lessonId
         this.fetchLesson()
       } else {
-        this.goBack()
+        this.exitView()
       }
     });
   }
@@ -146,10 +148,10 @@ export class LessonInProgressComponent implements OnInit {
     this.router.navigate(['/lessons'])
   }
 
-  goBack() {
-    this.resetLesson()
-    this.router.navigate(['/lessons'])
-  }
+  // goBack() {
+  //   this.resetLesson()
+  //   this.router.navigate(['/lessons'])
+  // }
 
   resetLesson() {
     this.index = 0

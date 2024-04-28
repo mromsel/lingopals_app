@@ -4,12 +4,14 @@ import { LanguageSelectorComponent } from "../components/language-selector/langu
 import { LanguageSelectorModalComponent } from "../components/language-selector/language-selector-modal/language-selector-modal.component";
 import { IonicModule } from "@ionic/angular";
 import { SpinnerComponent } from "../components/spinner/spinner.component";
+import { BackButtonComponent } from "../components/back-button/back-button.component";
 
 @NgModule({
     declarations: [
         LanguageSelectorComponent,
         LanguageSelectorModalComponent,
-        SpinnerComponent
+        SpinnerComponent,
+        BackButtonComponent,
     ],
     imports: [
         CommonModule,
@@ -18,7 +20,8 @@ import { SpinnerComponent } from "../components/spinner/spinner.component";
     exports: [
         LanguageSelectorComponent,
         LanguageSelectorModalComponent,
-        SpinnerComponent
+        SpinnerComponent,
+        BackButtonComponent,
     ]
 })
 
