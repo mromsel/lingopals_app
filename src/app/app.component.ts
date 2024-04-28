@@ -22,7 +22,6 @@ export class AppComponent implements OnInit {
       } else {
         this.userInfoService.fetchData()
       }
-      console.log(this.isLoggedIn)
     });
   }
 

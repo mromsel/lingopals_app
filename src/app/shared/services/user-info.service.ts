@@ -19,7 +19,6 @@ export class UserInfoService {
 
   constructor(private http: HttpClient) {
     let localStorageIdUser = localStorage.getItem("idUser")
-    console.log(localStorageIdUser)
     this.idUser = localStorageIdUser ? +localStorageIdUser : undefined
 
     this.fetchData()

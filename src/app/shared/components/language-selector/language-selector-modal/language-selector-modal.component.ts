@@ -24,7 +24,6 @@ export class LanguageSelectorModalComponent implements OnInit {
 
   ngOnInit() {
     this.languagesToSelect = this.userInfoService.getUserLanguages()
-    console.log(this.languagesToSelect)
   }
 
   closeModal() {
