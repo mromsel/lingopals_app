@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { UserLogin } from 'src/app/shared/interfaces/user-login';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { UserInfoService } from 'src/app/shared/services/user-info.service';
 
 @Component({
   selector: 'app-login',
@@ -21,12 +22,18 @@ export class LoginPage implements OnInit {
   loggingFailed = false
 
   constructor(private authService: AuthService,
+    private userInfoService: UserInfoService,
     private router: Router) { }
 
   ngOnInit() {
     this.formData.usernameOrEmail = "usuario"
     this.formData.password = "usuario"
     this.login()
+  }
+
+  ionViewWillEnter() {
+    if (this.authService.isLoggedInValue()) this.router.navigate(["/app"])
+
   }
 
   login() {
@@ -38,9 +45,12 @@ export class LoginPage implements OnInit {
         next: (data) => {
           this.loggingFailed = false
           this.authService.setIdUser(data.idUser)
+          this.userInfoService.setIdUser(data.idUser)
 
           localStorage.setItem("token", data.token);
           this.authService.setIsUserLogged(true)
+
+          localStorage.setItem("idUser", data.idUser);
 
           this.router.navigate(["/app"])
         },
