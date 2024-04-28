@@ -1,0 +1,99 @@
+.back-button {
+    font-size: 2rem;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.debug-button {
+    font-size: 1rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+
+    * {
+        margin: 0 0.2rem;
+    }
+}
+
+.main-container {
+    display: flex;
+    background-color: var(--ion-color-sky-blue);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
+
+    .header {
+        background-color: white;
+        border-radius: 1rem;
+        padding: 1rem;
+        width: 50%;
+
+        h2 {
+            font-weight: bold;
+        }
+
+        ion-progress-bar {
+            --background: var(--ion-color-ut-orange-shaded);
+            --progress-background: var(--ion-color-ut-orange);
+            border-radius: 1rem;
+            width: 100%;
+            height: 1rem;
+        }
+    }
+
+    ion-card {
+        border: 0.1rem solid lightgrey;
+        border-radius: 1.5rem;
+        width: 80%;
+        height: 80%;
+
+        ion-card-title {
+            padding: 1rem;
+
+            span {
+                font-weight: bold;
+                font-size: 2rem;
+            }
+        }
+    }
+
+    .options-div {
+
+        ion-button {
+            color: black;
+            border-radius: 2rem;
+        }
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.margin {
+    margin: 1rem;
+}
+
+.correct-answer {
+    --background: green;
+}
+
+.correct-answer-not-selected {
+    --background: rgba(42, 220, 65, 0.5);
+}
+
+.wrong-answer {
+    --background: red;
+}
+
+.wrong-answer-not-selected {
+    --background: rgba(245, 81, 111, 0.5);
+}
+
+.default-button {
+    --background: var(--ion-color-selective-yellow);
+}
