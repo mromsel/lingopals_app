@@ -25,7 +25,7 @@ export class DictionaryPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.wordsService.getAllWordsByLanguage(1)
+    this.wordsService.getAllWordsByLanguage("en")
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
         data => {
@@ -45,15 +45,15 @@ export class DictionaryPage implements OnInit {
   }
 
   sortWords() {
-    this.words.sort((a, b) => ('' + a.word).localeCompare(b.word)); // Ordenar alfabéticamente
+    this.words.sort((a, b) => ('' + a.wordString).localeCompare(b.wordString)); // Ordenar alfabéticamente
 
     // Separar palabras por letra
     this.alphabet.forEach(letter => {
-      this.sortedWords[letter] = this.words.filter(word => word.word.startsWith(letter));
+      this.sortedWords[letter] = this.words.filter(word => word.wordString.startsWith(letter));
     });
     // Separar palabras por letra
     this.words.forEach(word => {
-      const firstLetter = word.word.charAt(0).toUpperCase();
+      const firstLetter = word.wordString.charAt(0).toUpperCase();
       if (this.alphabet.includes(firstLetter)) {
         this.sortedWords[firstLetter].push(word);
       }

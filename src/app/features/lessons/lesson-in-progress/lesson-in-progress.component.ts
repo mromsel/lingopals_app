@@ -89,7 +89,7 @@ export class LessonInProgressComponent implements OnInit {
 
       this.correctOption = wordsList[this.index]
       let correctOption = {
-        option: wordsList[this.index].wordTarget.word,
+        option: wordsList[this.index].wordTarget.wordString,
         idWordRef: wordsList[this.index].wordTarget.idWordRef,
         correct: true,
         pressed: false
@@ -105,7 +105,7 @@ export class LessonInProgressComponent implements OnInit {
         if (!isDuplicate) {
           this.options.push(
             {
-              option: wordsList[randomIndex]?.wordTarget?.word,
+              option: wordsList[randomIndex]?.wordTarget?.wordString,
               idWordRef: wordsList[randomIndex]?.wordTarget?.idWordRef,
               correct: false,
               pressed: false

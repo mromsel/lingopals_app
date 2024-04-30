@@ -2,6 +2,6 @@ export interface Word {
     idWord: number,
     idWordRef: number,
     idLanguage: number,
-    word: string,
+    wordString: string,
     definition: string
 }
