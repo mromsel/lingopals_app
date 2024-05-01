@@ -16,4 +16,8 @@ export class WordsService {
   getAllWordsByLanguage(isoCode: string): Observable<Word[]> {
     return this.http.get<any>(`${this.backendURL}/words/${isoCode}`)
   }
+
+  getWordByLanguageAndID(isoCode: string, idWord: number) {
+    return this.http.get<any>(`${this.backendURL}/words/${isoCode}/ids/${idWord}`)
+  }
 }
