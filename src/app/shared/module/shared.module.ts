@@ -7,6 +7,9 @@ import { SpinnerComponent } from "../components/spinner/spinner.component";
 import { BackButtonComponent } from "../components/back-button/back-button.component";
 import { SingleLanguageSelectorComponent } from "../components/single-language-selector/single-language-selector.component";
 import { ModalSingleLanguageSelectorComponent } from "../components/single-language-selector/modal-single-language-selector/modal-single-language-selector.component";
+import { HttpClient } from "@angular/common/http";
+import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+import { createTranslateLoader } from "src/main";
 
 @NgModule({
     declarations: [
@@ -19,7 +22,14 @@ import { ModalSingleLanguageSelectorComponent } from "../components/single-langu
     ],
     imports: [
         CommonModule,
-        IonicModule
+        IonicModule,
+        TranslateModule.forChild({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: createTranslateLoader,
+                deps: [HttpClient]
+            }
+        }),
     ],
     exports: [
         LanguageSelectorComponent,
