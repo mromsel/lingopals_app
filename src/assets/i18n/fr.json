@@ -1,0 +1,15 @@
+{
+    "login": {
+        "login": "Connexion",
+        "usernameOrEmail": "Nom d'utilisateur ou Email",
+        "enterUsernameOrEmail": "Entrez votre nom d'utilisateur ou votre email",
+        "password": "Mot de passe",
+        "enterPassword": "Entrez votre mot de passe",
+        "errorLoginData": "Veuillez entrer un nom d'utilisateur et un mot de passe valides",
+        "forgotPassword": "Mot de passe oublié ?",
+        "createAccount": "Vous n'avez pas de compte ?"
+    },
+    "signup": {
+        "signUp": "S'inscrire"
+    }
+}

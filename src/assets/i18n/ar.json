@@ -1,0 +1,15 @@
+{
+    "login": {
+        "login": "تسجيل الدخول",
+        "usernameOrEmail": "اسم المستخدم أو البريد الإلكتروني",
+        "enterUsernameOrEmail": "أدخل اسم المستخدم أو البريد الإلكتروني الخاص بك",
+        "password": "كلمة المرور",
+        "enterPassword": "أدخل كلمة المرور الخاصة بك",
+        "errorLoginData": "يرجى إدخال اسم مستخدم وكلمة مرور صالحين",
+        "forgotPassword": "هل نسيت كلمة المرور؟",
+        "createAccount": "ليس لديك حساب؟"
+    },
+    "signup": {
+        "signUp": "سجّل"
+    }
+}

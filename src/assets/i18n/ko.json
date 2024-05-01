@@ -1,0 +1,15 @@
+{
+    "login": {
+        "login": "로그인",
+        "usernameOrEmail": "사용자 이름 또는 이메일",
+        "enterUsernameOrEmail": "사용자 이름 또는 이메일을 입력하세요",
+        "password": "비밀번호",
+        "enterPassword": "비밀번호를 입력하세요",
+        "errorLoginData": "유효한 사용자 이름과 비밀번호를 입력하세요",
+        "forgotPassword": "비밀번호를 잊으셨나요?",
+        "createAccount": "계정이 없으신가요?"
+    },
+    "signup": {
+        "signUp": "가입하기"
+    }
+}

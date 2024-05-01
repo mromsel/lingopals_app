@@ -1,0 +1,15 @@
+{
+    "login": {
+        "login": "Login",
+        "usernameOrEmail": "Username or Email",
+        "enterUsernameOrEmail": "Enter username or email",
+        "password": "Password",
+        "enterPassword": "Enter your password",
+        "errorLoginData": "Please enter valid username and password",
+        "forgotPassword": "Forgot password?",
+        "createAccount": "Don't have an account?"
+    },
+    "signup": {
+        "signUp": "Sign Up"
+    }
+}
