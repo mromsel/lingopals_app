@@ -1,22 +1,17 @@
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">dictionary</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
   <ion-searchbar></ion-searchbar>
-  <button (click)="goToDetail()">Go to detail</button>
+
   <div class="dictionary-container">
     <div>
       <!-- Lista de palabras separadas por letra -->
-      <ion-list *ngFor="let letter of alphabet" id="{{letter}}">
+      <ion-list *ngFor="let letter of alphabet" id="{{letter}}" class="letter-sections">
         <ion-item-divider sticky>
           <ion-label>{{letter}}</ion-label>
         </ion-item-divider>
-        <ion-item *ngFor="let word of sortedWords[letter]">
+        <ion-button *ngFor="let word of sortedWords[letter]" (click)="goToDetail(word)" onKeyPress="goToDetail(word)">
           <ion-label>{{word.wordString}}</ion-label>
-        </ion-item>
+        </ion-button>
       </ion-list>
     </div>
 

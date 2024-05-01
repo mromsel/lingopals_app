@@ -1,6 +1,13 @@
 .dictionary-container {
     display: flex;
 
+    div {
+        .letter-sections {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
     .letters {
         width: 50px;
         /* Ancho fijo para la barra lateral */

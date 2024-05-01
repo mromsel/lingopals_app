@@ -85,8 +85,8 @@ export class DictionaryPage implements OnInit {
     }
   }
 
-  goToDetail() {
-    this.router.navigate(['dictionary/word-detail'])
+  goToDetail(word: Word) {
+    this.router.navigate(['app/dictionary/word-details/' + word.idWord])
   }
 
   ionViewWillLeave() {
