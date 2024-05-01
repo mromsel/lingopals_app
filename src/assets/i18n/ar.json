@@ -1,0 +1,50 @@
+{
+    "login": {
+        "login": "تسجيل الدخول",
+        "usernameOrEmail": "اسم المستخدم أو البريد الإلكتروني",
+        "enterUsernameOrEmail": "أدخل اسم المستخدم أو البريد الإلكتروني الخاص بك",
+        "password": "كلمة المرور",
+        "enterPassword": "أدخل كلمة المرور الخاصة بك",
+        "errorLoginData": "يرجى إدخال اسم مستخدم وكلمة مرور صالحين",
+        "forgotPassword": "هل نسيت كلمة المرور؟",
+        "createAccount": "ليس لديك حساب؟"
+    },
+    "signup": {
+        "signUp": "سجّل",
+        "username": "اسم المستخدم",
+        "enterUsername": "ادخل اسم المستخدم",
+        "email": "البريد الإلكتروني",
+        "enterEmail": "ادخل البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "enterPassword": "ادخل كلمة المرور الخاصة بك",
+        "confirmPassword": "تأكيد كلمة المرور",
+        "enterConfirmPassword": "أعد إدخال كلمة المرور الخاصة بك",
+        "goToLogin": "الانتقال إلى تسجيل الدخول"
+    },
+    "tabs": {
+        "home": "الصفحة الرئيسية",
+        "lessons": "الدروس",
+        "dictionary": "القاموس",
+        "settings": "الإعدادات"
+    },
+    "home": {
+        "shop": "المتجر",
+        "enterShop": "الدخول",
+        "progress": "التقدم",
+        "showProgress": "اعرض الآن!"
+    },
+    "lessons": {},
+    "dictionary": {},
+    "settings": {
+        "changeUsername": "تغيير اسم المستخدم",
+        "changePassword": "تغيير كلمة المرور",
+        "changePrefLang": "تغيير اللغة المفضلة",
+        "logout": "تسجيل الخروج",
+        "theme": "السمة",
+        "lightTheme": "فاتح",
+        "darkTheme": "داكن",
+        "getSupport": "الحصول على الدعم",
+        "about": "عن LingoPals",
+        "credits": "الاعتمادات"
+    }
+}

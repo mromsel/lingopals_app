@@ -10,6 +10,9 @@ import { LessonsPage } from './lessons.page';
 import { AllLessonsComponent } from './all-lessons/all-lessons.component';
 import { SharedModule } from 'src/app/shared/module/shared.module';
 import { LessonInProgressComponent } from './lesson-in-progress/lesson-in-progress.component';
+import { HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { createTranslateLoader } from 'src/main';
 
 @NgModule({
   imports: [
@@ -18,6 +21,13 @@ import { LessonInProgressComponent } from './lesson-in-progress/lesson-in-progre
     IonicModule,
     LessonsPageRoutingModule,
     SharedModule,
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+      }
+    }),
   ],
   declarations: [
     LessonsPage,

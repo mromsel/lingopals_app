@@ -1,9 +1,4 @@
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">settings</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
   <ion-card class="header">
     <ion-chip class="chip">
@@ -12,45 +7,46 @@
       </ion-avatar>
       <ion-label>{{userInfo?.username}}</ion-label>
     </ion-chip>
+    <app-single-language-selector></app-single-language-selector>
   </ion-card>
 
   <ion-card class="group">
 
     <ion-button>
-      Change username
+      {{ 'settings.changeUsername' | translate}}
     </ion-button>
     <ion-button>
-      Change password
+      {{ 'settings.changePassword' | translate}}
     </ion-button>
-    <ion-button>
-      Change preferred language
+    <ion-button id="open-single-language-selector" expand="block">
+      {{ 'settings.changePrefLang' | translate}}
     </ion-button>
 
-    <ion-button (click)="logout()">Logout</ion-button>
+    <ion-button (click)="logout()" onkeypress="logout()">{{ 'settings.logout' | translate}}</ion-button>
 
   </ion-card>
 
   <ion-card class="group">
-    <ion-title>Theme</ion-title>
+    <ion-title>{{ 'settings.theme' | translate}}</ion-title>
     <ion-segment value="default">
       <ion-segment-button value="default">
-        <ion-label>Light</ion-label>
+        <ion-label>{{ 'settings.lightTheme' | translate}}</ion-label>
       </ion-segment-button>
       <ion-segment-button value="segment">
-        <ion-label>Dark</ion-label>
+        <ion-label>{{ 'settings.darkTheme' | translate}}</ion-label>
       </ion-segment-button>
     </ion-segment>
   </ion-card>
 
   <ion-card class="group">
     <ion-button>
-      Support
+      {{ 'settings.getSupport' | translate}}
     </ion-button>
     <ion-button>
-      About LingoPals
+      {{ 'settings.about' | translate}}
     </ion-button>
     <ion-button>
-      Credits
+      {{ 'settings.credits' | translate}}
     </ion-button>
   </ion-card>
 </ion-content>

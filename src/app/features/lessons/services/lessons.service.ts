@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Lesson } from 'src/app/shared/interfaces/lesson.interface';
 import { environment } from 'src/environments/environment';
 import { LessonFull } from '../interfaces/lesson-full.interface';
+import { UsersLanguages } from 'src/app/shared/interfaces/users-languages.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class LessonsService {
     return this.http.get<Lesson[]>(`${this.backendURL}/lessons`)
   }
 
-  getLesson(idLesson: number): Observable<LessonFull> {
-    return this.http.get<LessonFull>(`${this.backendURL}/lessons/${idLesson}`)
+  getLesson(idLesson: number, userLanguages: UsersLanguages): Observable<LessonFull> {
+    return this.http.get<LessonFull>(`${this.backendURL}/lessons/${idLesson}/${userLanguages.languageOrigin.isoCode}/${userLanguages.languageTarget.isoCode}`)
   }
 }

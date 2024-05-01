@@ -5,6 +5,7 @@ import { LessonFull, WordsInLesson } from '../interfaces/lesson-full.interface';
 import { Lesson } from 'src/app/shared/interfaces/lesson.interface';
 import { EventsService } from 'src/app/shared/services/events.service';
 import { Utils } from 'src/app/shared/utils/utils';
+import { UserInfoService } from 'src/app/shared/services/user-info.service';
 
 export interface Option {
   idWordRef: number,
@@ -47,6 +48,7 @@ export class LessonInProgressComponent implements OnInit {
   constructor(
     private eventsService: EventsService,
     private lessonsService: LessonsService,
+    private userInfoService: UserInfoService,
     private route: ActivatedRoute,
     private router: Router,
   ) { }
@@ -66,7 +68,8 @@ export class LessonInProgressComponent implements OnInit {
   fetchLesson() {
     this.resetLesson()
     if (this.idLesson) {
-      this.lessonsService.getLesson(this.idLesson).subscribe(lesson => {
+
+      this.lessonsService.getLesson(this.idLesson, this.userInfoService.getUserLanguages()[0]).subscribe(lesson => {
         this.eventsService.showSpinner$.next(true);
         this.lesson = lesson
         this.totalIndexWords = lesson.wordsList.length - 1
@@ -89,7 +92,7 @@ export class LessonInProgressComponent implements OnInit {
 
       this.correctOption = wordsList[this.index]
       let correctOption = {
-        option: wordsList[this.index].wordTarget.word,
+        option: wordsList[this.index].wordTarget.wordString,
         idWordRef: wordsList[this.index].wordTarget.idWordRef,
         correct: true,
         pressed: false
@@ -105,7 +108,7 @@ export class LessonInProgressComponent implements OnInit {
         if (!isDuplicate) {
           this.options.push(
             {
-              option: wordsList[randomIndex]?.wordTarget?.word,
+              option: wordsList[randomIndex]?.wordTarget?.wordString,
               idWordRef: wordsList[randomIndex]?.wordTarget?.idWordRef,
               correct: false,
               pressed: false
