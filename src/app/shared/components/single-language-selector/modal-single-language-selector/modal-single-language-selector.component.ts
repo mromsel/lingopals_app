@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 import { Language } from 'src/app/shared/interfaces/language.interface';
 import { ConfigService } from 'src/app/shared/services/config.service';
 import { MastersService } from 'src/app/shared/services/masters.service';
@@ -19,7 +20,11 @@ export class ModalSingleLanguageSelectorComponent implements OnInit {
 
   languagesToSelect: Language[] = [];
 
-  constructor(private mastersService: MastersService, private configService: ConfigService) { }
+  constructor(
+    private translateService: TranslateService,
+    private mastersService: MastersService,
+    private configService: ConfigService
+  ) { }
 
   ngOnInit() {
     this.languagesToSelect = this.mastersService.getLanguages()
@@ -35,7 +40,7 @@ export class ModalSingleLanguageSelectorComponent implements OnInit {
     this.languageSelected = languageSelected;
 
     this.configService.setPreferredLanguage(languageSelected.isoCode)
-
+    this.translateService.use(this.languageSelected.isoCode);
     this.modal?.dismiss();
   }
 }
