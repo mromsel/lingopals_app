@@ -1,8 +1,9 @@
 <ion-content [fullscreen]="true">
+  <app-single-language-selector></app-single-language-selector>
   <div class="main-container">
     <div class="form-container">
 
-      <!-- Formulario de inicio de sesión -->
+      <!-- Login form -->
       <form #loginForm="ngForm" (ngSubmit)="login()">
         <ion-item>
           <ion-input label="Username or Email" name="usernameOrEmail" type="text" [(ngModel)]="formData.usernameOrEmail"
