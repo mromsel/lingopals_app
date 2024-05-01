@@ -2,28 +2,35 @@
   <app-single-language-selector></app-single-language-selector>
   <div class="main-container">
     <div class="form-container">
-
       <!-- Login form -->
       <form #loginForm="ngForm" (ngSubmit)="login()">
         <ion-item>
-          <ion-input label="Username or Email" name="usernameOrEmail" type="text" [(ngModel)]="formData.usernameOrEmail"
-            labelPlacement="floating" placeholder="Enter username or email" required></ion-input>
+          <ion-input label="{{'login.usernameOrEmail' | translate}}" name="usernameOrEmail" type="text"
+            [(ngModel)]="formData.usernameOrEmail" labelPlacement="floating" placeholder="{{'login.enterUsernameOrEmail' |
+            translate}}" required></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input label="Password" name="password" type="password" [(ngModel)]="formData.password"
-            labelPlacement="floating" placeholder="Enter your password" required></ion-input>
+          <ion-input label="{{'login.password' | translate}}" name="password" type="password"
+            [(ngModel)]="formData.password" labelPlacement="floating" placeholder="{{'login.enterPassword' |
+            translate}}" required></ion-input>
         </ion-item>
         <div *ngIf="loggingFailed" class="error-message">
-          <p style="color: red;">Please enter valid username and password.</p>
+          <p style="color: red;">{{ 'login.errorLoginData' | translate}}</p>
         </div>
-        <ion-button type="submit" [disabled]="loginForm.invalid">Login</ion-button>
+        <ion-button type="submit" [disabled]="loginForm.invalid">{{ 'login.login' | translate}}</ion-button>
       </form>
     </div>
 
     <!-- Go to password recovery -->
-    <a (click)="goToForgotPassword()">Forgot password?</a>
+    <a (click)="goToForgotPassword()">{{ 'login.forgotPassword' | translate}}</a>
 
     <!-- Go to signup page -->
-    <ion-button (click)="goToSignUp()">Go to -> <span style="color: purple;">Sign up</span></ion-button>
+    <ion-button (click)="goToSignUp()">
+      {{ 'login.createAccount' | translate}}
+      &nbsp;
+      <span style="color: purple;">
+        {{'signup.signUp' | translate}}
+      </span>
+    </ion-button>
   </div>
 </ion-content>
