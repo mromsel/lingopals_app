@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UserInfoService } from './shared/services/user-info.service';
 import { MastersService } from './shared/services/masters.service';
 import { ConfigService } from './shared/services/config.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ export class AppComponent implements OnInit {
   isLoggedIn = false;
 
   constructor(
+    private translate: TranslateService,
     private authService: AuthService,
     private userInfoService: UserInfoService,
     private mastersService: MastersService,
@@ -23,6 +25,8 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.translate.setDefaultLang('en')
+
     this.authService.isLoggedIn().subscribe(loggedIn => {
       this.isLoggedIn = loggedIn;
       this.mastersService.fetchBasicMasters()
