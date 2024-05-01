@@ -10,6 +10,41 @@
         "createAccount": "¿No tienes una cuenta?"
     },
     "signup": {
-        "signUp": "Registrarse"
+        "signUp": "Registrarse",
+        "username": "Nombre de usuario",
+        "enterUsername": "Ingrese su nombre de usuario",
+        "email": "Email",
+        "enterEmail": "Ingrese su email",
+        "password": "Contraseña",
+        "enterPassword": "Ingrese su contraseña",
+        "confirmPassword": "Confirmar contraseña",
+        "enterConfirmPassword": "Ingrese su contraseña nuevamente",
+        "goToLogin": "Ir a inicio de sesión"
+    },
+    "tabs": {
+        "home": "Inicio",
+        "lessons": "Lecciones",
+        "dictionary": "Diccionario",
+        "settings": "Ajustes"
+    },
+    "home": {
+        "shop": "Tienda",
+        "enterShop": "Entrar",
+        "progress": "Progreso",
+        "showProgress": "¡Ver ahora!"
+    },
+    "lessons": {},
+    "dictionary": {},
+    "settings": {
+        "changeUsername": "Cambiar nombre de usuario",
+        "changePassword": "Cambiar contraseña",
+        "changePrefLang": "Cambiar idioma preferido",
+        "logout": "Cerrar sesión",
+        "theme": "Tema",
+        "lightTheme": "Claro",
+        "darkTheme": "Oscuro",
+        "getSupport": "Obtener soporte",
+        "about": "Acerca de LingoPals",
+        "credits": "Créditos"
     }
 }
