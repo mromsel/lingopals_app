@@ -10,6 +10,7 @@ import { SettingsPage } from './settings.page';
 import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from 'src/main';
+import { SharedModule } from 'src/app/shared/module/shared.module';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { createTranslateLoader } from 'src/main';
         deps: [HttpClient]
       }
     }),
+    SharedModule,
   ],
   declarations: [SettingsPage]
 })
