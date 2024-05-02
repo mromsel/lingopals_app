@@ -26,3 +26,12 @@
 @import "@ionic/angular/css/flex-utils.css";
 
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+.small-modal {
+    border: 2px solid black;
+    position: absolute;
+    border-radius: 1rem;
+    height: 80%;
+    width: 80%;
+    margin: auto;
+}
