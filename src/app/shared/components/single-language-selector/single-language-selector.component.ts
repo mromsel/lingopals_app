@@ -3,6 +3,8 @@ import { MastersService } from '../../services/masters.service';
 import { Language } from '../../interfaces/language.interface';
 import { ConfigService } from '../../services/config.service';
 import { Subject, takeUntil } from 'rxjs';
+import { ModalController } from '@ionic/angular';
+import { ModalSingleLanguageSelectorComponent } from './modal-single-language-selector/modal-single-language-selector.component';
 
 @Component({
   selector: 'app-single-language-selector',
@@ -17,6 +19,7 @@ export class SingleLanguageSelectorComponent implements OnInit, OnDestroy {
   languageFlag: string = "../../../../assets/flags/flag_en.png";
 
   constructor(
+    private _modalController: ModalController,
     private mastersService: MastersService,
     private configService: ConfigService,
   ) {
@@ -36,6 +39,16 @@ export class SingleLanguageSelectorComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+  }
+
+
+  async openModal() {
+    const modal = await this._modalController.create({
+      component: ModalSingleLanguageSelectorComponent,
+      keyboardClose: true,
+      cssClass: 'small-modal'
+    });
+    return await modal.present();
   }
 
 }

@@ -1,5 +1,5 @@
-import { Component, OnInit, Output, ViewChild } from '@angular/core';
-import { IonModal } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Language } from 'src/app/shared/interfaces/language.interface';
 import { ConfigService } from 'src/app/shared/services/config.service';
@@ -12,35 +12,37 @@ import { MastersService } from 'src/app/shared/services/masters.service';
 })
 export class ModalSingleLanguageSelectorComponent implements OnInit {
 
-  @Output() languageSelected: Language | undefined;
-
-  @ViewChild(IonModal) modal: IonModal | undefined;
-
   filePrefix = "../../../../assets/flags/"
 
   languagesToSelect: Language[] = [];
 
+  preferredIsoCode: string | undefined
+
   constructor(
+    private _modalController: ModalController,
     private translateService: TranslateService,
     private mastersService: MastersService,
     private configService: ConfigService
-  ) { }
-
-  ngOnInit() {
-    this.languagesToSelect = this.mastersService.getLanguages()
+  ) {
   }
 
-  closeModal() {
-    this.modal?.dismiss();
+  ngOnInit() {
+    this.preferredIsoCode = this.configService.getPreferredIsoCode()
+    console.log(this.preferredIsoCode)
+    this.languagesToSelect = this.mastersService.getLanguages()
   }
 
   select(i: number) {
     let languageSelected = this.languagesToSelect[i];
+    if (languageSelected.isoCode == this.preferredIsoCode) {
+      this.closeModal()
+    } else {
+      this.configService.setPreferredLanguage(languageSelected.isoCode)
+      this.preferredIsoCode = languageSelected.isoCode
+    }
+  }
 
-    this.languageSelected = languageSelected;
-
-    this.configService.setPreferredLanguage(languageSelected.isoCode)
-    this.translateService.use(this.languageSelected.isoCode);
-    this.modal?.dismiss();
+  async closeModal() {
+    await this._modalController.dismiss();
   }
 }
