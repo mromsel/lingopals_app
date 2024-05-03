@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { UserInfo } from 'src/app/shared/interfaces/user-info.interface';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { ConfigService } from 'src/app/shared/services/config.service';
 import { UserInfoService } from 'src/app/shared/services/user-info.service';
 
 @Component({
@@ -17,8 +18,9 @@ export class SettingsPage implements OnInit {
   userInfo: UserInfo | undefined;
 
   constructor(
-    private userInfoService: UserInfoService,
     private authService: AuthService,
+    private configService: ConfigService,
+    private userInfoService: UserInfoService,
     private router: Router
   ) { }
 
@@ -44,5 +46,9 @@ export class SettingsPage implements OnInit {
   ionViewWillLeave() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+  }
+
+  themeChanged(ev: any) {
+
   }
 }
