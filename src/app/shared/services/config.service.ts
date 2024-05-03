@@ -19,13 +19,7 @@ export class ConfigService {
 
   constructor(
     @Inject(LOCALE_ID) public locale: string, private translateService: TranslateService, private mastersService: MastersService) {
-    let storageLang = localStorage.getItem(this.prefLangKey)
-    if (storageLang) {
-      this.preferredIsoCode = storageLang
-      this.setPreferredLanguage(this.preferredIsoCode)
-    } else {
-      this.setDefaultLanguage()
-    }
+    this.setPreferredLanguage(this.getPreferredIsoCode())
   }
 
   setPreferredLanguage(isoCode: string) {
@@ -52,7 +46,14 @@ export class ConfigService {
   }
 
   getPreferredIsoCode(): string {
-    return this.preferredIsoCode ?? this.defaultLocale
-  }
+    if (this.preferredIsoCode) return this.preferredIsoCode
 
+    let storaged: string | null = localStorage.getItem("pref-lang")
+    if (storaged) {
+      this.preferredIsoCode = storaged
+      this.preferredLanguage.next(this.mastersService.getLanguages().filter(lang => lang.isoCode == this.preferredIsoCode)[0])
+      return storaged
+    }
+    return this.defaultLocale
+  }
 }
