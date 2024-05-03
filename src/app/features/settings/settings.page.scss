@@ -3,6 +3,7 @@ ion-content {
 
     * {
         background-color: white;
+        color: var(--ion-color-primary-contrast);
     }
 
     .header {
@@ -19,5 +20,9 @@ ion-content {
         display: flex;
         flex-direction: column;
         padding: 1rem;
+
+        ion-button {
+            font-size: 1.2rem;
+        }
     }
 }

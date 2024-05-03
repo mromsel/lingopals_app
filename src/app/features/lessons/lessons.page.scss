@@ -1,7 +1,7 @@
 @import '../../shared/styles/constants.scss';
 
 ion-content {
-    --ion-background-color: var(--ion-color-sky-blue);
+    --ion-background-color: var(--ion-color-background);
 
     .main-container {
         align-items: center;
@@ -16,7 +16,7 @@ ion-content {
             margin: 1rem;
 
             ion-button {
-                --background: var(--ion-color-selective-yellow);
+                --background: var(--ion-color-secondary);
                 color: black;
                 font-size: 2rem;
                 font-weight: bold;
