@@ -13,6 +13,7 @@ import { LessonInProgressComponent } from './lesson-in-progress/lesson-in-progre
 import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from 'src/main';
+import { ReviewWordsComponent } from './review-words/review-words.component';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { createTranslateLoader } from 'src/main';
   declarations: [
     LessonsPage,
     AllLessonsComponent,
-    LessonInProgressComponent
+    LessonInProgressComponent,
+    ReviewWordsComponent,
   ]
 })
 export class LessonsPageModule { }
