@@ -6,6 +6,8 @@ import { Lesson } from 'src/app/shared/interfaces/lesson.interface';
 import { EventsService } from 'src/app/shared/services/events.service';
 import { Utils } from 'src/app/shared/utils/utils';
 import { UserInfoService } from 'src/app/shared/services/user-info.service';
+import { UserActivity, activityTypes } from 'src/app/shared/interfaces/user-activity.interface';
+import { UserActivityService } from 'src/app/shared/services/user-activity.service';
 
 export interface Option {
   idWordRef: number,
@@ -49,6 +51,7 @@ export class LessonInProgressComponent implements OnInit {
     private eventsService: EventsService,
     private lessonsService: LessonsService,
     private userInfoService: UserInfoService,
+    private userActivityService: UserActivityService,
     private route: ActivatedRoute,
     private router: Router,
   ) { }
@@ -145,6 +148,21 @@ export class LessonInProgressComponent implements OnInit {
     this.isLessonStarted = false //???
     this.lessonCurrentState = this.lessonStates[2]
     console.log("Finished lesson :)")
+
+    let userActivity: UserActivity;
+    let idUser = this.userInfoService.idUser
+    if (idUser) {
+      userActivity = {
+        idUserActivity: 0,
+        type: activityTypes[1],
+        idUser: idUser,
+        idLesson: this.lesson?.idLesson
+      }
+
+      this.userActivityService.submitUserActivity(userActivity).subscribe(
+        response => console.log(response)
+      )
+    }
   }
 
   exitView() {
