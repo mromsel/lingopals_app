@@ -28,7 +28,6 @@ export class ModalSingleLanguageSelectorComponent implements OnInit {
 
   ngOnInit() {
     this.preferredIsoCode = this.configService.getPreferredIsoCode()
-    console.log(this.preferredIsoCode)
     this.languagesToSelect = this.mastersService.getLanguages()
   }
 

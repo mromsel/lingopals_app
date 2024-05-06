@@ -24,7 +24,6 @@ export class ConfigService {
 
   setPreferredLanguage(isoCode: string) {
     let preferredLanguage = this.mastersService.getLanguages().filter(language => language.isoCode == isoCode)[0]
-    console.log(preferredLanguage)
     if (preferredLanguage && isoCode != undefined && this.preferredIsoCode != null) {
       this.preferredIsoCode = preferredLanguage.isoCode
       localStorage.setItem(this.prefLangKey, this.preferredIsoCode)
