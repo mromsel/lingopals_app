@@ -2,45 +2,6 @@
 <div class="main-container">
   <app-back-button [backRoute]="backRoute"></app-back-button>
 
-  <ion-button (click)="goToLastQuestion()" class="debug-button" slot="end" onKeyDown="goToLastQuestion()"><ion-icon
-      name="bug"></ion-icon><span>Last
-      question</span></ion-button>
-  <div class="header" [ngClass]="{'margin': !isLessonStarted && !isLessonFinished}">
-    <h2>{{lesson?.lessonName}}</h2>
-    <ion-progress-bar *ngIf="isLessonStarted || isLessonFinished" [value]="progress"></ion-progress-bar>
-  </div>
-
-
-  <ion-card *ngIf="isLessonStarted || isLessonFinished">
-    <ion-card-header>
-      <ion-card-title>
-        <span>{{correctOption?.wordOrigin?.wordString}}</span>
-      </ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <div class="options-div">
-        <div *ngFor="let option of options; index as i">
-          <ion-button (click)="checkOption(i)" onKeyDown="checkOption(option)" [ngClass]="{
-            'default-button': !answerSubmitted,
-            'correct-answer': option.correct && option.pressed,
-            'correct-answer-not-selected': option.correct && !option.pressed,
-            'wrong-answer': !option.correct && option.pressed,
-            'wrong-answer-not-selected': !option.correct && !option.pressed,
-          }">
-            {{option.option}}
-          </ion-button>
-        </div>
-      </div>
-    </ion-card-content>
-  </ion-card>
-
-  <div class="bottomButtonDiv">
-
-    <ion-button *ngIf="!isLessonStarted && !isLessonFinished" (click)="startLesson()"
-      onKeyDown="startLesson()">{{lessonStates[0]}}</ion-button>
-    <ion-button *ngIf="isLessonStarted && !isLessonFinished" [disabled]="!answerSubmitted" (click)="goToNextQuestion()"
-      onKeyDown="goToNextQuestion()">{{lessonStates[1]}}</ion-button>
-    <ion-button *ngIf="isLessonFinished" (click)="exitView()" onKeyDown="exitView()">{{lessonStates[2]}}</ion-button>
-
-  </div>
+  <app-quiz [headerTitle]="lesson ? lesson.lessonName : 'Lesson'" [type]="lessonType" [listWords]="listWords"
+    (eventFinishQuiz)="exitView()"></app-quiz>
 </div>
