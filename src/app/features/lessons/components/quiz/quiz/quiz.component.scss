@@ -16,44 +16,29 @@
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 100%;
     padding: 1rem;
 
+    app-quiz-header,
+    .body,
+    .bottomButtonDiv {
+        margin: 0.5rem;
+    }
+
     app-quiz-header {
-        width: 100%;
+        width: 80%;
     }
 
-    .card {
-        border: 0.1rem solid lightgrey;
-        border-radius: 1.5rem;
+    .body {
+        width: 80%;
 
-    }
-
-    // ion-card {
-    //     border: 0.1rem solid lightgrey;
-    //     border-radius: 1.5rem;
-    //     width: 80%;
-    //     height: 80%;
-
-    //     ion-card-title {
-    //         padding: 1rem;
-
-    //         span {
-    //             font-weight: bold;
-    //             font-size: 2rem;
-    //         }
-    //     }
-    // }
-
-    .options-div {
-
-        ion-button {
-            color: black;
-            border-radius: 2rem;
+        .card {
+            border: 0.1rem solid lightgrey;
+            border-radius: 1.5rem;
         }
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
     }
+}
+
+.margin {
+    margin: 1rem;
 }
