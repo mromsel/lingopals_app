@@ -1,0 +1,17 @@
+ion-card-content {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.item {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.correct {
+    color: var(--ion-color-success);
+}
+
+.incorrect {
+    color: var(--ion-color-danger)
+}
