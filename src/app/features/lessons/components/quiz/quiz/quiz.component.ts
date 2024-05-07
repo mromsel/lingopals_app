@@ -1,9 +1,13 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { activityTypes } from 'src/app/shared/interfaces/user-activity.interface';
+import { UserActivity, activityTypes } from 'src/app/shared/interfaces/user-activity.interface';
 import { WordsInQuiz } from '../../../interfaces/words-in-quiz.interface';
 import { QuizOption } from '../../../interfaces/quiz-option.interface';
 import { Utils } from 'src/app/shared/utils/utils';
 import { NavController } from '@ionic/angular';
+import { UserInfoService } from 'src/app/shared/services/user-info.service';
+import { UserActivityService } from 'src/app/shared/services/user-activity.service';
+import { ActivityResult } from 'src/app/shared/interfaces/activity-result.interface';
+import { EventsService } from 'src/app/shared/services/events.service';
 
 @Component({
   selector: 'app-quiz',
@@ -21,6 +25,8 @@ export class QuizComponent implements OnInit {
 
   @Input() listWords: WordsInQuiz[] = []
 
+  @Input() idLesson: number | undefined
+
   options: QuizOption[][] = []
 
   stateNotStarted: boolean = true;
@@ -31,7 +37,6 @@ export class QuizComponent implements OnInit {
   lessonCurrentState: string = this.lessonStates[0]
 
   isAnswerSubmitted: boolean = false;
-  isAnswerCorrect: boolean = false;
   isAnsweringBlocked: boolean = false;
 
   numberOfOptions: number = 4
@@ -44,9 +49,16 @@ export class QuizComponent implements OnInit {
   progress: number = 0; // 0 to 1
   progressStep: number = 0;
 
+  userActivityResult: UserActivity | undefined;
+  userResults: ActivityResult[] = []
+
   //#endregion
 
-  constructor() { }
+  constructor(
+    private userInfoService: UserInfoService,
+    private userActivityService: UserActivityService,
+    private eventsService: EventsService,
+  ) { }
 
   ngOnInit() {
 
@@ -126,6 +138,14 @@ export class QuizComponent implements OnInit {
       if (this.index === this.totalIndexWords) {
         this.lessonCurrentState = this.lessonStates[2]
       }
+
+      this.userResults.push(
+        {
+          idWordRef: this.listWords[this.index].wordTarget.idWordRef,
+          result: this.options[this.index][answer].correct
+        }
+      )
+      console.log(this.userResults)
     }
   }
 
@@ -133,6 +153,23 @@ export class QuizComponent implements OnInit {
     this.stateInProgress = false
     this.stateFinished = true
     this.lessonCurrentState = this.lessonStates[3]
+
+    this.submitResults()
+  }
+
+  submitResults() {
+    let idUser = this.userInfoService.idUser
+
+    if (idUser) {
+      this.userActivityResult = {
+        idUser: idUser,
+        type: this.type,
+        results: this.userResults,
+        idLesson: this.idLesson ? this.idLesson : undefined
+      }
+      console.log(this.userActivityResult)
+      // this.userActivityService.submitUserActivity(this.userActivityResult).subscribe()
+    }
   }
 
   displayLearnWord() {
@@ -163,6 +200,31 @@ export class QuizComponent implements OnInit {
   goToLastQuestion() {
     this.index = this.totalIndexWords
     this.progress = this.progressStep * this.totalIndexWords
+
+    this.userResults = []
+    this.userResults = [
+      {
+        "idWordRef": 2,
+        "result": true
+      },
+      {
+        "idWordRef": 3,
+        "result": true
+      },
+      {
+        "idWordRef": 6,
+        "result": true
+      },
+      {
+        "idWordRef": 7,
+        "result": true
+      },
+      {
+        "idWordRef": 8,
+        "result": true
+      }
+    ]
+
     this.displayQuestion()
   }
 
