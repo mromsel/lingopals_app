@@ -1,8 +1,6 @@
 ion-card {
     border: 0.1rem solid lightgrey;
     border-radius: 1.5rem;
-    // width: 80%;
-    // height: 80%;
 
     ion-card-title {
         padding: 1rem;
@@ -11,6 +9,22 @@ ion-card {
             font-weight: bold;
             font-size: 2rem;
         }
+    }
+
+    .options-div {
+        .button-container {
+            width: 80%;
+
+            ion-button {
+                color: black;
+                border-radius: 2rem;
+            }
+        }
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 }
 

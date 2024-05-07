@@ -15,28 +15,13 @@ export class QuizOptionsQuestionComponent implements OnInit {
   @Input() isAnswerSubmitted: boolean = false;
 
   numberOfOptions: number = 4
-  // correctOption: WordsInQuiz | undefined; ????
 
   constructor() { }
 
   ngOnInit() { }
 
-  // checkOption(optionIndex: number) {
-  //   // if (!this.answerSubmitted && !this.isLessonFinished) {
-  //   //   this.answerSubmitted = true
-  //   //   this.options[optionIndex].pressed = true
-  //   // }
-  //   // if (this.index === this.totalIndexWords) {
-  //   //   this.progress += this.progressStep
-  //   //   this.finishLesson()
-  //   // }
-  // }
-
   checkOption(optionIndex: number) {
-    // this.isAnswerSubmitted = true
     this.currentOptions[optionIndex].pressed = true
     this.answerSubmitted.emit(optionIndex);
-    // this.isAnswerSubmitted = false
-
   }
 }
