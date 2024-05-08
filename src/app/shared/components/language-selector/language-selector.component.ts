@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Language } from '../../interfaces/language.interface';
-import { UserInfoService } from '../../services/user-info.service';
-import { AuthService } from '../../services/auth.service';
+import { ModalController } from '@ionic/angular';
+import { LanguageSelectorModalComponent } from './language-selector-modal/language-selector-modal.component';
+import { UserLanguages } from '../../interfaces/user-languages.interface';
+import { ConfigService } from '../../services/config.service';
 
 @Component({
   selector: 'app-language-selector',
@@ -10,24 +11,43 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LanguageSelectorComponent implements OnInit {
 
-  @Input() languageOrigin: Language | undefined;
-  @Input() languageDestiny: Language | undefined;
-
+  @Input() preferredUserLanguages: UserLanguages | undefined;
   filePrefix = "../../../../assets/flags/"
 
-  originLanguageFlag: string = "../../../../assets/flags/flag_es.png";
-  destinyLanguageFlag: string = "../../../../assets/flags/flag_en.png";
+  originLanguageFlag: string = this.filePrefix + "flag_es.png";
+  targetLanguageFlag: string = this.filePrefix + "flag_en.png";
 
-  selectedLanguages: string;
+  selectedLanguagesString: string;
+  selectedLanguages: UserLanguages | undefined;
 
-  constructor(private userInfoService: UserInfoService,
-    private authService: AuthService
+  constructor(
+    private configService: ConfigService,
+    private _modalController: ModalController,
   ) {
-    this.selectedLanguages = this.languageOrigin?.isoCode + "." + this.languageDestiny?.isoCode
+    this.selectedLanguagesString = this.preferredUserLanguages?.languageOrigin.isoCode + "." + this.preferredUserLanguages?.languageTarget.isoCode
+    this.selectedLanguages = this.preferredUserLanguages
   }
 
   ngOnInit() {
+    this.configService.getPreferredUserLanguages().subscribe(
+      preferredUserLanguages => {
+        this.preferredUserLanguages = preferredUserLanguages
+        this.originLanguageFlag = this.filePrefix + this.preferredUserLanguages.languageOrigin.flag
+        this.targetLanguageFlag = this.filePrefix + this.preferredUserLanguages.languageTarget.flag
+      }
+    )
+  }
 
+  async openModal() {
+    const modal = await this._modalController.create({
+      component: LanguageSelectorModalComponent,
+      componentProps: {
+        preferredUserLanguages: this.selectedLanguages,
+      },
+      keyboardClose: true,
+      cssClass: 'small-modal'
+    });
+    return await modal.present();
   }
 
 }
