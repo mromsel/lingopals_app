@@ -3,6 +3,7 @@ import { Language } from '../interfaces/language.interface';
 import { MastersService } from './masters.service';
 import { Observable, Subject } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
+import { UserLanguages } from '../interfaces/user-languages.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,8 @@ export class ConfigService {
   preferredLanguage: Subject<Language> = new Subject<Language>();
 
   preferredIsoCode: string = this.defaultLocale
+
+  preferredUserLanguages: Subject<UserLanguages> = new Subject<UserLanguages>();
 
   constructor(
     @Inject(LOCALE_ID) public locale: string, private translateService: TranslateService, private mastersService: MastersService) {
@@ -54,5 +57,13 @@ export class ConfigService {
       return storaged
     }
     return this.defaultLocale
+  }
+
+  getPreferredUserLanguages() {
+    return this.preferredUserLanguages.asObservable()
+  }
+
+  setPreferredUserLanguages(userLanguages: UserLanguages) {
+    this.preferredUserLanguages.next(userLanguages)
   }
 }
