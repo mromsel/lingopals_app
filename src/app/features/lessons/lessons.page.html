@@ -1,7 +1,7 @@
 <ion-content [fullscreen]="true">
   <div class="main-container">
 
-    <app-language-selector></app-language-selector>
+    <app-language-selector [preferredUserLanguages]="preferredUserLanguages"></app-language-selector>
 
     <div class="buttons-div">
       <ion-button routerLink="./1" expand="block">Next lesson</ion-button>
