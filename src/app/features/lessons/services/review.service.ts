@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UsersLanguages } from 'src/app/shared/interfaces/users-languages.interface';
+import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
 import { ReviewWords } from '../interfaces/review-words.interface';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -14,7 +14,7 @@ export class ReviewService {
 
   constructor(private http: HttpClient) { }
 
-  getReviewWords(idUser: number, userLanguages: UsersLanguages): Observable<ReviewWords> {
+  getReviewWords(idUser: number, userLanguages: UserLanguages): Observable<ReviewWords> {
     return this.http.get<ReviewWords>(`${this.backendURL}/review-words/${idUser}/${userLanguages.languageOrigin.isoCode}/${userLanguages.languageTarget.isoCode}`)
   }
 }

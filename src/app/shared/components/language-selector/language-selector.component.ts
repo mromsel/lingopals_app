@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { LanguageSelectorModalComponent } from './language-selector-modal/language-selector-modal.component';
+import { ModalLanguageSelectorComponent } from './language-selector-modal/modal-language-selector.component';
 import { UserLanguages } from '../../interfaces/user-languages.interface';
 import { ConfigService } from '../../services/config.service';
 
@@ -40,7 +40,7 @@ export class LanguageSelectorComponent implements OnInit {
 
   async openModal() {
     const modal = await this._modalController.create({
-      component: LanguageSelectorModalComponent,
+      component: ModalLanguageSelectorComponent,
       componentProps: {
         preferredUserLanguages: this.selectedLanguages,
       },
