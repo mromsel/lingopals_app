@@ -18,6 +18,7 @@ export class UserInfoService {
 
   userLanguages: UserLanguages[] = [];
   userInfo: UserInfo | undefined;
+  userProgress: UserProgress | undefined;
 
   constructor(
     private configService: ConfigService,
@@ -51,7 +52,7 @@ export class UserInfoService {
         this.userInfo = userInfo
         this.configService.setPreferredUserLanguages(userInfo.preferredUserLanguages)
       })
-
+      this.getUserProgress(this.idUser).subscribe(userProgress => this.userProgress = userProgress)
     }
 
     this.http.get<UserLanguages[]>(`${this.backendURL}/users-languages/${this.idUser}`).subscribe(userLanguages => {
@@ -60,6 +61,6 @@ export class UserInfoService {
   }
 
   changePreferredUserLanguages(newUserLanguages: UserLanguages) {
-    return this.http.post<UserLanguages>(`${this.backendURL}/users-language/change-preferred`, newUserLanguages)
+    return this.http.post<UserLanguages>(`${this.backendURL}/users-languages/change-preferred`, newUserLanguages)
   }
 }
