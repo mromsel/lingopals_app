@@ -1,11 +1,12 @@
 import { ActivityResult } from "src/app/shared/interfaces/activity-result.interface"
 import { UserLanguages } from "./user-languages.interface"
+import { ActivityType } from "./activity-type.interface"
 
 export interface UserActivity {
     idUserActivity?: number,
     idUser: number,
     userLanguages?: UserLanguages,
-    type: string,
+    activityType?: ActivityType,
     xpGained?: number,
     idLesson?: number,
     date?: Date,

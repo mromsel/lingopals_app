@@ -30,7 +30,7 @@ export class ModalLanguageSelectorComponent implements OnInit {
       preferredUserLanguages => {
         this.preferredUserLanguages = preferredUserLanguages
 
-        this.preferredIndex = this.languagesToSelect.findIndex(userLanguages => userLanguages.idUserLanguages == this.preferredUserLanguages?.idUserLanguages)
+        this.preferredIndex = this.languagesToSelect.findIndex(userLanguages => userLanguages.id == this.preferredUserLanguages?.id)
       }
     )
   }
@@ -43,7 +43,7 @@ export class ModalLanguageSelectorComponent implements OnInit {
     } else {
       this.configService.setPreferredUserLanguages(languagesSelected)
       console.log(languagesSelected)
-      this.userInfoService.changePreferredUserLanguages(languagesSelected).subscribe(response => console.log(response))
+      this.userInfoService.changePreferredUserLanguages(languagesSelected).subscribe(response => console.log("changed preferred user languages"))
       this.preferredIndex = i
     }
   }

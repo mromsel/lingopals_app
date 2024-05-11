@@ -1,7 +1,7 @@
 import { Language } from "./language.interface";
 
 export interface UserLanguages {
-    idUserLanguages: number,
+    id: number,
     idUser: number,
     languageOrigin: Language,
     languageTarget: Language,
