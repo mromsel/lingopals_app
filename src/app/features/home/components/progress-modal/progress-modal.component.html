@@ -4,13 +4,14 @@
       <ion-toolbar>
         <ion-title>Your progress</ion-title>
         <ion-buttons slot="end">
-          <ion-button (click)="closeModal()" [strong]="true">Close</ion-button>
+          <ion-button (click)="closeModal()" onkeypress="closeModal()" [strong]="true">Close</ion-button>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
       <ion-item>
         <ion-text>
+          Level {{userProgress?.xpLevel?.levelNumber}} <br />
           {{userProgress?.xpPoints}} XP points
         </ion-text>
       </ion-item>
