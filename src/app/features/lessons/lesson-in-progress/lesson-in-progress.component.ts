@@ -10,13 +10,15 @@ import { UserActivityService } from 'src/app/shared/services/user-activity.servi
 import { WordsInQuiz } from '../interfaces/words-in-quiz.interface';
 import { NavController } from '@ionic/angular';
 import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { ConfigService } from 'src/app/shared/services/config.service';
 
 @Component({
   selector: 'app-lesson-in-progress',
   templateUrl: './lesson-in-progress.component.html',
   styleUrls: ['./lesson-in-progress.component.scss'],
 })
-export class LessonInProgressComponent implements OnInit {
+export class LessonInProgressComponent {
 
   backRoute: string = '/lessons'
 
@@ -37,21 +39,29 @@ export class LessonInProgressComponent implements OnInit {
     private lessonsService: LessonsService,
     private userInfoService: UserInfoService,
     private userActivityService: UserActivityService,
+    private configService: ConfigService,
+    private authService: AuthService,
     private route: ActivatedRoute,
     private router: Router,
     private navController: NavController,
   ) { }
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.route.paramMap.subscribe(params => {
       const lessonId = params.get('id');
       if (lessonId) {
         this.idLesson = +lessonId
+
+        this.configService.getPreferredUserLanguages().subscribe(
+          userLanguages => this.usedUserLanguages = userLanguages
+        )
         this.fetchLesson()
       } else {
         this.exitView()
       }
     });
+
+
   }
 
   fetchLesson() {

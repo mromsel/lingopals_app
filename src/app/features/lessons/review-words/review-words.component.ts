@@ -9,6 +9,7 @@ import { ReviewService } from '../services/review.service';
 import { EventsService } from 'src/app/shared/services/events.service';
 import { ReviewWords } from '../interfaces/review-words.interface';
 import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
+import { ConfigService } from 'src/app/shared/services/config.service';
 
 @Component({
   selector: 'app-review-words',
@@ -32,6 +33,7 @@ export class ReviewWordsComponent implements OnInit {
     private reviewService: ReviewService,
     private userInfoService: UserInfoService,
     private authService: AuthService,
+    private configService: ConfigService,
     private eventsService: EventsService,
     private router: Router,
     private navController: NavController,
@@ -39,6 +41,35 @@ export class ReviewWordsComponent implements OnInit {
 
   ngOnInit() {
     if (this.authService.getIdUser() && this.userInfoService.getUserLanguages()[0]) {
+      let idUser = this.authService.getIdUser()
+      if (idUser) {
+        this.userInfoService.getUserInfo(idUser).subscribe(
+          userInfo => {
+            this.usedUserLanguages = userInfo.preferredUserLanguages
+          }
+        )
+      }
+
+      this.fetchWords()
+    } else {
+      this.exitView()
+    }
+  }
+
+  ionViewWillEnter() {
+    if (this.authService.getIdUser() && this.userInfoService.getUserLanguages()[0]) {
+      // let idUser = this.authService.getIdUser()
+      // if (idUser) {
+      //   this.userInfoService.getUserInfo(idUser).subscribe(
+      //     userInfo => {
+      //       this.usedUserLanguages = userInfo.preferredUserLanguages
+      //     }
+      //   )
+      // }
+
+      this.configService.getPreferredUserLanguages().subscribe(
+        userLanguages => this.usedUserLanguages = userLanguages
+      )
       this.fetchWords()
     } else {
       this.exitView()
@@ -46,7 +77,14 @@ export class ReviewWordsComponent implements OnInit {
   }
 
   fetchWords() {
-    this.usedUserLanguages = this.userInfoService.userInfo?.preferredUserLanguages
+    // let idUser = this.authService.getIdUser()
+    // if (idUser) {
+    //   this.userInfoService.getUserInfo(idUser).subscribe(
+    //     userInfo => {
+    //       this.usedUserLanguages = userInfo.preferredUserLanguages
+    //     }
+    //   )
+    // }
 
     if (this.authService.getIdUser() && this.usedUserLanguages) {
       this.reviewService.getReviewWords(this.authService.getIdUser(), this.usedUserLanguages).subscribe(

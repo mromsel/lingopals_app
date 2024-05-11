@@ -8,6 +8,7 @@ import { UserActivityService } from 'src/app/shared/services/user-activity.servi
 import { ActivityResult } from 'src/app/shared/interfaces/activity-result.interface';
 import { EventsService } from 'src/app/shared/services/events.service';
 import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
+import { ActivityType } from 'src/app/shared/interfaces/activity-type.interface';
 
 @Component({
   selector: 'app-quiz',
@@ -28,6 +29,8 @@ export class QuizComponent implements OnInit {
   @Input() idLesson: number | undefined
 
   @Input() usedUserLanguages: UserLanguages | undefined
+
+  @Input() activityType: ActivityType | undefined
 
   options: QuizOption[][] = []
 
@@ -166,12 +169,12 @@ export class QuizComponent implements OnInit {
       this.userActivityResult = {
         idUser: idUser,
         userLanguages: this.usedUserLanguages,
-        type: this.type,
+        activityType: this.activityType,
         results: this.userResults,
         idLesson: this.idLesson ? this.idLesson : undefined
       }
       console.log(this.userActivityResult)
-      // this.userActivityService.submitUserActivity(this.userActivityResult).subscribe()
+      this.userActivityService.submitUserActivity(this.userActivityResult).subscribe()
     }
   }
 

@@ -3,5 +3,6 @@
   <app-back-button [backRoute]="backRoute"></app-back-button>
 
   <app-quiz [headerTitle]="lesson ? lesson.lessonName : 'Lesson'" [type]="lessonType" [listWords]="listWords"
-    [idLesson]="idLesson" [usedUserLanguages]="usedUserLanguages" (eventFinishQuiz)="exitView()"></app-quiz>
+    [idLesson]="idLesson" [usedUserLanguages]="usedUserLanguages" [activityType]="lesson?.activityType"
+    (eventFinishQuiz)="exitView()"></app-quiz>
 </div>
