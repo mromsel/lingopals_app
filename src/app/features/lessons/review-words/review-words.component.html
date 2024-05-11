@@ -5,5 +5,5 @@
   <app-back-button></app-back-button>
 
   <app-quiz [headerTitle]="reviewTitle" [type]="reviewType" [listWords]="listWords"
-    (eventFinishQuiz)="exitView()"></app-quiz>
+    [usedUserLanguages]="usedUserLanguages" (eventFinishQuiz)="exitView()"></app-quiz>
 </div>

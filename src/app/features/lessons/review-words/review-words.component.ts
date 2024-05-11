@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 import { ReviewService } from '../services/review.service';
 import { EventsService } from 'src/app/shared/services/events.service';
 import { ReviewWords } from '../interfaces/review-words.interface';
+import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
 
 @Component({
   selector: 'app-review-words',
@@ -23,6 +24,7 @@ export class ReviewWordsComponent implements OnInit {
   listWords: WordsInQuiz[] = []
 
   reviewWords: ReviewWords | undefined
+  usedUserLanguages: UserLanguages | undefined
 
   reviewTitle: string = "Review words" // TODO: TRANSLATE
 
@@ -44,8 +46,10 @@ export class ReviewWordsComponent implements OnInit {
   }
 
   fetchWords() {
-    if (this.authService.getIdUser()) {
-      this.reviewService.getReviewWords(this.authService.getIdUser(), this.userInfoService.getUserLanguages()[0]).subscribe(
+    this.usedUserLanguages = this.userInfoService.userInfo?.preferredUserLanguages
+
+    if (this.authService.getIdUser() && this.usedUserLanguages) {
+      this.reviewService.getReviewWords(this.authService.getIdUser(), this.usedUserLanguages).subscribe(
         userReviewWords => {
           this.eventsService.showSpinner$.next(true);
           this.reviewWords = userReviewWords

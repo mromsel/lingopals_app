@@ -9,6 +9,7 @@ import { activityTypes } from 'src/app/shared/interfaces/user-activity.interface
 import { UserActivityService } from 'src/app/shared/services/user-activity.service';
 import { WordsInQuiz } from '../interfaces/words-in-quiz.interface';
 import { NavController } from '@ionic/angular';
+import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
 
 @Component({
   selector: 'app-lesson-in-progress',
@@ -22,6 +23,7 @@ export class LessonInProgressComponent implements OnInit {
   lessonType: string = activityTypes[1]
 
   listWords: WordsInQuiz[] = []
+  usedUserLanguages: UserLanguages | undefined
 
   // --------------------
 
@@ -53,9 +55,11 @@ export class LessonInProgressComponent implements OnInit {
   }
 
   fetchLesson() {
-    if (this.idLesson) {
 
-      this.lessonsService.getLesson(this.idLesson, this.userInfoService.getUserLanguages()[0]).subscribe(lesson => {
+    this.usedUserLanguages = this.userInfoService.userInfo?.preferredUserLanguages
+    if (this.idLesson && this.usedUserLanguages) {
+
+      this.lessonsService.getLesson(this.idLesson, this.usedUserLanguages).subscribe(lesson => {
         this.eventsService.showSpinner$.next(true);
         this.lesson = lesson
 
