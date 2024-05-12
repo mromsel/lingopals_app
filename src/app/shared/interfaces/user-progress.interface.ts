@@ -1,4 +1,5 @@
 import { UserInfo } from "./user-info.interface";
+import { XPLevel } from "./xp-level.interface";
 
 export interface UserProgress {
     idUserProgressData: number,
@@ -8,5 +9,6 @@ export interface UserProgress {
     streakEndDate: any,
     maxStreak: number,
     xpPoints: number,
+    xpLevel: XPLevel,
     user: UserInfo
 }

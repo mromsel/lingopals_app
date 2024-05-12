@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Lesson } from 'src/app/shared/interfaces/lesson.interface';
 import { LessonsService } from './services/lessons.service';
 import { Subject, takeUntil } from 'rxjs';
+import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
+import { UserInfoService } from 'src/app/shared/services/user-info.service';
+import { ConfigService } from 'src/app/shared/services/config.service';
 
 @Component({
   selector: 'app-lessons',
@@ -12,12 +15,22 @@ export class LessonsPage implements OnInit {
 
   unsubscribe$: Subject<void> = new Subject<void>();
 
-  //TODO: CHANGE TO LESSONDISPLAY
   lessons: Array<Lesson> = new Array();
 
-  constructor(private lessonsService: LessonsService) { }
+  preferredUserLanguages: UserLanguages | undefined;
+
+  constructor(
+    private lessonsService: LessonsService,
+    private configService: ConfigService,
+  ) { }
 
   ngOnInit() {
+    this.configService.getPreferredUserLanguages()
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(
+        preferredUserLanguages => this.preferredUserLanguages = preferredUserLanguages
+      )
+
     this.lessonsService.getAllLessons()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(lessons => {

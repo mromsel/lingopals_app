@@ -25,11 +25,10 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.translate.setDefaultLang('en')
+    this.mastersService.fetchBasicMasters()
 
     this.authService.isLoggedIn().subscribe(loggedIn => {
       this.isLoggedIn = loggedIn;
-      this.mastersService.fetchBasicMasters()
       if (!this.isLoggedIn) {
         this.router.navigate(["/login"])
       } else {

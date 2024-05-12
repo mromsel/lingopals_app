@@ -1,23 +1,27 @@
-<ion-modal trigger="open-single-language-selector">
-  <ng-template>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Select your language</ion-title>
-        <ion-buttons slot="end">
-          <ion-button (click)="closeModal()" [strong]="true">Close</ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="ion-padding">
-      <div class="languages-container">
+<div class="main-container">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        <span style="text-overflow:ellipsis;white-space:nowrap;">
+          Select your language
+        </span>
+      </ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="closeModal()" onkeypress="closeModal()" [strong]="true">Close</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <div class="languages-container">
 
-        <div class="languages-badge" *ngFor="let language of languagesToSelect; index as i">
-          <button ion-button expand="block" class="button" (click)="select(i)">
-            <img src={{filePrefix}}{{language.flag}} alt="Origin language" class="flag">
-          </button>
-        </div>
-
+      <div class="languages-badge" *ngFor="let language of languagesToSelect; index as i">
+        <button ion-button expand="block" class="button" (click)="select(i)"
+          [ngClass]="{'selected': language.isoCode == preferredIsoCode, 'not-selected' : language.isoCode != preferredIsoCode}">
+          <img src={{filePrefix}}{{language.flag}} alt="Origin language" class="flag">
+          <p class="language-name">{{language.languageName}}</p>
+        </button>
       </div>
-    </ion-content>
-  </ng-template>
-</ion-modal>
+
+    </div>
+  </ion-content>
+</div>

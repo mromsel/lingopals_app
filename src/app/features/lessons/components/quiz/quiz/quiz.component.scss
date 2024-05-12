@@ -1,0 +1,44 @@
+.debug-button {
+    font-size: 1rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+
+    * {
+        margin: 0 0.2rem;
+    }
+}
+
+.main-container {
+    display: flex;
+    background-color: var(--ion-color-background);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+
+    app-quiz-header,
+    .body,
+    .bottomButtonDiv {
+        margin: 0.5rem;
+    }
+
+    app-quiz-header {
+        width: 80%;
+    }
+
+    .body {
+        width: 80%;
+
+        .card {
+            border: 0.1rem solid lightgrey;
+            border-radius: 1.5rem;
+        }
+    }
+}
+
+.margin {
+    margin: 1rem;
+}

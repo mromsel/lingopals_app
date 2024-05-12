@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { UserInfo } from '../interfaces/user-info.interface';
 import { UserProgress } from '../interfaces/user-progress.interface';
-import { UsersLanguages } from '../interfaces/users-languages.interface';
+import { UserLanguages } from '../interfaces/user-languages.interface';
+import { ConfigService } from './config.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +16,14 @@ export class UserInfoService {
 
   idUser: number | undefined;
 
-  private userLanguages: UsersLanguages[] = [];
+  userLanguages: UserLanguages[] = [];
+  userInfo: UserInfo | undefined;
+  userProgress: UserProgress | undefined;
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private configService: ConfigService,
+    private http: HttpClient
+  ) {
     let localStorageIdUser = localStorage.getItem("idUser")
     this.idUser = localStorageIdUser ? +localStorageIdUser : undefined
 
@@ -32,7 +38,7 @@ export class UserInfoService {
     return this.http.get<UserProgress>(`${this.backendURL}/users-progress/${idUser}`)
   }
 
-  getUserLanguages(): UsersLanguages[] {
+  getUserLanguages(): UserLanguages[] {
     return this.userLanguages
   }
 
@@ -41,8 +47,20 @@ export class UserInfoService {
   }
 
   fetchData() {
-    this.http.get<UsersLanguages[]>(`${this.backendURL}/users-languages/${this.idUser}`).subscribe(userLanguages => {
+    if (this.idUser) {
+      this.getUserInfo(this.idUser).subscribe(userInfo => {
+        this.userInfo = userInfo
+        this.configService.setPreferredUserLanguages(userInfo.preferredUserLanguages)
+      })
+      this.getUserProgress(this.idUser).subscribe(userProgress => this.userProgress = userProgress)
+    }
+
+    this.http.get<UserLanguages[]>(`${this.backendURL}/users-languages/${this.idUser}`).subscribe(userLanguages => {
       this.userLanguages = userLanguages
     })
+  }
+
+  changePreferredUserLanguages(newUserLanguages: UserLanguages) {
+    return this.http.post<UserLanguages>(`${this.backendURL}/users-languages/change-preferred`, newUserLanguages)
   }
 }

@@ -18,7 +18,6 @@ export class MastersService {
     this.http.get<Language[]>(`${this.backendURL}/languages`).subscribe(
       languages => {
         this.languages = languages
-        console.log(this.languages)
       }
     )
   }

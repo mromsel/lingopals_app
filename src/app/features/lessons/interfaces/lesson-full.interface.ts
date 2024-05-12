@@ -1,12 +1,9 @@
-import { Word } from "src/app/shared/interfaces/word.interface"
+import { ActivityType } from "src/app/shared/interfaces/activity-type.interface"
+import { WordsInQuiz } from "./words-in-quiz.interface"
 
 export interface LessonFull {
     idLesson: number,
     lessonName: string,
-    wordsList: WordsInLesson[]
-}
-
-export interface WordsInLesson {
-    wordOrigin: Word,
-    wordTarget: Word
+    activityType: ActivityType,
+    wordsList: WordsInQuiz[]
 }

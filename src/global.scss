@@ -27,5 +27,11 @@
 
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
-$small-device-max-w: 767px;
-$large-device-min-w: 768px;
+.small-modal {
+    border: 2px solid black;
+    position: absolute;
+    border-radius: 1rem;
+    height: 80%;
+    width: 80%;
+    margin: auto;
+}

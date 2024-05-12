@@ -28,11 +28,11 @@
 
   <ion-card class="group">
     <ion-title>{{ 'settings.theme' | translate}}</ion-title>
-    <ion-segment value="default">
+    <ion-segment value="default" (ionChange)="themeChanged($event)">
       <ion-segment-button value="default">
         <ion-label>{{ 'settings.lightTheme' | translate}}</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="segment">
+      <ion-segment-button value="dark-theme">
         <ion-label>{{ 'settings.darkTheme' | translate}}</ion-label>
       </ion-segment-button>
     </ion-segment>

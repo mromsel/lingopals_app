@@ -1,0 +1,28 @@
+ion-card {
+    border-radius: 1rem;
+
+
+    ion-card-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+
+.animation {
+    height: 200px;
+    background: linear-gradient(to right, #FF0018, #FFA52C, #FFFF41, #008018, #0000F9, #86007D);
+    background-size: 1400% 100%;
+    animation: rainbow-colors 8s linear infinite;
+}
+
+@keyframes rainbow-colors {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 100% 0;
+    }
+}

@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { LanguageSelectorModalComponent } from './language-selector-modal.component';
+import { QuizOptionsQuestionComponent } from './quiz-options-question.component';
 
-describe('LanguageSelectorModalComponent', () => {
-  let component: LanguageSelectorModalComponent;
-  let fixture: ComponentFixture<LanguageSelectorModalComponent>;
+describe('QuizOptionsQuestionComponent', () => {
+  let component: QuizOptionsQuestionComponent;
+  let fixture: ComponentFixture<QuizOptionsQuestionComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LanguageSelectorModalComponent ],
+      declarations: [ QuizOptionsQuestionComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(LanguageSelectorModalComponent);
+    fixture = TestBed.createComponent(QuizOptionsQuestionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
