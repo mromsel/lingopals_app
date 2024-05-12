@@ -9,6 +9,8 @@ import { ActivityResult } from 'src/app/shared/interfaces/activity-result.interf
 import { EventsService } from 'src/app/shared/services/events.service';
 import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
 import { ActivityType } from 'src/app/shared/interfaces/activity-type.interface';
+import { UserLevelUpdate } from '../../../interfaces/user-level-update.interface';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-quiz',
@@ -16,6 +18,8 @@ import { ActivityType } from 'src/app/shared/interfaces/activity-type.interface'
   styleUrls: ['./quiz.component.scss'],
 })
 export class QuizComponent implements OnInit {
+
+  unsubscribe$: Subject<void> = new Subject<void>();
 
   //#region Properties
 
@@ -56,6 +60,8 @@ export class QuizComponent implements OnInit {
 
   userActivityResult: UserActivity | undefined;
   userResults: ActivityResult[] = []
+
+  userLevelUpdate: UserLevelUpdate | undefined;
 
   //#endregion
 
@@ -159,7 +165,7 @@ export class QuizComponent implements OnInit {
     this.stateFinished = true
     this.lessonCurrentState = this.lessonStates[3]
 
-    this.submitResults()
+    // this.submitResults()
   }
 
   submitResults() {
@@ -173,8 +179,17 @@ export class QuizComponent implements OnInit {
         results: this.userResults,
         idLesson: this.idLesson ? this.idLesson : undefined
       }
-      console.log(this.userActivityResult)
-      this.userActivityService.submitUserActivity(this.userActivityResult).subscribe()
+      this.userActivityService.submitUserActivity(this.userActivityResult)
+        .pipe(takeUntil(this.unsubscribe$))
+        .subscribe(
+          userLevelUpdate => {
+            this.eventsService.showSpinner$.next(true);
+            this.userLevelUpdate = userLevelUpdate
+            this.finishLesson()
+            this.eventsService.showSpinner$.next(false);
+            this.unsubscribe$.next()
+          }
+        )
     }
   }
 
@@ -194,7 +209,7 @@ export class QuizComponent implements OnInit {
       this.index++;
       this.displayQuestion()
     } else {
-      this.finishLesson()
+      this.submitResults()
     }
   }
 
