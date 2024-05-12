@@ -1,34 +1,40 @@
 <ion-content>
+  <div class="content-container">
 
-  <ion-title>
-    <ion-searchbar></ion-searchbar>
-  </ion-title>
 
-  <div class="main-container">
+    <app-back-button [backRoute]="backRoute"></app-back-button>
+    <ion-title>
+      <ion-searchbar></ion-searchbar>
+    </ion-title>
 
-    <ion-accordion-group>
+    <div class="main-container">
+      <ion-accordion-group>
 
-      <ion-accordion value="masters">
-        <ion-item slot="header" color="light">
-          <ion-label>Masters</ion-label>
-        </ion-item>
-        <div class="ion-padding element" slot="content" routerLink="./masters/type">Content</div>
-      </ion-accordion>
+        <ion-accordion value="masters">
+          <ion-item slot="header" color="light">
+            <ion-label>Masters</ion-label>
+          </ion-item>
+          <div class="ion-padding element" slot="content" *ngFor="let master of masters; index as i"
+            [routerLink]="['./masters/', master]">{{masters[i]}}</div>
+        </ion-accordion>
 
-      <ion-accordion value="words-related">
-        <ion-item slot="header" color="light">
-          <ion-label>Words related</ion-label>
-        </ion-item>
-        <div class="ion-padding element" slot="content" routerLink="./words-related/type">Content</div>
-      </ion-accordion>
+        <ion-accordion value="words-related">
+          <ion-item slot="header" color="light">
+            <ion-label>Words related</ion-label>
+          </ion-item>
+          <div class="ion-padding element" slot="content" *ngFor="let wordRelated of wordsRelated; index as i"
+            [routerLink]="['./words-related/', wordRelated]">{{wordsRelated[i]}}</div>
+        </ion-accordion>
 
-      <ion-accordion value="users-related">
-        <ion-item slot="header" color="light">
-          <ion-label>Users related</ion-label>
-        </ion-item>
-        <div class="ion-padding" slot="content" routerLink="./users-related/type">Content</div>
-      </ion-accordion>
-    </ion-accordion-group>
+        <ion-accordion value="users-related">
+          <ion-item slot="header" color="light">
+            <ion-label>Users related</ion-label>
+          </ion-item>
+          <div class="ion-padding element" slot="content" *ngFor="let userRelated of usersRelated; index as i"
+            [routerLink]="['./users-related/', userRelated]">{{usersRelated[i]}}</div>
+        </ion-accordion>
 
+      </ion-accordion-group>
+    </div>
   </div>
 </ion-content>
