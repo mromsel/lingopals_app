@@ -3,7 +3,6 @@ import { Lesson } from 'src/app/shared/interfaces/lesson.interface';
 import { LessonsService } from './services/lessons.service';
 import { Subject, takeUntil } from 'rxjs';
 import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
-import { UserInfoService } from 'src/app/shared/services/user-info.service';
 import { ConfigService } from 'src/app/shared/services/config.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { ConfigService } from 'src/app/shared/services/config.service';
   templateUrl: './lessons.page.html',
   styleUrls: ['./lessons.page.scss'],
 })
-export class LessonsPage implements OnInit {
+export class LessonsPage {
 
   unsubscribe$: Subject<void> = new Subject<void>();
 
@@ -24,11 +23,13 @@ export class LessonsPage implements OnInit {
     private configService: ConfigService,
   ) { }
 
-  ngOnInit() {
-    this.configService.getPreferredUserLanguages()
+  ionViewWillEnter() {
+    this.configService.preferredUserLanguages
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
-        preferredUserLanguages => this.preferredUserLanguages = preferredUserLanguages
+        preferredUserLanguages => {
+          this.preferredUserLanguages = preferredUserLanguages
+        }
       )
 
     this.lessonsService.getAllLessons()

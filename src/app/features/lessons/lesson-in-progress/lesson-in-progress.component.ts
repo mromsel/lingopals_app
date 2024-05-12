@@ -66,7 +66,7 @@ export class LessonInProgressComponent {
 
   fetchLesson() {
 
-    this.usedUserLanguages = this.userInfoService.userInfo?.preferredUserLanguages
+    this.usedUserLanguages = this.userInfoService.userInfo?.userLanguages.filter(userLanguages => userLanguages.preferred)[0]
     if (this.idLesson && this.usedUserLanguages) {
 
       this.lessonsService.getLesson(this.idLesson, this.usedUserLanguages).subscribe(lesson => {
