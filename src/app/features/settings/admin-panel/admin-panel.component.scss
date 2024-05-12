@@ -1,0 +1,21 @@
+ion-content {
+    --ion-background-color: var(--ion-color-background);
+
+    ion-title {
+        ion-searchbar {
+            --background: var(--ion-color-tertiary-contrast);
+            --border-radius: 1rem;
+        }
+    }
+
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        ion-accordion-group {
+            width: 90%;
+        }
+    }
+}

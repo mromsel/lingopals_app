@@ -1,0 +1,34 @@
+<ion-content>
+
+  <ion-title>
+    <ion-searchbar></ion-searchbar>
+  </ion-title>
+
+  <div class="main-container">
+
+    <ion-accordion-group>
+
+      <ion-accordion value="masters">
+        <ion-item slot="header" color="light">
+          <ion-label>Masters</ion-label>
+        </ion-item>
+        <div class="ion-padding element" slot="content" routerLink="./masters/type">Content</div>
+      </ion-accordion>
+
+      <ion-accordion value="words-related">
+        <ion-item slot="header" color="light">
+          <ion-label>Words related</ion-label>
+        </ion-item>
+        <div class="ion-padding element" slot="content" routerLink="./words-related/type">Content</div>
+      </ion-accordion>
+
+      <ion-accordion value="users-related">
+        <ion-item slot="header" color="light">
+          <ion-label>Users related</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content" routerLink="./users-related/type">Content</div>
+      </ion-accordion>
+    </ion-accordion-group>
+
+  </div>
+</ion-content>
