@@ -50,7 +50,6 @@ export class UserInfoService {
     if (this.idUser) {
       this.getUserInfo(this.idUser).subscribe(userInfo => {
         this.userInfo = userInfo
-        console.log(userInfo.userLanguages)
         let preferredUserLanguages: UserLanguages | undefined = userInfo.userLanguages.filter(userLanguages => userLanguages.preferred)[0]
         if (preferredUserLanguages) {
           this.configService.setPreferredUserLanguages(preferredUserLanguages)

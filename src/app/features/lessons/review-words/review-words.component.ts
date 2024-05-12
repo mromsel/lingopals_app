@@ -46,7 +46,6 @@ export class ReviewWordsComponent implements OnInit {
         this.userInfoService.getUserInfo(idUser).subscribe(
           userInfo => {
             this.usedUserLanguages = userInfo.userLanguages.filter(userLanguages => userLanguages.preferred)[0]
-            console.log(this.usedUserLanguages)
           }
         )
       }
@@ -59,14 +58,6 @@ export class ReviewWordsComponent implements OnInit {
 
   ionViewWillEnter() {
     if (this.authService.getIdUser() && this.userInfoService.userLanguages[0]) {
-      // let idUser = this.authService.getIdUser()
-      // if (idUser) {
-      //   this.userInfoService.getUserInfo(idUser).subscribe(
-      //     userInfo => {
-      //       this.usedUserLanguages = userInfo.preferredUserLanguages
-      //     }
-      //   )
-      // }
 
       this.configService.getPreferredUserLanguages().subscribe(
         userLanguages => this.usedUserLanguages = userLanguages
