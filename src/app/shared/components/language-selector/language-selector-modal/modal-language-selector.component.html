@@ -4,12 +4,12 @@
       <ion-toolbar>
         <ion-title>Select the language to learn</ion-title>
         <ion-buttons slot="end">
-          <ion-button (click)="closeModal()" [strong]="true">Close</ion-button>
+          <ion-button (click)="closeModal()" onkeypress="closeModal()" [strong]="true">Close</ion-button>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-      <div class="languages-badge" *ngFor="let language of languagesToSelect; index as i">
+      <div class="languages-badge" *ngFor="let language of userLanguagesToSelect; index as i">
         <button ion-button expand="block" class="button" (click)="select(i)"
           [ngClass]="{'selected': preferredIndex == i, 'not-selected' : preferredIndex != i}">
           <img src={{filePrefix}}{{language.languageOrigin.flag}} alt="Origin language" class="flag">
