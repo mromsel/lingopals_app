@@ -1,0 +1,21 @@
+.main-container {
+    padding: 1rem;
+
+    form {
+        .item {
+            * {
+                margin: 10px;
+            }
+        }
+
+        .submit-button {
+            background-color: var(--ion-color-tertiary);
+            border: 2px solid black;
+            border-radius: 0.5rem;
+            color: var(--ion-color-tertiary-contrast);
+            font-size: 1.2rem;
+            margin-left: 0.5rem;
+            padding: 0.5rem;
+        }
+    }
+}
