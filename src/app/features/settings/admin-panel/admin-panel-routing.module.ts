@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminPanelPage } from './admin-panel.page';
 import { MastersComponent } from './masters/masters.component';
 import { UsersRelatedComponent } from './users-related/users-related.component';
-import { WordsRelatedComponent } from './words-related/words-related.component';
+import { WordsReferencesComponent } from './words-related/words-references/words-references.component';
 
 const routes: Routes = [
   {
@@ -16,8 +16,17 @@ const routes: Routes = [
     component: MastersComponent,
   },
   {
-    path: 'words-related/:type',
-    component: WordsRelatedComponent,
+    path: 'words-related', // +'/:type'
+    children: [
+      {
+        path: 'word-references',
+        component: WordsReferencesComponent,
+      },
+      // {
+      //   path: 'words',
+      //   component: WordsComponent,
+      // },
+    ]
   },
   {
     path: 'users-related/:type',
