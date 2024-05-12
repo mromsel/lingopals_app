@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { WordReference } from 'src/app/shared/interfaces/word-reference.interface';
+import { AdminPanelService } from '../../../services/admin-panel.service';
+import { DictionaryApiWordData } from '../../../dictionary-api/dictionary-api-word-data.interface';
 
 @Component({
   selector: 'app-words-references-form',
@@ -11,7 +13,12 @@ export class WordsReferencesFormComponent {
 
   wordReferenceForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  wordDetails: DictionaryApiWordData | undefined;
+
+  constructor(
+    private adminPanelService: AdminPanelService,
+    private formBuilder: FormBuilder
+  ) {
     // Create form
     this.wordReferenceForm = this.formBuilder.group({
       englishWord: ['', Validators.required],
@@ -36,5 +43,16 @@ export class WordsReferencesFormComponent {
     } else {
       // Form not valid
     }
+  }
+
+  findWord() {
+    // let word = this.wordReferenceForm.value.englishWord;
+    let word = "hello"; // DEBUG
+    this.adminPanelService.getWordDetailsFromDictionaryAPI(word).subscribe(
+      word => {
+        console.log(word)
+        this.wordDetails = word[0]
+      }
+    )
   }
 }
