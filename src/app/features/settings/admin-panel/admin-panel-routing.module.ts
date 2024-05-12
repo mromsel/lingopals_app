@@ -5,6 +5,7 @@ import { AdminPanelPage } from './admin-panel.page';
 import { MastersComponent } from './masters/masters.component';
 import { UsersRelatedComponent } from './users-related/users-related.component';
 import { WordsReferencesComponent } from './words-related/words-references/words-references.component';
+import { WordsReferencesFormComponent } from './words-related/words-references/words-references-form/words-references-form.component';
 
 const routes: Routes = [
   {
@@ -20,7 +21,16 @@ const routes: Routes = [
     children: [
       {
         path: 'word-references',
-        component: WordsReferencesComponent,
+        children: [
+          {
+            path: '',
+            component: WordsReferencesComponent
+          },
+          {
+            path: 'form',
+            component: WordsReferencesFormComponent,
+          },
+        ]
       },
       // {
       //   path: 'words',
