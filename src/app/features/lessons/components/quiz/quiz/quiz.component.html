@@ -13,7 +13,7 @@
       [correctOption]="currentCorrectOption" *ngIf="stateInProgress" (answerSubmitted)="submitAnswer($event)"
       class="card"></app-quiz-options-question>
     <app-quiz-finished-card *ngIf="stateFinished" [listWords]="listWords" [userActivityResult]="userActivityResult"
-      class="card"></app-quiz-finished-card>
+      [userLevelUpdate]="userLevelUpdate" class="card"></app-quiz-finished-card>
   </div>
 
   <div class="bottomButtonDiv">
