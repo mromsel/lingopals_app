@@ -1,0 +1,53 @@
+<ion-content>
+  <app-back-button></app-back-button>
+  <div class="main-container">
+
+    <div class="buttons-div">
+      <ion-button (click)="toggleShowForm()" onkeypress="toggleShowForm()">Add</ion-button>
+      <ion-button (click)="toggleShowSearchBar()" onkeypress="toggleShowSearchBar()">Find</ion-button>
+      <ion-button (click)="toggleShowForm()" onkeypress="toggleShowForm()">Update</ion-button>
+    </div>
+
+    <div class="form-container" *ngIf="showForm">
+      <app-words-references-form></app-words-references-form>
+    </div>
+
+    <div class="finder" *ngIf="showSearchBar">
+      <ion-searchbar></ion-searchbar>
+    </div>
+
+    <div class="table-container">
+
+      <table mat-table [dataSource]="data" class="mat-elevation-z8 table">
+
+        <!-- idWordRef Column -->
+        <ng-container matColumnDef="idWordRef">
+          <th mat-header-cell *matHeaderCellDef> idWordRef </th>
+          <td mat-cell *matCellDef="let element"> {{element.idWordRef}} </td>
+        </ng-container>
+
+        <!-- englishWord Column -->
+        <ng-container matColumnDef="englishWord">
+          <th mat-header-cell *matHeaderCellDef> englishWord </th>
+          <td mat-cell *matCellDef="let element"> {{element.englishWord}} </td>
+        </ng-container>
+
+        <!-- languageLevel Column -->
+        <ng-container matColumnDef="languageLevel">
+          <th mat-header-cell *matHeaderCellDef> languageLevel </th>
+          <td mat-cell *matCellDef="let element"> {{element.languageLevel.levelName}} </td>
+        </ng-container>
+
+        <!-- category Column -->
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef> category </th>
+          <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+
+  </div>
+</ion-content>
