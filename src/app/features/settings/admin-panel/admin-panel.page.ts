@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-admin-panel',
-  templateUrl: './admin-panel.component.html',
-  styleUrls: ['./admin-panel.component.scss'],
+  templateUrl: './admin-panel.page.html',
+  styleUrls: ['./admin-panel.page.scss'],
 })
-export class AdminPanelComponent implements OnInit {
+export class AdminPanelPage implements OnInit {
 
   backRoute: string = "../settings"
 
@@ -36,6 +36,7 @@ export class AdminPanelComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
 }

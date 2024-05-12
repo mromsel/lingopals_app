@@ -10,11 +10,6 @@ import { SettingsPage } from './settings.page';
 import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from 'src/main';
-import { SharedModule } from 'src/app/shared/module/shared.module';
-import { AdminPanelComponent } from './admin-panel/admin-panel.component';
-import { MastersComponent } from './admin-panel/masters/masters.component';
-import { WordsRelatedComponent } from './admin-panel/words-related/words-related.component';
-import { UsersRelatedComponent } from './admin-panel/users-related/users-related.component';
 
 @NgModule({
   imports: [
@@ -29,14 +24,9 @@ import { UsersRelatedComponent } from './admin-panel/users-related/users-related
         deps: [HttpClient]
       }
     }),
-    SharedModule,
   ],
   declarations: [
     SettingsPage,
-    AdminPanelComponent,
-    MastersComponent,
-    WordsRelatedComponent,
-    UsersRelatedComponent,
   ]
 })
 export class SettingsPageModule { }

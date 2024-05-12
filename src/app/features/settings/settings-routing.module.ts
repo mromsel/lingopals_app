@@ -2,10 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { SettingsPage } from './settings.page';
-import { AdminPanelComponent } from './admin-panel/admin-panel.component';
-import { MastersComponent } from './admin-panel/masters/masters.component';
-import { UsersRelatedComponent } from './admin-panel/users-related/users-related.component';
-import { WordsRelatedComponent } from './admin-panel/words-related/words-related.component';
 
 const routes: Routes = [
   {
@@ -14,20 +10,9 @@ const routes: Routes = [
   },
   {
     path: 'admin-panel',
-    component: AdminPanelComponent,
+    loadChildren: () => import('./admin-panel/admin-panel.module').then(m => m.AdminPanelPageModule)
   },
-  {
-    path: 'admin-panel/masters/:type',
-    component: MastersComponent,
-  },
-  {
-    path: 'admin-panel/words-related/:type',
-    component: WordsRelatedComponent,
-  },
-  {
-    path: 'admin-panel/users-related/:type',
-    component: UsersRelatedComponent,
-  },
+
 ];
 
 @NgModule({
