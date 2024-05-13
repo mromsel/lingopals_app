@@ -13,6 +13,7 @@ import { MastersComponent } from './masters/masters.component';
 import { UsersRelatedComponent } from './users-related/users-related.component';
 import { WordsReferencesComponent } from './words-related/words-references/words-references.component';
 import { WordsReferencesFormComponent } from './words-related/words-references/words-references-form/words-references-form.component';
+import { DictionaryApiComponent } from './dictionary-api/dictionary-api.component';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { WordsReferencesFormComponent } from './words-related/words-references/w
     WordsReferencesComponent,
     WordsReferencesFormComponent,
     UsersRelatedComponent,
+    DictionaryApiComponent,
   ]
 })
 export class AdminPanelPageModule { }
