@@ -17,6 +17,7 @@ export class AdminPanelPage implements OnInit {
 
   masters: string[] = [
     "activity-types",
+    "grammatical-categories",
     "language-levels",
     "languages",
     "profiles",
