@@ -1,43 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { adminPanelDropdownParents, adminPanelMasters, adminPanelUsersRelated, adminPanelWordsRelated } from './interfaces/admin-panel-constants';
 
 @Component({
   selector: 'app-admin-panel',
   templateUrl: './admin-panel.page.html',
   styleUrls: ['./admin-panel.page.scss'],
 })
-export class AdminPanelPage implements OnInit {
+export class AdminPanelPage {
 
   backRoute: string = "../settings"
 
-  dropdownParents: string[] = [
-    "Masters",
-    "Words related",
-    "Users related"
-  ]
+  dropdownParents: string[] = adminPanelDropdownParents
 
-  masters: string[] = [
-    "activity-types",
-    "grammatical-categories",
-    "language-levels",
-    "languages",
-    "profiles",
-    "writing-systems",
-    "xp-levels"
-  ]
+  masters: string[] = adminPanelMasters
 
-  wordsRelated: string[] = [
-    "word-references",
-    "words"
-  ]
+  wordsRelated: string[] = adminPanelWordsRelated
 
-  usersRelated: string[] = [
-    "users",
-    "users-progress"
-  ]
+  usersRelated: string[] = adminPanelUsersRelated
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }
