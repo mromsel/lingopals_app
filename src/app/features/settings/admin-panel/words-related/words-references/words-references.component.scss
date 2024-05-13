@@ -38,7 +38,10 @@ ion-content {
         .table-container {
             padding: 0.2rem;
 
-            .table {}
+            .table {
+                width: 100%;
+                text-align: center;
+            }
         }
     }
 }
