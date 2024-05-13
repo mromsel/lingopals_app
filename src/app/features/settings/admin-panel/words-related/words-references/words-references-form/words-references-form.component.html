@@ -1,14 +1,25 @@
 <div class="main-container">
+  <app-back-button *ngIf="isAdvanced"></app-back-button>
+
   <div class="form-container">
     <form [formGroup]="wordReferenceForm" (ngSubmit)="onSubmit()">
       <div class="item">
         <label for="englishWord">English Word</label>
         <input type="text" formControlName="englishWord" id="englishWord" placeholder="hello" required>
-        <button (click)="findWord()">Find</button>
       </div>
+      <div class="item textarea">
+        <label for="englishDefinition">English Definition</label>
+        <textarea type="text" formControlName="englishDefinition" id="englishDefinition" required></textarea>
+      </div>
+
       <div class="item">
-        <label for="imageUrl">Image URL</label>
-        <input type="text" formControlName="imageUrl" id="imageUrl">
+        <label for="grammaticalCategory">Grammatical Category</label>
+        <select formControlName="grammaticalCategory" id="grammaticalCategory" required>
+          <option value="">Select</option>
+          <option value="BEGINNER">Beginner</option>
+          <option value="INTERMEDIATE">Intermediate</option>
+          <option value="ADVANCED">Advanced</option>
+        </select>
       </div>
       <div class="item">
         <label for="languageLevel">Language Level</label>
@@ -23,16 +34,19 @@
         <label for="category">Category</label>
         <input type="text" formControlName="category" id="category">
       </div>
+
+      <div class="item">
+        <label for="imageUrl">Image URL</label>
+        <input type="text" formControlName="imageUrl" id="imageUrl">
+      </div>
       <button type="submit" class="submit-button">Add Word Reference</button>
     </form>
   </div>
 
-  <div class="word-details" *ngIf="wordDetails">
-    Word: {{wordDetails.word}}
-    <ion-list>
-      <ion-item *ngFor="let meaning of wordDetails.meanings">
-        - {{meaning.definitions[0].definition}}
-      </ion-item>
-    </ion-list>
+  <div class="word-details" *ngIf="isAdvanced">
+
+    <app-dictionary-api (wordReferenceWordString)="setEnglishWord($event)"
+      (wordReferenceDefinition)="setDefinition($event)"></app-dictionary-api>
+
   </div>
 </div>

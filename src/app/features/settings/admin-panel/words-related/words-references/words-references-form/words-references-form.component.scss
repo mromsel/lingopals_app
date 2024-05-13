@@ -2,15 +2,43 @@
     padding: 1rem;
     display: flex;
     flex-direction: row;
-
+    justify-content: space-around;
+    height: 100%;
 
     .form-container {
 
 
         form {
-            .item {
+
+            .item,
+            .textarea {
+                display: flex;
+                align-items: center;
+
+
                 * {
                     margin: 10px;
+                }
+
+                input {
+                    flex-grow: 1;
+                }
+            }
+
+            .item {
+                flex-direction: row;
+            }
+
+            .textarea {
+                flex-direction: column;
+
+                * {
+                    width: 95%;
+                }
+
+                textarea {
+                    height: 10rem;
+                    resize: none;
                 }
             }
 

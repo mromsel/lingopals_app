@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { WordReference } from 'src/app/shared/interfaces/word-reference.interface';
 import { AdminPanelService } from '../../../services/admin-panel.service';
-import { DictionaryApiWordData } from '../../../dictionary-api/dictionary-api-word-data.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-words-references-form',
@@ -11,21 +11,32 @@ import { DictionaryApiWordData } from '../../../dictionary-api/dictionary-api-wo
 })
 export class WordsReferencesFormComponent {
 
+  @Input() data: WordReference[] = []
+
   wordReferenceForm: FormGroup;
 
-  wordDetails: DictionaryApiWordData | undefined;
+  isAdvanced: boolean = false;
 
   constructor(
     private adminPanelService: AdminPanelService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router,
   ) {
     // Create form
     this.wordReferenceForm = this.formBuilder.group({
       englishWord: ['', Validators.required],
-      imageUrl: '',
+      englishDefinition: ['', Validators.required],
+      grammaticalCategory: '',
       languageLevel: ['', Validators.required],
-      category: ''
+      category: '',
+      imageUrl: '',
     });
+
+    let routeParts = this.router.url.split("/")
+    if (routeParts[routeParts.length - 1] === "form") {
+      this.isAdvanced = true
+      this.data = history.state.data;
+    }
   }
 
   onSubmit() {
@@ -33,9 +44,11 @@ export class WordsReferencesFormComponent {
       const wordReference: WordReference = {
         idWordRef: 0,
         englishWord: this.wordReferenceForm.value.englishWord,
-        imageUrl: this.wordReferenceForm.value.imageUrl,
+        englishDefinition: this.wordReferenceForm.value.englishDefinition,
+        grammaticalCategory: this.wordReferenceForm.value.grammaticalCategory,
         languageLevel: this.wordReferenceForm.value.languageLevel,
-        category: this.wordReferenceForm.value.category
+        category: this.wordReferenceForm.value.category,
+        imageUrl: this.wordReferenceForm.value.imageUrl,
       };
 
       // Submit
@@ -45,14 +58,12 @@ export class WordsReferencesFormComponent {
     }
   }
 
-  findWord() {
-    // let word = this.wordReferenceForm.value.englishWord;
-    let word = "hello"; // DEBUG
-    this.adminPanelService.getWordDetailsFromDictionaryAPI(word).subscribe(
-      word => {
-        console.log(word)
-        this.wordDetails = word[0]
-      }
-    )
+  setEnglishWord(word: string) {
+    this.wordReferenceForm.controls['englishWord'].setValue(word);
   }
+
+  setDefinition(definition: string) {
+    this.wordReferenceForm.controls['englishDefinition'].setValue(definition);
+  }
+
 }
