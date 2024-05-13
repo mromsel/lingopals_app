@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WordReference } from 'src/app/shared/interfaces/word-reference.interface';
 import { AdminPanelService } from '../../services/admin-panel.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-words-references',
@@ -11,18 +12,24 @@ export class WordsReferencesComponent implements OnInit {
 
   data: WordReference[] = [];
 
-  displayedColumns: string[] = ['idWordRef', 'englishWord', 'languageLevel', 'category']; //private String imageUrl;
+  displayedColumns: string[] = ['idWordRef', 'englishWord', 'englishDefinition', 'languageLevel', 'category', 'actions']; //private String imageUrl;
 
-  public showForm: boolean = false
+  displayList: WordReference[] = [];
+
+  public showForm: boolean = true
   public showSearchBar: boolean = false
 
   constructor(
     private adminPanelService: AdminPanelService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
     this.adminPanelService.getResource("word-references").subscribe(
-      data => this.data = data
+      data => {
+        this.data = data
+        this.displayList = [...this.data]
+      }
     )
   }
 
@@ -40,4 +47,18 @@ export class WordsReferencesComponent implements OnInit {
     }
   }
 
+  action() { }
+
+  onSearch(event: any) {
+    const searchTerm = event.target.value;
+    // this.displayList = [...this.data]
+    this.displayList = this.data.filter(item => item.englishWord.toLowerCase().includes(searchTerm.toLowerCase()))
+
+    console.log(this.displayList)
+  }
+
+  goToAdvancedForm() {
+    let data = this.data
+    this.router.navigate(['app/settings/admin-panel/words-related/word-references/form'], { state: { data } });
+  }
 }
