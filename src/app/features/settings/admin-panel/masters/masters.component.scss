@@ -24,8 +24,14 @@ ion-content {
             padding: 0.2rem;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-around;
             flex-wrap: wrap;
+
+            ion-text {
+                border: 1px solid black;
+                border-radius: 0.2rem;
+                padding: 0.5rem;
+            }
         }
 
         .finder {
@@ -67,4 +73,9 @@ ion-content {
             }
         }
     }
+}
+
+.selected {
+    background-color: var(--ion-color-tertiary);
+    color: var(--ion-color-tertiary-contrast);
 }

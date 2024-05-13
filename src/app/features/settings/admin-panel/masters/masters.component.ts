@@ -21,7 +21,7 @@ export class MastersComponent implements OnInit {
 
 
   public showForm: boolean = false
-  public showSearchBar: boolean = true
+  public showSearchBar: boolean = false
 
   constructor(
     private adminPanelService: AdminPanelService,
@@ -68,6 +68,7 @@ export class MastersComponent implements OnInit {
   action() { }
 
   onSearch(event: any) {
+    // TODO: check type of data. If it's string, number, boolean, other type, ...
     const searchTerm = event.target.value;
     this.displayList = this.masterData.filter(item => item[this.selectedProperty].toLowerCase().includes(searchTerm.toLowerCase()))
 
