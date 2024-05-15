@@ -10,7 +10,7 @@ import { adminPanelMasters } from '../interfaces/admin-panel-constants';
 })
 export class MastersComponent implements OnInit {
 
-  masters: string[] = adminPanelMasters
+  mastersNamesList: string[] = adminPanelMasters
 
   masterData: any[] = []
   displayList: any[] = [];
@@ -19,6 +19,7 @@ export class MastersComponent implements OnInit {
   currentMaster: string = ""
   selectedProperty: string = ""
 
+  allMasters: any[] = [];
 
   public showForm: boolean = false
   public showSearchBar: boolean = false
@@ -27,7 +28,14 @@ export class MastersComponent implements OnInit {
     private adminPanelService: AdminPanelService,
     private route: ActivatedRoute,
     private router: Router,
-  ) { }
+  ) {
+    this.adminPanelService.fetchAllMasters()
+    this.adminPanelService.masters.subscribe(
+      masters => {
+        this.allMasters = masters
+      }
+    )
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {

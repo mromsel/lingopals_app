@@ -3,10 +3,12 @@
   <div class="main-container">
 
     <div class="masters">
-      <ion-text *ngFor="let master of masters" color="tertiary" (click)="changeMaster(master)"
-        onkeypress="changeMaster(master)" [ngClass]="{'selected': master === currentMaster}">
+      <ion-text *ngFor="let master of mastersNamesList" color="tertiary" routerLink="../{{master}}"
+        [ngClass]="{'selected': master === currentMaster}">
         {{master}}
       </ion-text>
+      <!-- (click)="changeMaster(master)" -->
+      <!-- onkeypress="changeMaster(master)" -->
     </div>
 
     <div class="buttons-div">
