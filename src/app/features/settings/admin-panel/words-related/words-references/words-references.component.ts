@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class WordsReferencesComponent implements OnInit {
 
+  routeToNavigateOnAdvancedSearch = 'app/settings/admin-panel/words-related/word-references/form'
+
   data: WordReference[] = [];
 
   displayedColumns: string[] = ['idWordRef', 'englishWord', 'englishDefinition', 'grammaticalCategory', 'languageLevel', 'category', 'actions']; //private String imageUrl;
@@ -59,6 +61,6 @@ export class WordsReferencesComponent implements OnInit {
 
   goToAdvancedForm() {
     let data = this.data
-    this.router.navigate(['app/settings/admin-panel/words-related/word-references/form'], { state: { data } });
+    this.router.navigate([this.routeToNavigateOnAdvancedSearch], { state: { data } });
   }
 }

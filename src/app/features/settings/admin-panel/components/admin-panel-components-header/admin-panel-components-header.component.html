@@ -1,5 +1,6 @@
 <div class="buttons-div">
   <ion-button (click)="pressedToggleShowForm()" onkeypress="toggleShowForm()">Simple create</ion-button>
-  <ion-button (click)="goToAdvancedForm()" onkeypress="goToAdvancedForm()">Advanced create</ion-button>
+  <ion-button *ngIf="hasAdvancedSearch" (click)="goToAdvancedForm()" onkeypress="goToAdvancedForm()">Advanced
+    create</ion-button>
   <ion-button (click)="pressedToggleShowSearchBar()" onkeypress="toggleShowSearchBar()">Find</ion-button>
 </div>

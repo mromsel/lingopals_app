@@ -11,10 +11,8 @@
       <!-- onkeypress="changeMaster(master)" -->
     </div>
 
-    <div class="buttons-div">
-      <ion-button (click)="toggleShowForm()" onkeypress="toggleShowForm()">Simple create</ion-button>
-      <ion-button (click)="toggleShowSearchBar()" onkeypress="toggleShowSearchBar()">Find</ion-button>
-    </div>
+    <app-admin-panel-components-header (toggleShowForm)="toggleShowForm()"
+      (toggleShowSearchBar)="toggleShowSearchBar()"></app-admin-panel-components-header>
 
     <div class="form-container" *ngIf="showForm">
       <!-- <app-words-references-form></app-words-references-form> -->
