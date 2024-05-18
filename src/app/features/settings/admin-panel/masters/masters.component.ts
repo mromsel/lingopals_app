@@ -11,6 +11,8 @@ import { Masters } from '../interfaces/masters.interface';
 })
 export class MastersComponent implements OnInit {
 
+  backRoute: string = "app/settings/admin-panel"
+
   mastersNamesList: string[] = adminPanelMasters
 
   masterData: any[] = []
