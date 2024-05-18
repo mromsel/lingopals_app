@@ -3,6 +3,12 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { DictionaryApiWordData } from '../dictionary-api/dictionary-api-word-data.interface';
 import { Subject } from 'rxjs';
+import { Masters } from '../interfaces/masters.interface';
+import { WordsRelated } from '../interfaces/words-related.interface';
+import { LibreTranslateRequest } from '../libre-translate-api/libre-translate-request.interface';
+import { LibreTranslateApiResponse } from '../libre-translate-api/libre-translate-response.interface';
+import { Language } from 'src/app/shared/interfaces/language.interface';
+import { WordFull } from 'src/app/shared/interfaces/word-full.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -10,20 +16,49 @@ import { Subject } from 'rxjs';
 export class AdminPanelService {
 
   dictionaryApiURL = "https://api.dictionaryapi.dev/api/v2/entries/en"
+  libreTranslateApiURL = "http://localhost:5000"
 
   backendURL: string = environment.backendURL
+  adminPanelURL = this.backendURL + "/admin-panel"
 
-  masters = new Subject<any[]>();
+  masters = new Subject<Masters>();
+  mastersStored: Masters | undefined
 
-  mastersStored: any[] = []
+  wordsRelated = new Subject<WordsRelated>();
+  wordsRelatedStored: WordsRelated | undefined
 
-  constructor(private http: HttpClient) { }
+  usersRelated = new Subject<any>();
+  usersRelatedStored: any | undefined
+
+  constructor(private http: HttpClient) {
+    this.fetchAllMasters()
+    this.fetchAllWordsRelated()
+    this.fetchAllUsersRelated()
+  }
 
   fetchAllMasters() {
-    this.http.get<any>(`${this.backendURL}/masters`).subscribe(
+    this.getMasters().subscribe(
       masters => {
         this.masters.next(masters)
         this.mastersStored = masters
+      }
+    )
+  }
+
+  fetchAllWordsRelated() {
+    this.getWordsRelated().subscribe(
+      wordsRelated => {
+        this.wordsRelated.next(wordsRelated)
+        this.wordsRelatedStored = wordsRelated
+      }
+    )
+  }
+
+  fetchAllUsersRelated() {
+    this.http.get<any>(`${this.adminPanelURL}/users-related`).subscribe(
+      usersRelated => {
+        this.usersRelated.next(usersRelated)
+        this.usersRelatedStored = usersRelated
       }
     )
   }
@@ -32,7 +67,27 @@ export class AdminPanelService {
     return this.http.get<any>(`${this.backendURL}/${resource}`)
   }
 
+  getWordsByLanguage(isoCode: string) {
+    return this.http.get<any>(`${this.backendURL}/words/${isoCode}`)
+  }
+
   getWordDetailsFromDictionaryAPI(word: string) {
     return this.http.get<DictionaryApiWordData[]>(`${this.dictionaryApiURL}/${word}`)
+  }
+
+  getMasters() {
+    return this.http.get<Masters>(`${this.adminPanelURL}/masters`)
+  }
+
+  getWordsRelated() {
+    return this.http.get<WordsRelated>(`${this.adminPanelURL}/words-related`)
+  }
+
+  translateWithLibreTranslate(libreTranslateRequest: LibreTranslateRequest) {
+    return this.http.post<LibreTranslateApiResponse>(`${this.libreTranslateApiURL}/translate`, libreTranslateRequest)
+  }
+
+  saveWord(language: Language, wordFull: WordFull) {
+    return this.http.post<any>(`${this.backendURL}/words/${language.isoCode}`, wordFull)
   }
 }
