@@ -20,7 +20,7 @@ export class WordsComponent implements OnInit {
 
   routeToNavigateOnAdvancedSearch = 'app/settings/admin-panel/words-related/words/form'
 
-  showForm: boolean = true;
+  showForm: boolean = false;
   showSearchBar: boolean = false;
 
   wordsList: any[] = []

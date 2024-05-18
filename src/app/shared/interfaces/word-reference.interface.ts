@@ -7,6 +7,6 @@ export interface WordReference {
     englishDefinition: string;
     grammaticalCategory: GrammaticalCategory;
     languageLevel: LanguageLevel;
-    category: any;
+    // category?: any;
     imageUrl: string;
 }
