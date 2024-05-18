@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { adminPanelDropdownParents, adminPanelMasters, adminPanelUsersRelated, adminPanelWordsRelated } from './interfaces/admin-panel-constants';
+import { AdminPanelService } from './services/admin-panel.service';
 
 @Component({
   selector: 'app-admin-panel',
@@ -18,6 +19,12 @@ export class AdminPanelPage {
 
   usersRelated: string[] = adminPanelUsersRelated
 
-  constructor() { }
+  constructor(
+    private adminPanelService: AdminPanelService,
+  ) {
+    this.adminPanelService.fetchAllMasters()
+    this.adminPanelService.fetchAllWordsRelated()
+    // this.adminPanelService.fetchAllUsersRelated()
+  }
 
 }
