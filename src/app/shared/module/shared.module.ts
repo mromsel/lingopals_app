@@ -10,6 +10,8 @@ import { HttpClient } from "@angular/common/http";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { createTranslateLoader } from "src/main";
 import { ModalLanguageSelectorComponent } from "../components/language-selector/language-selector-modal/modal-language-selector.component";
+import { DynamicMaterialTableComponent } from "../components/dynamic-material-table/dynamic-material-table.component";
+import { MatTableModule } from "@angular/material/table";
 
 @NgModule({
     declarations: [
@@ -19,6 +21,7 @@ import { ModalLanguageSelectorComponent } from "../components/language-selector/
         BackButtonComponent,
         SingleLanguageSelectorComponent,
         ModalSingleLanguageSelectorComponent,
+        DynamicMaterialTableComponent,
     ],
     imports: [
         CommonModule,
@@ -30,6 +33,7 @@ import { ModalLanguageSelectorComponent } from "../components/language-selector/
                 deps: [HttpClient]
             }
         }),
+        MatTableModule,
     ],
     exports: [
         LanguageSelectorComponent,
@@ -38,6 +42,7 @@ import { ModalLanguageSelectorComponent } from "../components/language-selector/
         BackButtonComponent,
         SingleLanguageSelectorComponent,
         ModalSingleLanguageSelectorComponent,
+        DynamicMaterialTableComponent,
     ]
 })
 

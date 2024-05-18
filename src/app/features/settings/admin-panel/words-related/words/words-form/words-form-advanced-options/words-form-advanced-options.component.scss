@@ -1,0 +1,14 @@
+.main-container {
+    height: 100%;
+
+    .nav-div {
+        display: flex;
+        justify-content: center;
+        margin: auto auto 1rem auto;
+    }
+
+    ion-content {
+        max-height: 80%;
+        overflow: auto;
+    }
+}

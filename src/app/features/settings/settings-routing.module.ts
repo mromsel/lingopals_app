@@ -7,11 +7,16 @@ const routes: Routes = [
   {
     path: '',
     component: SettingsPage
-  }
+  },
+  {
+    path: 'admin-panel',
+    loadChildren: () => import('./admin-panel/admin-panel.module').then(m => m.AdminPanelPageModule)
+  },
+
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class SettingsPageRoutingModule {}
+export class SettingsPageRoutingModule { }

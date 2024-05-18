@@ -7,6 +7,6 @@ export interface UserInfo {
     email: string;
     profileImageUrl: string;
     preferredLanguage: Language;
-    preferredUserLanguages: UserLanguages;
+    userLanguages: UserLanguages[];
     timeZone: string;
 }

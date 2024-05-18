@@ -27,6 +27,8 @@ import { SharedModule } from 'src/app/shared/module/shared.module';
     }),
     SharedModule,
   ],
-  declarations: [SettingsPage]
+  declarations: [
+    SettingsPage,
+  ]
 })
 export class SettingsPageModule { }

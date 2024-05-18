@@ -59,7 +59,7 @@ export class ConfigService {
     return this.defaultLocale
   }
 
-  getPreferredUserLanguages() {
+  getPreferredUserLanguages(): Observable<UserLanguages> {
     return this.preferredUserLanguages.asObservable()
   }
 

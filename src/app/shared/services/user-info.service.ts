@@ -38,8 +38,8 @@ export class UserInfoService {
     return this.http.get<UserProgress>(`${this.backendURL}/users-progress/${idUser}`)
   }
 
-  getUserLanguages(): UserLanguages[] {
-    return this.userLanguages
+  getUserLanguages(): Observable<UserLanguages[]> {
+    return this.http.get<UserLanguages[]>(`${this.backendURL}/users-languages/${this.idUser}`)
   }
 
   setIdUser(idUser: number) {
@@ -50,7 +50,12 @@ export class UserInfoService {
     if (this.idUser) {
       this.getUserInfo(this.idUser).subscribe(userInfo => {
         this.userInfo = userInfo
-        this.configService.setPreferredUserLanguages(userInfo.preferredUserLanguages)
+        let preferredUserLanguages: UserLanguages | undefined = userInfo.userLanguages.filter(userLanguages => userLanguages.preferred)[0]
+        if (preferredUserLanguages) {
+          this.configService.setPreferredUserLanguages(preferredUserLanguages)
+        } else {
+          this.configService.setPreferredUserLanguages(userInfo.userLanguages[0])
+        }
       })
       this.getUserProgress(this.idUser).subscribe(userProgress => this.userProgress = userProgress)
     }

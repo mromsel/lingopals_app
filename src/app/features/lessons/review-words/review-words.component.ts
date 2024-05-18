@@ -40,12 +40,12 @@ export class ReviewWordsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (this.authService.getIdUser() && this.userInfoService.getUserLanguages()[0]) {
+    if (this.authService.getIdUser() && this.userInfoService.userLanguages[0]) {
       let idUser = this.authService.getIdUser()
       if (idUser) {
         this.userInfoService.getUserInfo(idUser).subscribe(
           userInfo => {
-            this.usedUserLanguages = userInfo.preferredUserLanguages
+            this.usedUserLanguages = userInfo.userLanguages.filter(userLanguages => userLanguages.preferred)[0]
           }
         )
       }
@@ -57,15 +57,7 @@ export class ReviewWordsComponent implements OnInit {
   }
 
   ionViewWillEnter() {
-    if (this.authService.getIdUser() && this.userInfoService.getUserLanguages()[0]) {
-      // let idUser = this.authService.getIdUser()
-      // if (idUser) {
-      //   this.userInfoService.getUserInfo(idUser).subscribe(
-      //     userInfo => {
-      //       this.usedUserLanguages = userInfo.preferredUserLanguages
-      //     }
-      //   )
-      // }
+    if (this.authService.getIdUser() && this.userInfoService.userLanguages[0]) {
 
       this.configService.getPreferredUserLanguages().subscribe(
         userLanguages => this.usedUserLanguages = userLanguages
