@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminPanelService } from '../services/admin-panel.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { adminPanelMasters } from '../interfaces/admin-panel-constants';
+import { Masters } from '../interfaces/masters.interface';
 
 @Component({
   selector: 'app-masters',
@@ -19,7 +20,7 @@ export class MastersComponent implements OnInit {
   currentMaster: string = ""
   selectedProperty: string = ""
 
-  allMasters: any[] = [];
+  allMasters: Masters | undefined
 
   public showForm: boolean = false
   public showSearchBar: boolean = false
