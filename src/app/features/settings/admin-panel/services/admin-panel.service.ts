@@ -9,6 +9,7 @@ import { LibreTranslateRequest } from '../libre-translate-api/libre-translate-re
 import { LibreTranslateApiResponse } from '../libre-translate-api/libre-translate-response.interface';
 import { Language } from 'src/app/shared/interfaces/language.interface';
 import { WordFull } from 'src/app/shared/interfaces/word-full.interface';
+import { WordReference } from 'src/app/shared/interfaces/word-reference.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -89,5 +90,9 @@ export class AdminPanelService {
 
   saveWord(language: Language, wordFull: WordFull) {
     return this.http.post<any>(`${this.backendURL}/words/${language.isoCode}`, wordFull)
+  }
+
+  saveWordReference(wordReference: WordReference) {
+    return this.http.post<any>(`${this.backendURL}/word-references`, wordReference)
   }
 }
