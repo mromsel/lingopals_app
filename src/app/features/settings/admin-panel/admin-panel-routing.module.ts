@@ -6,6 +6,8 @@ import { MastersComponent } from './masters/masters.component';
 import { UsersRelatedComponent } from './users-related/users-related.component';
 import { WordsReferencesComponent } from './words-related/words-references/words-references.component';
 import { WordsReferencesFormComponent } from './words-related/words-references/words-references-form/words-references-form.component';
+import { WordsComponent } from './words-related/words/words.component';
+import { WordsFormComponent } from './words-related/words/words-form/words-form.component';
 
 const routes: Routes = [
   {
@@ -24,7 +26,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            component: WordsReferencesComponent
+            component: WordsReferencesComponent,
           },
           {
             path: 'form',
@@ -32,10 +34,19 @@ const routes: Routes = [
           },
         ]
       },
-      // {
-      //   path: 'words',
-      //   component: WordsComponent,
-      // },
+      {
+        path: 'words',
+        children: [
+          {
+            path: '',
+            component: WordsComponent,
+          },
+          {
+            path: 'form',
+            component: WordsFormComponent,
+          },
+        ]
+      },
     ]
   },
   {
