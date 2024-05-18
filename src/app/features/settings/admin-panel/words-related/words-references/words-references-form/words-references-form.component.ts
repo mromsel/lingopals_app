@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { WordReference } from 'src/app/shared/interfaces/word-reference.interface';
 import { AdminPanelService } from '../../../services/admin-panel.service';
 import { Router } from '@angular/router';
+import { LanguageLevel } from 'src/app/shared/interfaces/language-level.interface';
+import { GrammaticalCategory } from 'src/app/shared/interfaces/grammatical-category.interface';
 
 @Component({
   selector: 'app-words-references-form',
@@ -14,6 +16,8 @@ export class WordsReferencesFormComponent {
   @Input() data: WordReference[] = []
 
   wordReferenceForm: FormGroup;
+  languageLevels: LanguageLevel[] = []
+  grammaticalCategories: GrammaticalCategory[] = []
 
   isAdvanced: boolean = false;
 
@@ -26,8 +30,8 @@ export class WordsReferencesFormComponent {
     this.wordReferenceForm = this.formBuilder.group({
       englishWord: ['', Validators.required],
       englishDefinition: ['', Validators.required],
-      grammaticalCategory: '',
-      languageLevel: ['', Validators.required],
+      grammaticalCategory: [],
+      languageLevel: [Validators.required],
       category: '',
       imageUrl: '',
     });
@@ -37,6 +41,12 @@ export class WordsReferencesFormComponent {
       this.isAdvanced = true
       this.data = history.state.data;
     }
+
+    this.languageLevels = this.adminPanelService.mastersStored?.languageLevels ?? []
+    this.grammaticalCategories = this.adminPanelService.mastersStored?.grammaticalCategories ?? []
+    this.wordReferenceForm.controls['languageLevel'].setValue(this.languageLevels[0]);
+    this.wordReferenceForm.controls['grammaticalCategory'].setValue(this.grammaticalCategories[0]);
+
   }
 
   onSubmit() {
@@ -47,12 +57,18 @@ export class WordsReferencesFormComponent {
         englishDefinition: this.wordReferenceForm.value.englishDefinition,
         grammaticalCategory: this.wordReferenceForm.value.grammaticalCategory,
         languageLevel: this.wordReferenceForm.value.languageLevel,
-        category: this.wordReferenceForm.value.category,
+        // category: this.wordReferenceForm.value.category,
         imageUrl: this.wordReferenceForm.value.imageUrl,
       };
 
       // Submit
       console.log(wordReference);
+
+      this.adminPanelService.saveWordReference(wordReference).subscribe(
+        response => {
+          console.log(response)
+        }
+      )
     } else {
       // Form not valid
     }

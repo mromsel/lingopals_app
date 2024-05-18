@@ -15,19 +15,25 @@
       <div class="item">
         <label for="grammaticalCategory">Grammatical Category</label>
         <select formControlName="grammaticalCategory" id="grammaticalCategory" required>
-          <option value="">Select</option>
-          <option value="BEGINNER">Beginner</option>
-          <option value="INTERMEDIATE">Intermediate</option>
-          <option value="ADVANCED">Advanced</option>
+          @if (grammaticalCategories[0]) {
+          @for (grammaticalCategory of grammaticalCategories; track $index) {
+          <option value="{{grammaticalCategory}}">{{grammaticalCategory.name}}</option>
+          }
+          } @else {
+          <option value="">No data available</option>
+          }
         </select>
       </div>
       <div class="item">
         <label for="languageLevel">Language Level</label>
         <select formControlName="languageLevel" id="languageLevel" required>
-          <option value="">Select</option>
-          <option value="BEGINNER">Beginner</option>
-          <option value="INTERMEDIATE">Intermediate</option>
-          <option value="ADVANCED">Advanced</option>
+          @if (languageLevels[0]) {
+          @for (languageLevel of languageLevels; track $index) {
+          <option value="{{languageLevel}}">{{languageLevel.levelName}}</option>
+          }
+          } @else {
+          <option value="">No data available</option>
+          }
         </select>
       </div>
       <div class="item">
