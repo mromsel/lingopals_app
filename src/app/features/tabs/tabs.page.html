@@ -1,25 +1,37 @@
-<ion-tabs>
+<ion-tabs #tabs>
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="home" href="/home">
-      <ion-icon aria-hidden="true" name="home"></ion-icon>
+      <ion-icon aria-hidden="true" name="home-outline" class="tab-icon-outline"></ion-icon>
+      <ion-icon aria-hidden="true" name="home" class="tab-icon-solid"></ion-icon>
       <ion-label>{{ 'tabs.home' |
         translate}}</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="lessons" href="/lessons">
-      <ion-icon aria-hidden="true" name="pencil-outline"></ion-icon>
+      <!-- TODO: revise this icons options -->
+      <!-- <ion-icon aria-hidden="true" name="pencil-outline" class="tab-icon-outline"></ion-icon>
+      <ion-icon aria-hidden="true" name="pencil" class="tab-icon-solid"></ion-icon> -->
+
+      <!-- <ion-icon aria-hidden="true" name="document-text-outline" class="tab-icon-outline"></ion-icon>
+      <ion-icon aria-hidden="true" name="document-text" class="tab-icon-solid"></ion-icon> -->
+
+      <ion-icon aria-hidden="true" name="create-outline" class="tab-icon-outline"></ion-icon>
+      <ion-icon aria-hidden="true" name="create" class="tab-icon-solid"></ion-icon>
+
       <ion-label>{{ 'tabs.lessons' |
         translate}}</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="dictionary" href="/dictionary">
-      <ion-icon aria-hidden="true" name="book-outline"></ion-icon>
+      <ion-icon aria-hidden="true" name="book-outline" class="tab-icon-outline"></ion-icon>
+      <ion-icon aria-hidden="true" name="book" class="tab-icon-solid"></ion-icon>
       <ion-label>{{ 'tabs.dictionary' |
         translate}}</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="settings" href="/settings">
-      <ion-icon aria-hidden="true" name="settings"></ion-icon>
+      <ion-icon aria-hidden="true" name="settings-outline" class="tab-icon-outline"></ion-icon>
+      <ion-icon aria-hidden="true" name="settings" class="tab-icon-solid"></ion-icon>
       <ion-label>{{ 'tabs.settings' |
         translate}}</ion-label>
     </ion-tab-button>
