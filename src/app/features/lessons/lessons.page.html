@@ -1,17 +1,28 @@
-<ion-content [fullscreen]="true">
+<ion-header>
+  <div class="language-selector">
+    <app-language-selector [preferredUserLanguages]="preferredUserLanguages"></app-language-selector>
+  </div>
+  <ion-button routerLink="./review" color="secondary">Review words</ion-button>
+</ion-header>
+
+<ion-content>
   <div class="main-container">
 
-    <app-language-selector [preferredUserLanguages]="preferredUserLanguages"></app-language-selector>
-
-    <div class="buttons-div">
-      <ion-button routerLink="./1" expand="block">Next lesson</ion-button>
-
-      <ion-button routerLink="./review" expand="block">Review words</ion-button>
-
-      <ion-button expand="block">Test yourself!</ion-button>
-
-      <ion-button routerLink="./all-lessons" expand="block">See all lessons</ion-button>
+    <div class="lessons-div">
+      @for (lesson of lessons; track $index) {
+      <div class="lesson-container" [class.even]="$index % 2 === 0" [class.odd]="$index % 2 !== 0">
+        <div class="line" *ngIf="$index !== 0"></div>
+        <img *ngIf="$index % 5 == 0" src="../../../assets/resources/next-lesson.svg" alt="" class="img">
+        <div class="lesson" routerLink="./1">
+          <!-- TODO: REPLACE WITH COMMENTED CODE -->
+          <!-- routerLink="./{{lesson.idLesson}}" -->
+          {{lesson.lessonName}}
+        </div>
+      </div>
+      }
     </div>
 
   </div>
 </ion-content>
+
+<!-- <ion-button routerLink="./all-lessons" expand="block">See all lessons</ion-button> -->

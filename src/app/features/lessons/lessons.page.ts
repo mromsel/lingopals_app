@@ -14,7 +14,7 @@ export class LessonsPage {
 
   unsubscribe$: Subject<void> = new Subject<void>();
 
-  lessons: Array<Lesson> = new Array();
+  lessons: Lesson[] = [];
 
   preferredUserLanguages: UserLanguages | undefined;
 
