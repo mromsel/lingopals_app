@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
+import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
 import { Word } from 'src/app/shared/interfaces/word.interface';
+import { ConfigService } from 'src/app/shared/services/config.service';
 import { WordsService } from 'src/app/shared/services/words.service';
 
 @Component({
@@ -19,27 +21,38 @@ export class DictionaryPage implements OnInit {
 
   sortedWords: { [letter: string]: Word[] } = {};
 
+  preferredUserLanguages: UserLanguages | undefined
+
   constructor(
     private wordsService: WordsService,
+    private configService: ConfigService,
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.wordsService.getAllWordsByLanguage("en")
+    this.configService.preferredUserLanguages
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
-        data => {
-          this.words = data
-          // #TEST
-          this.words.forEach(element => {
-            this.words.push(element)
-          });
-          this.words.forEach(element => {
-            this.words.push(element)
-          });
-          // #END TEST
+        preferredUserLanguages => {
+          this.preferredUserLanguages = preferredUserLanguages
 
-          this.sortWords();
+          this.wordsService.getAllWordsByLanguage(this.preferredUserLanguages.languageTarget.isoCode)
+            .pipe(takeUntil(this.unsubscribe$))
+            .subscribe(
+              data => {
+                this.words = data
+                // #TEST
+                this.words.forEach(element => {
+                  this.words.push(element)
+                });
+                this.words.forEach(element => {
+                  this.words.push(element)
+                });
+                // #END TEST
+
+                this.sortWords();
+              }
+            )
         }
       )
   }
@@ -60,30 +73,6 @@ export class DictionaryPage implements OnInit {
     });
   }
 
-  scrollToElement(sectionId: string): void {
-    const componente = document.getElementById(sectionId);
-
-    if (componente != null) {
-      componente.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    // const buttonId = this.sections.filter((v: any) => v.sectionId === sectionId)[0].buttonId;    
-
-  }
-
-  toggleActive(buttonId: string | undefined) {
-    const sectionButtons = document.getElementById('letters')?.getElementsByTagName('button');
-    if (sectionButtons != null && buttonId != undefined) {
-      Array.from(sectionButtons).forEach(b => {
-        if (b.id === buttonId) {
-          b.classList.add('active')
-        }
-        else {
-          b.classList.remove('active')
-        }
-      });
-    }
-  }
 
   goToDetail(word: Word) {
     this.router.navigate(['app/dictionary/word-details/' + word.idWord])
