@@ -5,6 +5,7 @@ ion-tab-bar {
 ion-tab-button {
     background-color: var(--ion-color-tabs-nav);
     color: var(--ion-color-tabs-nav-contrast);
+    --color-selected: var(--ion-color-marked-tint);
 }
 
 ion-tab-button.tab-selected {
