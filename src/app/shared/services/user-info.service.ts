@@ -66,6 +66,10 @@ export class UserInfoService {
   }
 
   changePreferredUserLanguages(newUserLanguages: UserLanguages) {
-    return this.http.post<UserLanguages>(`${this.backendURL}/users-languages/change-preferred`, newUserLanguages)
+    this.http.post<UserLanguages[]>(`${this.backendURL}/users-languages/change-preferred`, newUserLanguages)
+      .subscribe(userLanguages => {
+        this.userLanguages = userLanguages
+        this.configService.setPreferredUserLanguages(userLanguages.filter(userLanguages => userLanguages.preferred)[0])
+      })
   }
 }
