@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
@@ -11,7 +11,7 @@ import { WordsService } from 'src/app/shared/services/words.service';
   templateUrl: './dictionary.page.html',
   styleUrls: ['./dictionary.page.scss'],
 })
-export class DictionaryPage implements OnInit {
+export class DictionaryPage {
 
   unsubscribe$: Subject<void> = new Subject<void>();
 
@@ -29,7 +29,7 @@ export class DictionaryPage implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.configService.preferredUserLanguages
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
