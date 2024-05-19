@@ -1,42 +1,34 @@
-ion-modal {
-    border: 2px solid black;
-    position: absolute;
-    height: 50%;
-    width: 50%;
-    margin: auto;
+ion-content {
+    border: 1px solid black;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 
-    ion-content {
-        border: 1px solid black;
-        height: 100%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
+    .languages-badge {
+        margin: 0.5rem;
+        padding: 0.5rem;
 
-        .languages-badge {
-            margin: 0.5rem;
-            padding: 0.5rem;
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-            .button {
-                display: flex;
-                align-items: center;
-                justify-content: center;
+            .arrow {
+                font-size: 1.5rem;
+                color: black;
+            }
 
-                .arrow {
-                    font-size: 1.5rem;
-                    color: black;
-                }
+            border: 2px solid black;
+            border-radius: 1rem;
 
-                border: 2px solid black;
-                border-radius: 1rem;
-
-                .flag {
-                    width: 10vh;
-                    height: auto;
-                    margin: 0 10px;
-                    padding: 5px;
-                }
+            .flag {
+                width: 10vh;
+                height: auto;
+                margin: 0 10px;
+                padding: 5px;
             }
         }
     }

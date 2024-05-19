@@ -54,7 +54,7 @@ export class LanguageSelectorComponent implements OnInit {
         userLanguagesToSelect: this.listUserLanguages,
       },
       keyboardClose: true,
-      // cssClass: 'small-modal'
+      cssClass: 'small-modal'
     });
     return await modal.present();
   }

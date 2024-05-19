@@ -1,11 +1,9 @@
 <div class="language-selector">
   <div class="languages-badge">
-    <button ion-button id="open-language-selector" expand="block" class="button">
+    <button ion-button (click)="openModal()" expand="block" class="button">
       <img src={{originLanguageFlag}} alt="Origin language" class="flag">
       <ion-icon name="arrow-forward" class="arrow"></ion-icon>
       <img src={{targetLanguageFlag}} alt="Target language" class="flag">
     </button>
   </div>
-
-  <app-language-selector-modal></app-language-selector-modal>
 </div>

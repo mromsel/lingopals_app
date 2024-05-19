@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
 import { ConfigService } from 'src/app/shared/services/config.service';
@@ -9,7 +9,7 @@ import { UserInfoService } from 'src/app/shared/services/user-info.service';
   templateUrl: './modal-language-selector.component.html',
   styleUrls: ['./modal-language-selector.component.scss'],
 })
-export class ModalLanguageSelectorComponent implements OnInit {
+export class ModalLanguageSelectorComponent {
 
   userLanguagesToSelect: UserLanguages[] = []
 
@@ -25,12 +25,12 @@ export class ModalLanguageSelectorComponent implements OnInit {
   ) {
   }
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.userLanguagesToSelect = this.userInfoService.userLanguages
 
     this.preferredUserLanguages = this.userLanguagesToSelect.filter(userLanguages => userLanguages.preferred)[0]
 
-    this.preferredIndex = this.userLanguagesToSelect.findIndex(userLanguages => userLanguages.id == this.preferredUserLanguages?.id)
+    this.preferredIndex = this.userLanguagesToSelect.findIndex(userLanguages => userLanguages.preferred)
   }
 
   select(i: number) {
@@ -40,8 +40,7 @@ export class ModalLanguageSelectorComponent implements OnInit {
       this.closeModal()
     } else {
       this.configService.setPreferredUserLanguages(languagesSelected)
-      console.log(languagesSelected)
-      this.userInfoService.changePreferredUserLanguages(languagesSelected).subscribe(response => console.log("changed preferred user languages"))
+      this.userInfoService.changePreferredUserLanguages(languagesSelected)
       this.preferredIndex = i
     }
   }
