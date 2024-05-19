@@ -1,0 +1,16 @@
+ion-content {
+    overflow-x: scroll;
+    height: 9vh;
+
+    .letters {
+        display: flex;
+        min-width: 20px;
+        justify-content: space-around;
+    }
+}
+
+.active {
+    background: rgba(255, 80, 56, 0.16);
+    color: red;
+    border-radius: 50px;
+}
