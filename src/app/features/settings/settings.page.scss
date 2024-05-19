@@ -1,28 +1,38 @@
-ion-content {
-    --ion-background-color: var(--ion-color-background);
+.header {
+    background-color: var(--ion-color-primary);
+    color: var(--ion-color-primary-contrast);
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
 
-    * {
-        background-color: white;
-        color: var(--ion-color-primary-contrast);
+    .chip {
+        background-color: var(--ion-color-primary-contrast);
     }
 
-    .header {
-        display: flex;
-        justify-content: space-between;
-        padding: 1rem;
+    .chip * {
+        font-size: 2rem;
+        color: var(--ion-color-primary);
+        font-weight: bold;
+    }
+}
 
-        .chip * {
-            font-size: 2rem;
-        }
+.group {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+    ion-card-title {
+        font-weight: bold;
     }
 
-    .group {
-        display: flex;
-        flex-direction: column;
+    .item {
+        background-color: var(--ion-color-background-shade);
+        border-radius: 1rem;
+        color: var(--ion-color-secondary-contrast);
+        font-size: 1.2rem;
         padding: 1rem;
-
-        ion-button {
-            font-size: 1.2rem;
-        }
+        margin: 1rem;
     }
 }

@@ -11,28 +11,35 @@
   </ion-card>
 
   <ion-card class="group">
-    <ion-button routerLink="./admin-panel">
+    <ion-card-title>Admin options</ion-card-title>
+
+    <ion-text routerLink="./admin-panel" class="item">
+      <ion-icon name="hammer"></ion-icon>
+      <!-- <ion-icon name="cog"></ion-icon> -->
       Admin panel
-    </ion-button>
+    </ion-text>
   </ion-card>
 
+  <!-- * User configuration * -->
   <ion-card class="group">
+    <ion-card-title>User configuration</ion-card-title>
 
-    <ion-button>
+    <ion-text class="item">
       {{ 'settings.changeUsername' | translate}}
-    </ion-button>
-    <ion-button>
+    </ion-text>
+    <ion-text class="item">
       {{ 'settings.changePassword' | translate}}
-    </ion-button>
-    <ion-button id="open-single-language-selector" expand="block">
+    </ion-text>
+    <ion-text id="open-single-language-selector" class="item">
       {{ 'settings.changePrefLang' | translate}}
-    </ion-button>
+    </ion-text>
 
-    <ion-button (click)="logout()" onkeypress="logout()">{{ 'settings.logout' | translate}}</ion-button>
+    <ion-text (click)="logout()" onkeypress="logout()" class="item">{{ 'settings.logout' | translate}}</ion-text>
 
   </ion-card>
 
-  <ion-card class="group">
+  <!-- * Theme * -->
+  <!-- <ion-card class="group">
     <ion-title>{{ 'settings.theme' | translate}}</ion-title>
     <ion-segment value="default" (ionChange)="themeChanged($event)">
       <ion-segment-button value="default">
@@ -42,17 +49,18 @@
         <ion-label>{{ 'settings.darkTheme' | translate}}</ion-label>
       </ion-segment-button>
     </ion-segment>
-  </ion-card>
+  </ion-card> -->
 
+  <!-- * Credits and help * -->
   <ion-card class="group">
-    <ion-button>
+    <ion-text class="item">
       {{ 'settings.getSupport' | translate}}
-    </ion-button>
-    <ion-button>
+    </ion-text>
+    <ion-text class="item">
       {{ 'settings.about' | translate}}
-    </ion-button>
-    <ion-button>
+    </ion-text>
+    <ion-text class="item">
       {{ 'settings.credits' | translate}}
-    </ion-button>
+    </ion-text>
   </ion-card>
 </ion-content>
