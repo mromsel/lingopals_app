@@ -28,23 +28,46 @@
         "settings": "Ajustes"
     },
     "home": {
+        "header": {
+            "days": "días",
+            "level": "Nivel"
+        },
         "shop": "Tienda",
-        "enterShop": "Entrar",
-        "progress": "Progreso",
-        "showProgress": "¡Ver ahora!"
+        "myProgress": "Mi progreso"
     },
-    "lessons": {},
-    "dictionary": {},
+    "lessons": {
+        "reviewWords": "Repasar Palabras",
+        "quiz": {
+            "states": {
+                "start": "Comenzar lección",
+                "continue": "Continuar",
+                "nextWord": "Siguiente palabra",
+                "finishLesson": "Terminar lección",
+                "backToLessons": "Volver a Lecciones"
+            }
+        }
+    },
+    "dictionary": {
+        "search": "Buscar"
+    },
     "settings": {
-        "changeUsername": "Cambiar nombre de usuario",
-        "changePassword": "Cambiar contraseña",
-        "changePrefLang": "Cambiar idioma preferido",
-        "logout": "Cerrar sesión",
-        "theme": "Tema",
-        "lightTheme": "Claro",
-        "darkTheme": "Oscuro",
-        "getSupport": "Obtener soporte",
-        "about": "Acerca de LingoPals",
-        "credits": "Créditos"
+        "groupAdmin": {},
+        "group1": {
+            "titleUserConfig": "Configuración de usuario",
+            "changeUsername": "Cambiar nombre de usuario",
+            "changePassword": "Cambiar contraseña",
+            "changePrefLang": "Cambiar idioma preferido",
+            "logout": "Cerrar sesión"
+        },
+        "group2": {
+            "theme": "Tema",
+            "lightTheme": "Claro",
+            "darkTheme": "Oscuro"
+        },
+        "group3": {
+            "getSupport": "Obtener soporte",
+            "about": "Acerca de LingoPals",
+            "credits": "Créditos"
+        }
     }
 }

@@ -28,23 +28,46 @@
         "settings": "설정"
     },
     "home": {
+        "header": {
+            "days": "일",
+            "level": "레벨"
+        },
         "shop": "상점",
-        "enterShop": "들어가기",
-        "progress": "진행",
-        "showProgress": "지금 보기!"
+        "myProgress": "내 진행 상황"
     },
-    "lessons": {},
-    "dictionary": {},
+    "lessons": {
+        "reviewWords": "단어 복습",
+        "quiz": {
+            "states": {
+                "start": "레슨 시작",
+                "continue": "계속",
+                "nextWord": "다음 단어",
+                "finishLesson": "레슨 마침",
+                "backToLessons": "레슨으로 돌아가기"
+            }
+        }
+    },
+    "dictionary": {
+        "search": "찾다"
+    },
     "settings": {
-        "changeUsername": "사용자 이름 변경",
-        "changePassword": "비밀번호 변경",
-        "changePrefLang": "기본 언어 변경",
-        "logout": "로그아웃",
-        "theme": "테마",
-        "lightTheme": "밝은",
-        "darkTheme": "어두운",
-        "getSupport": "지원 받기",
-        "about": "LingoPals 소개",
-        "credits": "크레딧"
+        "groupAdmin": {},
+        "group1": {
+            "titleUserConfig": "사용자 구성",
+            "changeUsername": "사용자 이름 변경",
+            "changePassword": "비밀번호 변경",
+            "changePrefLang": "기본 언어 변경",
+            "logout": "로그아웃"
+        },
+        "group2": {
+            "theme": "테마",
+            "lightTheme": "밝은",
+            "darkTheme": "어두운"
+        },
+        "group3": {
+            "getSupport": "지원 받기",
+            "about": "LingoPals 소개",
+            "credits": "크레딧"
+        }
     }
 }
