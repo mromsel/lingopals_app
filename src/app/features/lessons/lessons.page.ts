@@ -24,7 +24,9 @@ export class LessonsPage {
   ) { }
 
   ionViewWillEnter() {
-    this.configService.preferredUserLanguages
+
+    this.preferredUserLanguages = this.configService.preferredUserLanguages
+    this.configService.preferredUserLanguagesSubject
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
         preferredUserLanguages => {
