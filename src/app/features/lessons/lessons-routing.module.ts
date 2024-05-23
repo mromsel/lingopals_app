@@ -15,14 +15,6 @@ const routes: Routes = [
     path: 'all-lessons',
     component: AllLessonsComponent
   },
-  {
-    path: 'review',
-    component: ReviewWordsComponent
-  },
-  {
-    path: ':id',
-    component: LessonInProgressComponent
-  },
 ];
 
 @NgModule({

@@ -10,7 +10,7 @@ import { LessonsService } from '../services/lessons.service';
 })
 export class AllLessonsComponent implements OnInit {
 
-  backRoute: string = '/lessons'
+  backRoute: string = '/app/lessons'
 
   unsubscribe$: Subject<void> = new Subject<void>();
 

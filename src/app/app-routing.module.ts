@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/guards/authGuard';
-import { LoginPage } from './features/login/login.page';
+import { LessonInProgressComponent } from './features/lessons/lesson-in-progress/lesson-in-progress.component';
+import { ReviewWordsComponent } from './features/lessons/review-words/review-words.component';
 
 const routes: Routes = [
   // app (tab bar)
@@ -19,6 +20,15 @@ const routes: Routes = [
   {
     path: 'signup',
     loadChildren: () => import('./features/signup/signup.module').then(m => m.SignupPageModule)
+  },
+  {
+    path: 'app/lessons/review',
+    component: ReviewWordsComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'app/lessons/:id',
+    component: LessonInProgressComponent
   },
   {
     path: '',
