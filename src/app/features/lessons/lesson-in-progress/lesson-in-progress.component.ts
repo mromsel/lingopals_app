@@ -20,8 +20,6 @@ import { ConfigService } from 'src/app/shared/services/config.service';
 })
 export class LessonInProgressComponent {
 
-  backRoute: string = '/lessons'
-
   lessonType: string = activityTypes[1]
 
   listWords: WordsInQuiz[] = []
@@ -52,9 +50,8 @@ export class LessonInProgressComponent {
       if (lessonId) {
         this.idLesson = +lessonId
 
-        this.configService.getPreferredUserLanguages().subscribe(
-          userLanguages => this.usedUserLanguages = userLanguages
-        )
+        this.usedUserLanguages = this.configService.preferredUserLanguages
+
         this.fetchLesson()
       } else {
         this.exitView()
@@ -66,7 +63,7 @@ export class LessonInProgressComponent {
 
   fetchLesson() {
 
-    this.usedUserLanguages = this.userInfoService.userInfo?.userLanguages.filter(userLanguages => userLanguages.preferred)[0]
+    this.usedUserLanguages = this.userInfoService.userLanguages.filter(userLanguages => userLanguages.preferred)[0]
     if (this.idLesson && this.usedUserLanguages) {
 
       this.lessonsService.getLesson(this.idLesson, this.usedUserLanguages).subscribe(lesson => {
@@ -82,8 +79,7 @@ export class LessonInProgressComponent {
 
   exitView() {
     this.navController.pop()
-    // this.navController.navigateBack()
-    this.router.navigate(['/lessons'])
+    this.router.navigate(['/app/lessons'])
   }
 
 }
