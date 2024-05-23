@@ -1,9 +1,12 @@
+ion-card {
+    height: 100%;
+}
+
 ion-card-title {
     padding: 0.5rem;
 }
 
 ion-card-content {
-    max-height: 200px;
     overflow-y: auto;
 }
 
