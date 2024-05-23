@@ -1,9 +1,5 @@
 <app-spinner></app-spinner>
-<app-back-button></app-back-button>
 <div class="main-container">
-
-  <app-back-button></app-back-button>
-
   <app-quiz [headerTitle]="reviewTitle" [type]="reviewType" [listWords]="listWords"
     [usedUserLanguages]="usedUserLanguages" [activityType]="reviewWords?.activityType"
     (eventFinishQuiz)="exitView()"></app-quiz>
