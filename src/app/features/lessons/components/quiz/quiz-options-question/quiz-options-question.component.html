@@ -6,16 +6,16 @@
   </ion-card-header>
   <ion-card-content>
     <div class="options-div">
-      <div *ngFor="let option of currentOptions; index as i" class="button-container">
-        <ion-button (click)="checkOption(i)" onKeyDown="checkOption(option)" expand="block" [ngClass]="{
-          'default-button': !isAnswerSubmitted,
-          'correct-answer': option.correct && option.pressed && isAnswerSubmitted,
-          'correct-answer-not-selected': option.correct && !option.pressed && isAnswerSubmitted,
-          'wrong-answer': !option.correct && option.pressed && isAnswerSubmitted,
-          'wrong-answer-not-selected': !option.correct && !option.pressed && isAnswerSubmitted,
-        }">
+      <div *ngFor="let option of currentOptions; index as i" class="option" [ngClass]="{
+        'default-button': !isAnswerSubmitted,
+        'correct-answer': option.correct && option.pressed && isAnswerSubmitted,
+        'correct-answer-not-selected': option.correct && !option.pressed && isAnswerSubmitted,
+        'wrong-answer': !option.correct && option.pressed && isAnswerSubmitted,
+        'wrong-answer-not-selected': !option.correct && !option.pressed && isAnswerSubmitted,
+      }" (click)="checkOption(i)" onKeyDown="checkOption(option)">
+        <ion-text class="option-text">
           {{option.optionWordTarget}}
-        </ion-button>
+        </ion-text>
       </div>
     </div>
   </ion-card-content>
