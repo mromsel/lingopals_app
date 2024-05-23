@@ -20,24 +20,21 @@
     <div class="buttons-div">
       <div class="item-div">
         <ion-card class="item">
-          <ion-card-title class="card-title">
-            {{ 'home.shop' | translate}}
-          </ion-card-title>
           <ion-card-content>
-
-            <ion-button (click)="goToShop()" expand="block" onKeyPress="goToShop()">{{ 'home.enterShop' |
-              translate}}</ion-button>
+            <ion-text (click)="goToShop()" expand="block" onKeyPress="goToShop()">
+              {{ 'home.shop' | translate}}
+            </ion-text>
           </ion-card-content>
         </ion-card>
       </div>
       <div class="item-div">
         <ion-card class="item">
-          <ion-card-title class="card-title">{{ 'home.progress' |
-            translate}}</ion-card-title>
           <ion-card-content>
-            <ion-button id="open-progress-modal" expand="block">{{ 'home.showProgress' |
-              translate}}</ion-button>
-
+            <ion-text id="open-progress-modal" expand="block">
+              <span>
+                {{ 'home.myProgress' | translate}}
+              </span>
+            </ion-text>
             <app-progress-modal [userInfo]="userInfo" [userProgress]="userProgress"></app-progress-modal>
           </ion-card-content>
         </ion-card>

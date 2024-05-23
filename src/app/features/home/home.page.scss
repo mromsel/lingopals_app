@@ -37,7 +37,7 @@
             width: 80%;
 
             .item {
-                background-color: var(--ion-color-primary);
+                background-color: var(--ion-color-secondary);
                 color: var(--ion-color-primary-contrast);
                 border: 0.1rem solid #ccc;
                 border-radius: 1rem;
@@ -55,9 +55,17 @@
                     text-overflow: ellipsis;
                 }
 
-                ion-button {
-                    --background: var(--ion-color-secondary);
-                    --color: var(--ion-color-light-contrast);
+                ion-card-content {
+                    display: flex;
+                    align-items: center;
+                    background-color: var(--ion-color-secondary);
+
+                    ion-text {
+                        font-size: 2rem;
+                        --color: white;
+                        text-align: center;
+                        width: 100%;
+                    }
                 }
             }
         }
