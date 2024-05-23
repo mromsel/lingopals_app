@@ -1,10 +1,11 @@
 <ion-header>
   <div class="header">
     <app-language-selector [preferredUserLanguages]="preferredUserLanguages"></app-language-selector>
-    <ion-searchbar style="position: sticky;"></ion-searchbar>
-    <ion-button color="secondary">Search</ion-button>
+    <ion-searchbar (ionChange)="onSearch($event)" style="position: sticky;"
+      placeholder="{{ 'dictionary.search' | translate}}"></ion-searchbar>
+    <ion-button color="secondary">{{ 'dictionary.search' | translate}}</ion-button>
   </div>
-  <app-letters-scroll></app-letters-scroll>
+  <!-- <app-letters-scroll></app-letters-scroll> -->
 </ion-header>
 
 <ion-content class="main-container">
@@ -12,16 +13,20 @@
   <div class="dictionary-container">
     <div class="word-list-container">
       <!-- * Words list divided by letters * -->
-      <ion-list *ngFor="let letter of alphabet" class="letter-sections">
-        <div class="words-by-letter">
+      @for (letter of alphabet; track $index) {
+      @if (sortedWords && sortedWords[letter] && sortedWords[letter][0]) {
+      <ion-list class="letter-sections">
+        <div class="words-by-letter" id="{{letter}}">
           <ion-item-divider sticky>
-            <div id="{{letter}}">{{letter}}</div>
+            <div>{{letter}}</div>
           </ion-item-divider>
           <ion-text *ngFor="let word of sortedWords[letter]" (click)="goToDetail(word)" onKeyPress="goToDetail(word)">
             <ion-label>{{word.wordString}}</ion-label>
           </ion-text>
         </div>
       </ion-list>
+      }
+      }
     </div>
   </div>
 </ion-content>
