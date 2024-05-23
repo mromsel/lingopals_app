@@ -1,4 +1,15 @@
-<app-back-button></app-back-button>
-<p>
-  {{word?.wordString}}
-</p>
+<app-back-button [backRoute]="backRoute"></app-back-button>
+<div class="main-container">
+  <ion-card>
+    <ion-card-title>
+      {{word?.wordString}}
+    </ion-card-title>
+    <ion-card-content>
+      {{word?.definition}}
+    </ion-card-content>
+  </ion-card>
+
+  <p>
+  </p>
+
+</div>
