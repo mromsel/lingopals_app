@@ -25,12 +25,13 @@
     <a (click)="goToForgotPassword()">{{ 'login.forgotPassword' | translate}}</a>
 
     <!-- Go to signup page -->
-    <ion-button (click)="goToSignUp()" onkeypress="goToSignUp()">
-      {{ 'login.createAccount' | translate}}
-      &nbsp;
-      <span style="color: purple;">
-        {{'signup.signUp' | translate}}
+    <div class="signup">
+      <span>
+        {{ 'login.createAccount' | translate}}
       </span>
-    </ion-button>
+      <ion-button (click)="goToSignUp()" onkeypress="goToSignUp()">
+        {{'signup.signUp' | translate}}
+      </ion-button>
+    </div>
   </div>
 </ion-content>
