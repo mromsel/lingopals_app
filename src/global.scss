@@ -36,3 +36,8 @@
     width: 80%;
     margin: auto;
 }
+
+ion-content {
+    --ion-background-color: var(--ion-color-background);
+    --color: var(--ion-color-background-contrast)
+}
