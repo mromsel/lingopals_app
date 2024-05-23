@@ -38,13 +38,23 @@ export class LanguageSelectorComponent implements OnInit {
         this.targetLanguageFlag = this.filePrefix + this.preferredUserLanguages.languageTarget.flag
       }
     )
-    this.configService.getPreferredUserLanguages().subscribe(
+    this.preferredUserLanguages = this.configService.preferredUserLanguages
+    if (this.preferredUserLanguages) {
+      this.originLanguageFlag = this.filePrefix + this.preferredUserLanguages.languageOrigin.flag
+      this.targetLanguageFlag = this.filePrefix + this.preferredUserLanguages.languageTarget.flag
+    }
+
+    this.configService.preferredUserLanguagesSubject.subscribe(
       preferredUserLanguages => {
         this.preferredUserLanguages = preferredUserLanguages
-        this.originLanguageFlag = this.filePrefix + this.preferredUserLanguages.languageOrigin.flag
-        this.targetLanguageFlag = this.filePrefix + this.preferredUserLanguages.languageTarget.flag
+        if (this.preferredUserLanguages) {
+          this.originLanguageFlag = this.filePrefix + this.preferredUserLanguages.languageOrigin.flag
+          this.targetLanguageFlag = this.filePrefix + this.preferredUserLanguages.languageTarget.flag
+        }
       }
+
     )
+
   }
 
   async openModal() {
