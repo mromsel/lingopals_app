@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
     this.authService.isLoggedIn().subscribe(loggedIn => {
       this.isLoggedIn = loggedIn;
       if (!this.isLoggedIn) {
-        this.router.navigate(["/login"])
+        this.router.navigate(["/intro"])
       } else {
         this.mastersService.fetchMasters()
         this.userInfoService.fetchData()
