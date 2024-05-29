@@ -27,7 +27,9 @@ export class UserInfoService {
     let localStorageIdUser = localStorage.getItem("idUser")
     this.idUser = localStorageIdUser ? +localStorageIdUser : undefined
 
-    this.fetchData()
+    if (this.idUser) {
+      this.fetchData()
+    }
   }
 
   getUserInfo(idUser: number): Observable<UserInfo> {
