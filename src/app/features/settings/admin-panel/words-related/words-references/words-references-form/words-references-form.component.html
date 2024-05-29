@@ -17,7 +17,7 @@
         <select formControlName="grammaticalCategory" id="grammaticalCategory" required>
           @if (grammaticalCategories[0]) {
           @for (grammaticalCategory of grammaticalCategories; track $index) {
-          <option value="{{grammaticalCategory}}">{{grammaticalCategory.name}}</option>
+          <option value="{{$index}}">{{grammaticalCategory.name}}</option>
           }
           } @else {
           <option value="">No data available</option>
@@ -29,7 +29,7 @@
         <select formControlName="languageLevel" id="languageLevel" required>
           @if (languageLevels[0]) {
           @for (languageLevel of languageLevels; track $index) {
-          <option value="{{languageLevel}}">{{languageLevel.levelName}}</option>
+          <option value="{{$index}}">{{languageLevel.levelName}}</option>
           }
           } @else {
           <option value="">No data available</option>
