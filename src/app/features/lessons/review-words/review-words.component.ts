@@ -10,15 +10,16 @@ import { EventsService } from 'src/app/shared/services/events.service';
 import { ReviewWords } from '../interfaces/review-words.interface';
 import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
 import { ConfigService } from 'src/app/shared/services/config.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-review-words',
   templateUrl: './review-words.component.html',
   styleUrls: ['./review-words.component.scss'],
 })
-export class ReviewWordsComponent implements OnInit {
+export class ReviewWordsComponent {
 
-  backRoute: string = '/lessons'
+  backRoute: string = '/app/lessons'
 
   reviewType: string = activityTypes[0]
 
@@ -27,7 +28,7 @@ export class ReviewWordsComponent implements OnInit {
   reviewWords: ReviewWords | undefined
   usedUserLanguages: UserLanguages | undefined
 
-  reviewTitle: string = "Review words" // TODO: TRANSLATE
+  reviewTitle: string = ""
 
   constructor(
     private reviewService: ReviewService,
@@ -37,31 +38,14 @@ export class ReviewWordsComponent implements OnInit {
     private eventsService: EventsService,
     private router: Router,
     private navController: NavController,
-  ) { }
-
-  ngOnInit() {
-    if (this.authService.getIdUser() && this.userInfoService.userLanguages[0]) {
-      let idUser = this.authService.getIdUser()
-      if (idUser) {
-        this.userInfoService.getUserInfo(idUser).subscribe(
-          userInfo => {
-            this.usedUserLanguages = userInfo.userLanguages.filter(userLanguages => userLanguages.preferred)[0]
-          }
-        )
-      }
-
-      this.fetchWords()
-    } else {
-      this.exitView()
-    }
+    private translate: TranslateService,
+  ) {
+    this.reviewTitle = this.translate.instant('lessons.reviewWords')
   }
 
   ionViewWillEnter() {
-    if (this.authService.getIdUser() && this.userInfoService.userLanguages[0]) {
-
-      this.configService.getPreferredUserLanguages().subscribe(
-        userLanguages => this.usedUserLanguages = userLanguages
-      )
+    if (this.authService.getIdUser() && this.configService.preferredUserLanguages) {
+      this.usedUserLanguages = this.configService.preferredUserLanguages
       this.fetchWords()
     } else {
       this.exitView()
@@ -69,17 +53,9 @@ export class ReviewWordsComponent implements OnInit {
   }
 
   fetchWords() {
-    // let idUser = this.authService.getIdUser()
-    // if (idUser) {
-    //   this.userInfoService.getUserInfo(idUser).subscribe(
-    //     userInfo => {
-    //       this.usedUserLanguages = userInfo.preferredUserLanguages
-    //     }
-    //   )
-    // }
 
     if (this.authService.getIdUser() && this.usedUserLanguages) {
-      this.reviewService.getReviewWords(this.authService.getIdUser(), this.usedUserLanguages).subscribe(
+      this.reviewService.getReviewWords(this.usedUserLanguages).subscribe(
         userReviewWords => {
           this.eventsService.showSpinner$.next(true);
           this.reviewWords = userReviewWords
@@ -95,7 +71,7 @@ export class ReviewWordsComponent implements OnInit {
   exitView() {
     this.navController.pop()
     // this.navController.navigateBack()
-    this.router.navigate(['/lessons'])
+    this.router.navigate(['app/lessons'])
   }
 
 }

@@ -1,11 +1,22 @@
-.debug-button {
-    font-size: 1rem;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+@import '../../../../../shared/styles/constants.scss';
 
-    * {
-        margin: 0 0.2rem;
+ion-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--ion-color-primary);
+    color: var(--ion-color-primary-contrast);
+
+    .back-button {
+        font-size: 2rem;
+        z-index: 10;
+        padding: 1rem 3rem;
+    }
+
+    app-quiz-header {
+        flex-grow: 1;
+        padding: 0.5rem 0;
+        background-color: var(--ion-color-primary);
     }
 }
 
@@ -14,31 +25,61 @@
     background-color: var(--ion-color-background);
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100%;
+    height: 90%;
     width: 100%;
-    padding: 1rem;
-
-    app-quiz-header,
-    .body,
-    .bottomButtonDiv {
-        margin: 0.5rem;
-    }
-
-    app-quiz-header {
-        width: 80%;
-    }
+    padding: 1rem auto 0.5rem auto;
 
     .body {
         width: 80%;
+        flex-grow: 1;
+        margin: 0.5rem;
 
         .card {
-            border: 0.1rem solid lightgrey;
+            height: 100%;
             border-radius: 1.5rem;
         }
     }
+
+    .bottomButtonDiv {
+        margin-bottom: 1rem;
+    }
 }
 
-.margin {
-    margin: 1rem;
+@media (max-width: $small-device-max-w) {
+
+    /* Smartphones and tablets in vertical orientation */
+    .debug-button {
+        font-size: 1rem;
+        position: absolute;
+        top: 0.1rem;
+        right: 1rem;
+
+        span {
+            display: none;
+        }
+    }
+
+    ion-content {
+        height: 85%;
+    }
+}
+
+@media (min-width: $large-device-min-w) {
+
+    /* Laptops and tablets in horizontal orientation */
+    .debug-button {
+        font-size: 1rem;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 10;
+
+        * {
+            margin: 0 0.2rem;
+        }
+    }
+
+    ion-content {
+        height: 80%;
+    }
 }

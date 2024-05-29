@@ -9,7 +9,7 @@ import { AdminPanelService } from './services/admin-panel.service';
 })
 export class AdminPanelPage {
 
-  backRoute: string = "../settings"
+  backRoute: string = "app/settings"
 
   dropdownParents: string[] = adminPanelDropdownParents
 

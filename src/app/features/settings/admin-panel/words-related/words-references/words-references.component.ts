@@ -52,11 +52,9 @@ export class WordsReferencesComponent implements OnInit {
   action() { }
 
   onSearch(event: any) {
-    const searchTerm = event.target.value;
-    // this.displayList = [...this.data]
-    this.displayList = this.data.filter(item => item.englishWord.toLowerCase().includes(searchTerm.toLowerCase()))
+    const searchTerm: string = event.target.value;
 
-    console.log(this.displayList)
+    this.displayList = this.data.filter(item => item.englishWord.includes(searchTerm))
   }
 
   goToAdvancedForm() {

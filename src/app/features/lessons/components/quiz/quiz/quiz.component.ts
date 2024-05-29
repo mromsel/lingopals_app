@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { UserActivity, activityTypes } from 'src/app/shared/interfaces/user-activity.interface';
 import { WordsInQuiz } from '../../../interfaces/words-in-quiz.interface';
 import { QuizOption } from '../../../interfaces/quiz-option.interface';
@@ -11,17 +11,22 @@ import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interfac
 import { ActivityType } from 'src/app/shared/interfaces/activity-type.interface';
 import { UserLevelUpdate } from '../../../interfaces/user-level-update.interface';
 import { Subject, takeUntil } from 'rxjs';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.scss'],
 })
-export class QuizComponent implements OnInit {
+export class QuizComponent {
 
   unsubscribe$: Subject<void> = new Subject<void>();
 
   //#region Properties
+
+  backRoute: string = '/app/lessons'
 
   @Output() eventFinishQuiz = new EventEmitter<any>;
 
@@ -42,7 +47,7 @@ export class QuizComponent implements OnInit {
   stateInProgress: boolean = false;
   stateFinished: boolean = false;
 
-  lessonStates: string[] = ["START LESSON", "NEXT WORD", "FINISH LESSON", "GO BACK TO LESSONS"] // TODO: TRANSLATION
+  lessonStates: string[] = ["START LESSON", "CONTINUE", "NEXT WORD", "FINISH LESSON", "GO BACK TO LESSONS"]
   lessonCurrentState: string = this.lessonStates[0]
 
   isAnswerSubmitted: boolean = false;
@@ -69,10 +74,16 @@ export class QuizComponent implements OnInit {
     private userInfoService: UserInfoService,
     private userActivityService: UserActivityService,
     private eventsService: EventsService,
-  ) { }
-
-  ngOnInit() {
-
+    private navController: NavController,
+    private router: Router,
+    private translate: TranslateService,
+  ) {
+    this.lessonStates = [
+      this.translate.instant('lessons.quiz.states.start'),
+      this.translate.instant('lessons.quiz.states.continue'),
+      this.translate.instant('lessons.quiz.states.nextWord'),
+      this.translate.instant('lessons.quiz.states.finishLesson'),
+      this.translate.instant('lessons.quiz.states.backToLessons')]
   }
 
   startLesson() {
@@ -147,7 +158,7 @@ export class QuizComponent implements OnInit {
       }
 
       if (this.index === this.totalIndexWords) {
-        this.lessonCurrentState = this.lessonStates[2]
+        this.lessonCurrentState = this.lessonStates[3]
       }
 
       this.userResults.push(
@@ -158,14 +169,6 @@ export class QuizComponent implements OnInit {
       )
       console.log(this.userResults)
     }
-  }
-
-  finishLesson() {
-    this.stateInProgress = false
-    this.stateFinished = true
-    this.lessonCurrentState = this.lessonStates[3]
-
-    // this.submitResults()
   }
 
   submitResults() {
@@ -193,13 +196,19 @@ export class QuizComponent implements OnInit {
     }
   }
 
+  finishLesson() {
+    this.stateInProgress = false
+    this.stateFinished = true
+    this.lessonCurrentState = this.lessonStates[4]
+  }
+
   displayLearnWord() {
 
   }
 
   displayQuestion() {
     this.currentWordInQuiz = this.listWords[this.index]
-    this.currentCorrectOption = this.options[this.index].filter(option => option.correct == true)[0]
+    this.currentCorrectOption = this.options[this.index].filter(option => option.correct)[0]
     this.isAnsweringBlocked = false
   }
 
@@ -249,4 +258,8 @@ export class QuizComponent implements OnInit {
     this.displayQuestion()
   }
 
+  closeUnfinishedQuiz() {
+    if (this.backRoute === "") this.navController.pop()
+    else this.router.navigate([this.backRoute])
+  }
 }

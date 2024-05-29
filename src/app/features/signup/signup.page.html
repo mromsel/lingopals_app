@@ -1,7 +1,6 @@
 <ion-content [fullscreen]="true">
+  <app-single-language-selector></app-single-language-selector>
   <div class="main-container">
-    <ion-button (click)="goToLogin()" onkeypress="goToLogin()">{{ 'signup.goToLogin' | translate}}</ion-button>
-
     <div class="form-container">
       <!-- User creation form -->
       <form #signupForm="ngForm" (ngSubmit)="signup()">
@@ -28,6 +27,8 @@
         <ion-button type="submit" [disabled]="signupForm.invalid">{{'signup.signUp' | translate}}</ion-button>
       </form>
     </div>
+
+    <ion-button (click)="goToLogin()" onkeypress="goToLogin()">{{ 'signup.goToLogin' | translate}}</ion-button>
   </div>
 
 

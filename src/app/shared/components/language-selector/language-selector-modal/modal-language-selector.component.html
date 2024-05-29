@@ -1,28 +1,24 @@
-<ion-modal trigger="open-language-selector">
-  <ng-template>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Select the language to learn</ion-title>
-        <ion-buttons slot="end">
-          <ion-button (click)="closeModal()" onkeypress="closeModal()" [strong]="true">Close</ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="ion-padding">
-      <div class="languages-badge" *ngFor="let language of userLanguagesToSelect; index as i">
-        <button ion-button expand="block" class="button" (click)="select(i)"
-          [ngClass]="{'selected': preferredIndex == i, 'not-selected' : preferredIndex != i}">
-          <img src={{filePrefix}}{{language.languageOrigin.flag}} alt="Origin language" class="flag">
-          <ion-icon name="arrow-forward" class="arrow"></ion-icon>
-          <img src={{filePrefix}}{{language.languageTarget.flag}} alt="Target language" class="flag">
-        </button>
-      </div>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Select the language to learn</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()" onkeypress="closeModal()" [strong]="true">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div class="languages-badge" *ngFor="let language of userLanguagesToSelect; index as i">
+    <button ion-button expand="block" class="button" (click)="select(i)"
+      [ngClass]="{'selected': preferredIndex == i, 'not-selected' : preferredIndex != i}">
+      <img src={{filePrefix}}{{language.languageOrigin.flag}} alt="Origin language" class="flag">
+      <ion-icon name="arrow-forward" class="arrow"></ion-icon>
+      <img src={{filePrefix}}{{language.languageTarget.flag}} alt="Target language" class="flag">
+    </button>
+  </div>
 
-    </ion-content>
-    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-      <ion-fab-button>
-        <ion-icon name="add"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
-  </ng-template>
-</ion-modal>
+</ion-content>
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button>
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

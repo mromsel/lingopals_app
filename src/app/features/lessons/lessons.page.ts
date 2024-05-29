@@ -14,7 +14,7 @@ export class LessonsPage {
 
   unsubscribe$: Subject<void> = new Subject<void>();
 
-  lessons: Array<Lesson> = new Array();
+  lessons: Lesson[] = [];
 
   preferredUserLanguages: UserLanguages | undefined;
 
@@ -24,7 +24,9 @@ export class LessonsPage {
   ) { }
 
   ionViewWillEnter() {
-    this.configService.preferredUserLanguages
+
+    this.preferredUserLanguages = this.configService.preferredUserLanguages
+    this.configService.preferredUserLanguagesSubject
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
         preferredUserLanguages => {

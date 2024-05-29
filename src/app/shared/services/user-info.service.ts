@@ -27,7 +27,9 @@ export class UserInfoService {
     let localStorageIdUser = localStorage.getItem("idUser")
     this.idUser = localStorageIdUser ? +localStorageIdUser : undefined
 
-    this.fetchData()
+    if (this.idUser) {
+      this.fetchData()
+    }
   }
 
   getUserInfo(idUser: number): Observable<UserInfo> {
@@ -50,11 +52,8 @@ export class UserInfoService {
     if (this.idUser) {
       this.getUserInfo(this.idUser).subscribe(userInfo => {
         this.userInfo = userInfo
-        let preferredUserLanguages: UserLanguages | undefined = userInfo.userLanguages.filter(userLanguages => userLanguages.preferred)[0]
-        if (preferredUserLanguages) {
-          this.configService.setPreferredUserLanguages(preferredUserLanguages)
-        } else {
-          this.configService.setPreferredUserLanguages(userInfo.userLanguages[0])
+        if (this.userInfo.preferredLanguage) {
+          this.configService.setPreferredLanguage(this.userInfo.preferredLanguage.isoCode)
         }
       })
       this.getUserProgress(this.idUser).subscribe(userProgress => this.userProgress = userProgress)
@@ -62,10 +61,20 @@ export class UserInfoService {
 
     this.http.get<UserLanguages[]>(`${this.backendURL}/users-languages/${this.idUser}`).subscribe(userLanguages => {
       this.userLanguages = userLanguages
+      let preferredUserLanguages: UserLanguages | undefined = this.userLanguages.filter(userLanguages => userLanguages.preferred)[0]
+      if (preferredUserLanguages) {
+        this.configService.setPreferredUserLanguages(preferredUserLanguages)
+      } else {
+        this.configService.setPreferredUserLanguages(this.userLanguages[0])
+      }
     })
   }
 
   changePreferredUserLanguages(newUserLanguages: UserLanguages) {
-    return this.http.post<UserLanguages>(`${this.backendURL}/users-languages/change-preferred`, newUserLanguages)
+    this.http.post<UserLanguages[]>(`${this.backendURL}/users-languages/change-preferred`, newUserLanguages)
+      .subscribe(userLanguages => {
+        this.userLanguages = userLanguages
+        this.configService.setPreferredUserLanguages(userLanguages.filter(userLanguages => userLanguages.preferred)[0])
+      })
   }
 }

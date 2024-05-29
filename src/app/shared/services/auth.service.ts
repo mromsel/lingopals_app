@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { UserLogin } from '../interfaces/user-login';
+import { UserSignUp } from '../interfaces/user-signup.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -46,4 +47,7 @@ export class AuthService {
     this.idUser = idUser;
   }
 
+  signup(userSignUp: UserSignUp) {
+    return this.http.post<any>(`${this.backendURL}/users/signup`, userSignUp)
+  }
 }

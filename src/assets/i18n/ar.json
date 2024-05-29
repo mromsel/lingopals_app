@@ -28,23 +28,46 @@
         "settings": "الإعدادات"
     },
     "home": {
+        "header": {
+            "days": "أيام",
+            "level": "مستوى"
+        },
         "shop": "المتجر",
-        "enterShop": "الدخول",
-        "progress": "التقدم",
-        "showProgress": "اعرض الآن!"
+        "myProgress": "تقدمي"
     },
-    "lessons": {},
-    "dictionary": {},
+    "lessons": {
+        "reviewWords": "مراجعة الكلمات",
+        "quiz": {
+            "states": {
+                "start": "بدء الدرس",
+                "continue": "متابعة",
+                "nextWord": "الكلمة التالية",
+                "finishLesson": "إنهاء الدرس",
+                "backToLessons": "العودة إلى الدروس"
+            }
+        }
+    },
+    "dictionary": {
+        "search": "يبحث"
+    },
     "settings": {
-        "changeUsername": "تغيير اسم المستخدم",
-        "changePassword": "تغيير كلمة المرور",
-        "changePrefLang": "تغيير اللغة المفضلة",
-        "logout": "تسجيل الخروج",
-        "theme": "السمة",
-        "lightTheme": "فاتح",
-        "darkTheme": "داكن",
-        "getSupport": "الحصول على الدعم",
-        "about": "عن LingoPals",
-        "credits": "الاعتمادات"
+        "groupAdmin": {},
+        "group1": {
+            "titleUserConfig": "تكوين المستخدم",
+            "changeUsername": "تغيير اسم المستخدم",
+            "changePassword": "تغيير كلمة المرور",
+            "changePrefLang": "تغيير اللغة المفضلة",
+            "logout": "تسجيل الخروج"
+        },
+        "group2": {
+            "theme": "السمة",
+            "lightTheme": "فاتح",
+            "darkTheme": "داكن"
+        },
+        "group3": {
+            "getSupport": "الحصول على الدعم",
+            "about": "عن LingoPals",
+            "credits": "الاعتمادات"
+        }
     }
 }

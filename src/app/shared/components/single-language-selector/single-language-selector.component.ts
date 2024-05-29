@@ -11,12 +11,14 @@ import { ModalSingleLanguageSelectorComponent } from './modal-single-language-se
   templateUrl: './single-language-selector.component.html',
   styleUrls: ['./single-language-selector.component.scss'],
 })
-export class SingleLanguageSelectorComponent implements OnInit, OnDestroy {
+export class SingleLanguageSelectorComponent implements OnInit {
 
   unsubscribe$: Subject<void> = new Subject<void>();
 
   preferredLanguage: Language | undefined;
-  languageFlag: string = "../../../../assets/flags/flag_en.png";
+  filePrefix = "../../../../assets/flags/"
+  languageFlag: string = "flag_en.png";
+  languageFlagSrc = this.filePrefix + this.languageFlag
 
   constructor(
     private _modalController: ModalController,
@@ -24,23 +26,29 @@ export class SingleLanguageSelectorComponent implements OnInit, OnDestroy {
     private configService: ConfigService,
   ) {
   }
+  ngOnInit(): void {
+    let preferredLanguage = this.configService.preferredLanguage
+    if (preferredLanguage) this.setPreferredLanguage(preferredLanguage)
 
-  ngOnInit() {
-    this.configService.getPreferredLanguageObservable()
-      .pipe(takeUntil(this.unsubscribe$))
+    this.configService.preferredLanguageSubject
+      // .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
         language => {
-          this.preferredLanguage = language
-          this.languageFlag = "../../../../assets/flags/" + this.preferredLanguage.flag
+          this.setPreferredLanguage(language)
         }
       )
   }
 
-  ngOnDestroy() {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
+  setPreferredLanguage(language: Language) {
+    this.preferredLanguage = language
+    this.languageFlag = this.preferredLanguage.flag
+    this.languageFlagSrc = this.filePrefix + this.languageFlag
   }
 
+  ionViewWillExit() {
+    // this.unsubscribe$.next();
+    // this.unsubscribe$.complete();
+  }
 
   async openModal() {
     const modal = await this._modalController.create({

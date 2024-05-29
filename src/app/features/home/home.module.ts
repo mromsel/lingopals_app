@@ -11,6 +11,7 @@ import { ProgressModalComponent } from './components/progress-modal/progress-mod
 import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from 'src/main';
+import { HomeHeaderComponent } from './components/home-header/home-header.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { createTranslateLoader } from 'src/main';
   ],
   declarations: [
     HomePage,
-    ProgressModalComponent
+    HomeHeaderComponent,
+    ProgressModalComponent,
   ]
 })
 export class HomePageModule { }

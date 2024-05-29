@@ -1,26 +1,35 @@
 <app-spinner></app-spinner>
-<div class="main-container">
-  <ion-button *ngIf="stateInProgress" (click)="goToLastQuestion()" class="debug-button" slot="end"
+<ion-header>
+  <ion-icon (click)="closeUnfinishedQuiz()" name="close" class="back-button" onKeyDown="navigateBack()"></ion-icon>
+
+  <app-quiz-header [headerTitle]="headerTitle" [showProgressBar]="stateInProgress"
+    [progress]="progress"></app-quiz-header>
+
+  <ion-button *ngIf="stateInProgress" (click)="goToLastQuestion()" class="debug-button" color="secondary" slot="end"
     onKeyDown="goToLastQuestion()"><ion-icon name="bug"></ion-icon><span>Last
       question</span></ion-button>
+</ion-header>
 
-  <app-quiz-header [headerTitle]="headerTitle" [showProgressBar]="stateInProgress" [progress]="progress"
-    [ngClass]="{'margin': !stateInProgress}"></app-quiz-header>
-  <div class="body">
-    <app-quiz-start-card *ngIf="stateNotStarted" class="card"></app-quiz-start-card>
+<ion-content>
 
-    <app-quiz-options-question [isAnswerSubmitted]="isAnswerSubmitted" [currentOptions]="options[index]"
-      [correctOption]="currentCorrectOption" *ngIf="stateInProgress" (answerSubmitted)="submitAnswer($event)"
-      class="card"></app-quiz-options-question>
-    <app-quiz-finished-card *ngIf="stateFinished" [listWords]="listWords" [userActivityResult]="userActivityResult"
-      [userLevelUpdate]="userLevelUpdate" class="card"></app-quiz-finished-card>
+  <div class="main-container">
+
+    <div class="body">
+      <app-quiz-start-card *ngIf="stateNotStarted" class="card"></app-quiz-start-card>
+
+      <app-quiz-options-question [isAnswerSubmitted]="isAnswerSubmitted" [currentOptions]="options[index]"
+        [correctOption]="currentCorrectOption" *ngIf="stateInProgress" (answerSubmitted)="submitAnswer($event)"
+        class="card"></app-quiz-options-question>
+      <app-quiz-finished-card *ngIf="stateFinished" [listWords]="listWords" [userActivityResult]="userActivityResult"
+        [userLevelUpdate]="userLevelUpdate" class="card"></app-quiz-finished-card>
+    </div>
+
+    <div class="bottomButtonDiv">
+      <ion-button *ngIf="stateNotStarted" (click)="startLesson()"
+        onKeyDown="startLesson()">{{lessonStates[0]}}</ion-button>
+      <ion-button *ngIf="stateInProgress" [disabled]="!isAnswerSubmitted" (click)="nextPressed()"
+        onKeyDown="nextPressed()">{{lessonCurrentState}}</ion-button>
+      <ion-button *ngIf="stateFinished" (click)="exitView()" onKeyDown="exitView()">{{lessonStates[4]}}</ion-button>
+    </div>
   </div>
-
-  <div class="bottomButtonDiv">
-    <ion-button *ngIf="stateNotStarted" (click)="startLesson()"
-      onKeyDown="startLesson()">{{lessonStates[0]}}</ion-button>
-    <ion-button *ngIf="stateInProgress" [disabled]="!isAnswerSubmitted" (click)="nextPressed()"
-      onKeyDown="nextPressed()">{{lessonCurrentState}}</ion-button>
-    <ion-button *ngIf="stateFinished" (click)="exitView()" onKeyDown="exitView()">{{lessonStates[3]}}</ion-button>
-  </div>
-</div>
+</ion-content>

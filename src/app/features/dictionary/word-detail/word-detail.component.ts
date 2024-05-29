@@ -11,7 +11,11 @@ import { WordsService } from 'src/app/shared/services/words.service';
 })
 export class WordDetailComponent implements OnInit {
 
+  backRoute = "/app/dictionary"
+
   word: Word | undefined;
+
+  showRomanization: boolean = true
 
   constructor(
     private route: ActivatedRoute,
@@ -23,12 +27,16 @@ export class WordDetailComponent implements OnInit {
     this.route.paramMap.subscribe(
       params => {
         let idWord = params.get('id');
-        if (idWord) {
-          this.wordService.getWordByLanguageAndID(this.configService.preferredIsoCode, +idWord).subscribe(word => {
+        if (idWord && this.configService.preferredUserLanguages) {
+          this.wordService.getWordByLanguageAndID(this.configService.preferredUserLanguages.languageTarget.isoCode, +idWord).subscribe(word => {
             this.word = word
           })
         }
       }
     )
+  }
+
+  toggleRomanization() {
+    this.showRomanization = !this.showRomanization
   }
 }

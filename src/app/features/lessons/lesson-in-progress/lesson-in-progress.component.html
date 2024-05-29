@@ -1,7 +1,5 @@
 <app-spinner></app-spinner>
 <div class="main-container">
-  <app-back-button [backRoute]="backRoute"></app-back-button>
-
   <app-quiz [headerTitle]="lesson ? lesson.lessonName : 'Lesson'" [type]="lessonType" [listWords]="listWords"
     [idLesson]="idLesson" [usedUserLanguages]="usedUserLanguages" [activityType]="lesson?.activityType"
     (eventFinishQuiz)="exitView()"></app-quiz>

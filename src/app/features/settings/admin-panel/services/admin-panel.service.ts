@@ -34,7 +34,7 @@ export class AdminPanelService {
   constructor(private http: HttpClient) {
     this.fetchAllMasters()
     this.fetchAllWordsRelated()
-    this.fetchAllUsersRelated()
+    // this.fetchAllUsersRelated()
   }
 
   fetchAllMasters() {

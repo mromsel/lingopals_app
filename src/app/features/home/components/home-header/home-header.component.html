@@ -1,0 +1,22 @@
+<div class="header-container">
+  <ion-item>
+    {{userProgress?.currentStreak}} {{ 'home.header.days' | translate}}
+    <ion-icon name="flame-outline"></ion-icon>
+    <!-- <ion-icon name="flame"></ion-icon> -->
+  </ion-item>
+  <ion-item>
+    <div class="level">
+      <ion-text>{{ 'home.header.level' | translate}} {{userProgress?.xpLevel?.levelNumber}}</ion-text>
+
+      <ion-progress-bar [value]="levelProgressValue"></ion-progress-bar>
+    </div>
+  </ion-item>
+  <ion-item>
+    <div class="d-flex align-items-center" style="font-size: 1.5rem;">
+      <ion-text style="margin-right: 0.3rem;">
+        {{userProgress?.coins}}
+      </ion-text>
+      <ion-icon name="cash-outline"></ion-icon>
+    </div>
+  </ion-item>
+</div>

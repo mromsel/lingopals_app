@@ -1,26 +1,32 @@
-<ion-content [fullscreen]="true">
+<ion-header>
+  <div class="header">
+    <app-language-selector [preferredUserLanguages]="preferredUserLanguages"></app-language-selector>
+    <ion-searchbar (ionChange)="onSearch($event)" style="position: sticky;"
+      placeholder="{{ 'dictionary.search' | translate}}"></ion-searchbar>
+    <ion-button color="secondary">{{ 'dictionary.search' | translate}}</ion-button>
+  </div>
+  <!-- <app-letters-scroll></app-letters-scroll> -->
+</ion-header>
 
-  <ion-searchbar></ion-searchbar>
+<ion-content class="main-container">
 
   <div class="dictionary-container">
-    <div>
-      <!-- Lista de palabras separadas por letra -->
-      <ion-list *ngFor="let letter of alphabet" id="{{letter}}" class="letter-sections">
-        <ion-item-divider sticky>
-          <ion-label>{{letter}}</ion-label>
-        </ion-item-divider>
-        <ion-button *ngFor="let word of sortedWords[letter]" (click)="goToDetail(word)" onKeyPress="goToDetail(word)">
-          <ion-label>{{word.wordString}}</ion-label>
-        </ion-button>
+    <div class="word-list-container">
+      <!-- * Words list divided by letters * -->
+      @for (letter of alphabet; track $index) {
+      @if (sortedWords && sortedWords[letter] && sortedWords[letter][0]) {
+      <ion-list class="letter-sections">
+        <div class="words-by-letter" id="{{letter}}">
+          <ion-item-divider sticky>
+            <div>{{letter}}</div>
+          </ion-item-divider>
+          <ion-text *ngFor="let word of sortedWords[letter]" (click)="goToDetail(word)" onKeyPress="goToDetail(word)">
+            <ion-label>{{word.wordString}}</ion-label>
+          </ion-text>
+        </div>
       </ion-list>
+      }
+      }
     </div>
-
-    <!-- Barra lateral con enlaces de navegación -->
-    <!-- ! remove class?? -->
-    <ion-list class="letters" lines="none">
-      <ion-item lines="none" *ngFor="let letter of alphabet; index as i">
-        <button (click)="scrollToElement(letter)" [ngClass]="{'active': i === 0}">{{letter}}</button>
-      </ion-item>
-    </ion-list>
   </div>
 </ion-content>

@@ -30,7 +30,7 @@ export class WordsReferencesFormComponent {
     this.wordReferenceForm = this.formBuilder.group({
       englishWord: ['', Validators.required],
       englishDefinition: ['', Validators.required],
-      grammaticalCategory: [],
+      grammaticalCategory: [Validators.required],
       languageLevel: [Validators.required],
       category: '',
       imageUrl: '',
@@ -44,26 +44,27 @@ export class WordsReferencesFormComponent {
 
     this.languageLevels = this.adminPanelService.mastersStored?.languageLevels ?? []
     this.grammaticalCategories = this.adminPanelService.mastersStored?.grammaticalCategories ?? []
-    this.wordReferenceForm.controls['languageLevel'].setValue(this.languageLevels[0]);
-    this.wordReferenceForm.controls['grammaticalCategory'].setValue(this.grammaticalCategories[0]);
+    this.wordReferenceForm.controls['languageLevel'].setValue(0);
+    this.wordReferenceForm.controls['grammaticalCategory'].setValue(0);
 
   }
 
   onSubmit() {
     if (this.wordReferenceForm?.valid) {
+      const selectedGrammaticalCategory = this.grammaticalCategories[this.wordReferenceForm.value.grammaticalCategory]
+      const selectedLanguageLevel = this.languageLevels[this.wordReferenceForm.value.languageLevel]
+
       const wordReference: WordReference = {
         idWordRef: 0,
         englishWord: this.wordReferenceForm.value.englishWord,
         englishDefinition: this.wordReferenceForm.value.englishDefinition,
-        grammaticalCategory: this.wordReferenceForm.value.grammaticalCategory,
-        languageLevel: this.wordReferenceForm.value.languageLevel,
+        grammaticalCategory: selectedGrammaticalCategory,
+        languageLevel: selectedLanguageLevel,
         // category: this.wordReferenceForm.value.category,
         imageUrl: this.wordReferenceForm.value.imageUrl,
       };
 
       // Submit
-      console.log(wordReference);
-
       this.adminPanelService.saveWordReference(wordReference).subscribe(
         response => {
           console.log(response)

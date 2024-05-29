@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { UserInfo } from 'src/app/shared/interfaces/user-info.interface';
@@ -11,7 +11,7 @@ import { UserInfoService } from 'src/app/shared/services/user-info.service';
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
-export class HomePage implements OnInit {
+export class HomePage {
 
   unsubscribe$: Subject<void> = new Subject<void>();
 
@@ -25,7 +25,7 @@ export class HomePage implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.idUser = this.authService.getIdUser()
 
     if (this.idUser != 0) {
@@ -40,7 +40,6 @@ export class HomePage implements OnInit {
       this.authService.logout()
       this.router.navigate(["/login"])
     }
-
   }
 
   goToShop() {

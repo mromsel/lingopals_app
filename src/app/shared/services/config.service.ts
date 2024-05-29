@@ -1,7 +1,7 @@
 import { Inject, Injectable, LOCALE_ID } from '@angular/core';
 import { Language } from '../interfaces/language.interface';
 import { MastersService } from './masters.service';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { UserLanguages } from '../interfaces/user-languages.interface';
 
@@ -14,11 +14,13 @@ export class ConfigService {
 
   defaultLocale: string = "en"
 
-  preferredLanguage: Subject<Language> = new Subject<Language>();
+  preferredLanguageSubject: Subject<Language> = new Subject<Language>();
+  preferredLanguage: Language | undefined
 
   preferredIsoCode: string = this.defaultLocale
 
-  preferredUserLanguages: Subject<UserLanguages> = new Subject<UserLanguages>();
+  preferredUserLanguagesSubject: Subject<UserLanguages> = new Subject<UserLanguages>();
+  preferredUserLanguages: UserLanguages | undefined
 
   constructor(
     @Inject(LOCALE_ID) public locale: string, private translateService: TranslateService, private mastersService: MastersService) {
@@ -31,7 +33,10 @@ export class ConfigService {
       this.preferredIsoCode = preferredLanguage.isoCode
       localStorage.setItem(this.prefLangKey, this.preferredIsoCode)
       this.translateService.use(this.preferredIsoCode);
-      this.preferredLanguage.next(preferredLanguage)
+      this.preferredLanguageSubject.next(preferredLanguage)
+      this.preferredLanguage = preferredLanguage
+      console.log(preferredLanguage);
+
     } else {
       this.setDefaultLanguage()
     }
@@ -40,11 +45,10 @@ export class ConfigService {
   private setDefaultLanguage() {
     localStorage.setItem(this.prefLangKey, this.defaultLocale)
     this.translateService.use(this.defaultLocale);
-    this.preferredLanguage.next(this.mastersService.getLanguages().filter(language => language.isoCode == this.defaultLocale)[0])
-  }
 
-  getPreferredLanguageObservable(): Observable<Language> {
-    return this.preferredLanguage.asObservable();
+    let preferredLanguage = this.mastersService.getLanguages().filter(language => language.isoCode == this.defaultLocale)[0]
+    this.preferredLanguageSubject.next(preferredLanguage)
+    this.preferredLanguage = preferredLanguage
   }
 
   getPreferredIsoCode(): string {
@@ -53,17 +57,16 @@ export class ConfigService {
     let storaged: string | null = localStorage.getItem("pref-lang")
     if (storaged) {
       this.preferredIsoCode = storaged
-      this.preferredLanguage.next(this.mastersService.getLanguages().filter(lang => lang.isoCode == this.preferredIsoCode)[0])
+      let preferredLanguage = this.mastersService.getLanguages().filter(lang => lang.isoCode == this.preferredIsoCode)[0]
+      this.preferredLanguageSubject.next(preferredLanguage)
+      this.preferredLanguage = preferredLanguage
       return storaged
     }
     return this.defaultLocale
   }
 
-  getPreferredUserLanguages(): Observable<UserLanguages> {
-    return this.preferredUserLanguages.asObservable()
-  }
-
   setPreferredUserLanguages(userLanguages: UserLanguages) {
-    this.preferredUserLanguages.next(userLanguages)
+    this.preferredUserLanguages = userLanguages
+    this.preferredUserLanguagesSubject.next(this.preferredUserLanguages)
   }
 }

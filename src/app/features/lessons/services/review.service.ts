@@ -14,7 +14,7 @@ export class ReviewService {
 
   constructor(private http: HttpClient) { }
 
-  getReviewWords(idUser: number, userLanguages: UserLanguages): Observable<ReviewWords> {
-    return this.http.get<ReviewWords>(`${this.backendURL}/review-words/${idUser}/${userLanguages.languageOrigin.isoCode}/${userLanguages.languageTarget.isoCode}`)
+  getReviewWords(userLanguages: UserLanguages): Observable<ReviewWords> {
+    return this.http.get<ReviewWords>(`${this.backendURL}/review-words/${userLanguages.idUserLanguages}/${userLanguages.languageOrigin.isoCode}/${userLanguages.languageTarget.isoCode}`)
   }
 }

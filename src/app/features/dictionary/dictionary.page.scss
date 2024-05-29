@@ -1,34 +1,51 @@
+@import '../../shared/styles/constants.scss';
+
+.header {
+  background-color: var(--ion-color-primary);
+  display: flex;
+  padding: 1rem;
+}
+
 .dictionary-container {
-    display: flex;
+  display: flex;
+  height: 80%;
 
-    div {
-        .letter-sections {
-            display: flex;
-            flex-direction: column;
-        }
-    }
+  .word-list-container {
+    padding: 1rem;
 
-    .letters {
-        width: 50px;
-        /* Ancho fijo para la barra lateral */
-        position: sticky;
-        /* La barra lateral se mantendrá pegada mientras se desplaza el contenido */
-        top: 0;
-        /* Pegado a la parte superior */
+    ion-list {
+      padding: 1rem;
+      margin: 1rem auto;
+
+      .words-by-letter {
+        border: 1px solid var(--ion-color-primary-shade);
         display: flex;
         flex-direction: column;
 
-        ion-list {
-            .active {
-                background: rgba(255, 80, 56, 0.16);
-                color: red;
-                border-radius: 50px;
-            }
+        ion-item-divider {
+          background-color: var(--ion-color-primary-shade);
+          color: var(--ion-color-primary-contrast);
         }
+
+        ion-text {
+          background-color: var(--ion-color-primary-contrast);
+          padding: 1rem;
+        }
+
+      }
     }
+  }
 }
 
+
 .dictionary-container>div:first-child {
-    flex-grow: 1;
-    /* El primer div (que contiene la lista de palabras) ocupará todo el espacio restante */
+  flex-grow: 1;
+}
+
+@media (max-width: $small-device-max-w) {
+
+  /* Smartphones and tablets in vertical orientation */
+  app-letters-scroll {
+    display: none;
+  }
 }
