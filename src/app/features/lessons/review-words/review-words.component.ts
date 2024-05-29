@@ -55,7 +55,7 @@ export class ReviewWordsComponent {
   fetchWords() {
 
     if (this.authService.getIdUser() && this.usedUserLanguages) {
-      this.reviewService.getReviewWords(this.authService.getIdUser(), this.usedUserLanguages).subscribe(
+      this.reviewService.getReviewWords(this.usedUserLanguages).subscribe(
         userReviewWords => {
           this.eventsService.showSpinner$.next(true);
           this.reviewWords = userReviewWords
