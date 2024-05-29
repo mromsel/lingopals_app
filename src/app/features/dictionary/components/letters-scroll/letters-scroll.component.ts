@@ -16,6 +16,22 @@ export class LettersScrollComponent {
 
     if (componente != null) {
       componente.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      this.toggleActive(sectionId)
+    }
+  }
+
+  // todo: FIX
+  toggleActive(buttonId: string | undefined) {
+    const sectionButtons = document.getElementById('letters')?.getElementsByTagName('button');
+    if (sectionButtons != null && buttonId != undefined) {
+      Array.from(sectionButtons).forEach(b => {
+        if (b.id === buttonId) {
+          b.classList.add('active')
+        }
+        else {
+          b.classList.remove('active')
+        }
+      });
     }
   }
 }

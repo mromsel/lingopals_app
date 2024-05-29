@@ -1,16 +1,17 @@
 ion-content {
     overflow-x: scroll;
     height: 9vh;
+    // width: 200%;
 
     .letters {
         display: flex;
-        min-width: 20px;
+        // min-width: 2rem;
         justify-content: space-around;
     }
 }
 
 .active {
     background: rgba(255, 80, 56, 0.16);
-    color: red;
+    color: var(--ion-color-marked);
     border-radius: 50px;
 }
