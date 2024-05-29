@@ -1,11 +1,22 @@
 <app-back-button [backRoute]="backRoute"></app-back-button>
 <div class="main-container">
   <ion-card>
-    <ion-card-title>
-      {{word?.wordString}}
-    </ion-card-title>
+    <ion-card-header>
+      <ion-card-title>
+        {{word?.wordString}}
+        <ion-toggle (ionChange)="toggleRomanization()" color="light"></ion-toggle>
+      </ion-card-title>
+      <ion-card-subtitle *ngIf="showRomanization">
+        {{word?.wordString}}
+      </ion-card-subtitle>
+    </ion-card-header>
     <ion-card-content>
-      {{word?.definition}}
+      <img
+        src="https://image.winudf.com/v2/image1/Y29tLm1pbmlhcmthbm8uY2F0cHJvZmlsZXBpY3R1cmVfc2NyZWVuXzBfMTY4OTc5NjQ1NF8wMTA/screen-0.jpg?fakeurl=1&type=.jpg"
+        alt="Word image">
+      <ion-text>
+        {{word?.definition}}
+      </ion-text>
     </ion-card-content>
   </ion-card>
 

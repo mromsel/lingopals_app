@@ -15,6 +15,8 @@ export class WordDetailComponent implements OnInit {
 
   word: Word | undefined;
 
+  showRomanization: boolean = true
+
   constructor(
     private route: ActivatedRoute,
     private wordService: WordsService,
@@ -32,5 +34,9 @@ export class WordDetailComponent implements OnInit {
         }
       }
     )
+  }
+
+  toggleRomanization() {
+    this.showRomanization = !this.showRomanization
   }
 }
