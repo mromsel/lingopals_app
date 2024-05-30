@@ -16,6 +16,11 @@ const routes: Routes = [
     path: 'intro',
     loadChildren: () => import('./features/introduction/introduction.module').then(m => m.IntroductionPageModule)
   },
+  // tutorial
+  {
+    path: 'tutorial',
+    loadChildren: () => import('./features/tutorial/tutorial.module').then(m => m.TutorialPageModule)
+  },
   // login
   {
     path: 'login',
