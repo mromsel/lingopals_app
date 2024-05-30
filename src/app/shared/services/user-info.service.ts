@@ -6,6 +6,7 @@ import { UserInfo } from '../interfaces/user-info.interface';
 import { UserProgress } from '../interfaces/user-progress.interface';
 import { UserLanguages } from '../interfaces/user-languages.interface';
 import { ConfigService } from './config.service';
+import { UserLanguagesCreate } from '../components/modal-user-languages-create/user-languages-create.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -76,5 +77,9 @@ export class UserInfoService {
         this.userLanguages = userLanguages
         this.configService.setPreferredUserLanguages(userLanguages.filter(userLanguages => userLanguages.preferred)[0])
       })
+  }
+
+  createNewUserLanguages(userLanguagesCreate: UserLanguagesCreate) {
+    return this.http.post<UserLanguages[]>(`${this.backendURL}/users-languages`, userLanguagesCreate)
   }
 }
