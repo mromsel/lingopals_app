@@ -1,0 +1,56 @@
+ion-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+
+        .main-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+
+            img {
+                border-radius: 1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .text {
+
+                >* {
+                    text-align: center;
+                }
+
+                ion-text {
+                    color: var(--ion-color-medium);
+                }
+            }
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            padding: 0.5rem;
+
+            ion-text {
+                background-color: var(--ion-color-primary);
+                border-radius: 1rem;
+                color: var(--ion-color-primary-contrast);
+                flex: 1;
+                margin: 0.5rem;
+                padding: 1rem;
+                text-align: center;
+            }
+        }
+    }
+}
