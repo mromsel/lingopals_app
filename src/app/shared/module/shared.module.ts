@@ -12,6 +12,8 @@ import { createTranslateLoader } from "src/main";
 import { ModalLanguageSelectorComponent } from "../components/language-selector/language-selector-modal/modal-language-selector.component";
 import { DynamicMaterialTableComponent } from "../components/dynamic-material-table/dynamic-material-table.component";
 import { MatTableModule } from "@angular/material/table";
+import { ModalUserLanguagesCreateComponent } from "../components/modal-user-languages-create/modal-user-languages-create.component";
+import { LanguageDisplayComponent } from "../components/language-display/language-display.component";
 
 @NgModule({
     declarations: [
@@ -22,6 +24,8 @@ import { MatTableModule } from "@angular/material/table";
         SingleLanguageSelectorComponent,
         ModalSingleLanguageSelectorComponent,
         DynamicMaterialTableComponent,
+        ModalUserLanguagesCreateComponent,
+        LanguageDisplayComponent,
     ],
     imports: [
         CommonModule,
@@ -43,6 +47,8 @@ import { MatTableModule } from "@angular/material/table";
         SingleLanguageSelectorComponent,
         ModalSingleLanguageSelectorComponent,
         DynamicMaterialTableComponent,
+        ModalUserLanguagesCreateComponent,
+        LanguageDisplayComponent,
     ]
 })
 
