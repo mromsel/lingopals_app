@@ -1,6 +1,6 @@
 import { Language } from "./language.interface";
 
-export interface UserInfo {
+export interface User {
     idUser: number;
     username: string;
     email: string;

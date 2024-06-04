@@ -1,4 +1,4 @@
-import { UserInfo } from "./user-info.interface";
+import { User } from "./user.interface";
 import { XPLevel } from "./xp-level.interface";
 
 export interface UserProgress {
@@ -10,5 +10,5 @@ export interface UserProgress {
     maxStreak: number,
     xpPoints: number,
     xpLevel: XPLevel,
-    user: UserInfo
+    user: User
 }
