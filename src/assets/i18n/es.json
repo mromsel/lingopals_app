@@ -1,8 +1,15 @@
 {
+    "common": {
+        "buttonExitText": "Salir",
+        "buttonCancelText": "Cancelar",
+        "buttonOkText": "Aceptar",
+        "errorAlertTitle": "Error",
+        "genericErrorMessage": "Hubo un problema. Por favor, inténtalo más tarde."
+    },
     "login": {
         "login": "Inicio de sesión",
-        "usernameOrEmail": "Nombre de usuario o correo electrónico",
-        "enterUsernameOrEmail": "Ingrese su nombre de usuario o correo electrónico",
+        "username": "Nombre de usuario",
+        "enterUsername": "Ingrese su nombre de usuario",
         "password": "Contraseña",
         "enterPassword": "Ingrese su contraseña",
         "errorLoginData": "Por favor, ingrese un nombre de usuario y contraseña válidos",
@@ -19,7 +26,16 @@
         "enterPassword": "Ingrese su contraseña",
         "confirmPassword": "Confirmar contraseña",
         "enterConfirmPassword": "Ingrese su contraseña nuevamente",
-        "goToLogin": "Ir a inicio de sesión"
+        "goToLogin": "Ir a inicio de sesión",
+        "successAlert": {
+            "header": "Cuenta creada",
+            "message": "Ya puedes iniciar sesión",
+            "buttonText": "Aceptar"
+        },
+        "errorAlert": {
+            "usernameError": "Este nombre de usuario ya está en uso.",
+            "emailError": "Este correo electrónico ya está registrado."
+        }
     },
     "tabs": {
         "home": "Inicio",
