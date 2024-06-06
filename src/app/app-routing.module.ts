@@ -45,6 +45,10 @@ const routes: Routes = [
     redirectTo: 'app',
     pathMatch: 'full'
   },
+  {
+    path: 'test',
+    loadChildren: () => import('./features/test/test.module').then(m => m.TestPageModule)
+  },
 ];
 @NgModule({
   imports: [
