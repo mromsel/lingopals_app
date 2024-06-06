@@ -3,13 +3,13 @@ import { LessonsService } from '../services/lessons.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LessonFull } from '../interfaces/lesson-full.interface';
 import { Lesson } from 'src/app/shared/interfaces/lesson.interface';
-import { EventsService } from 'src/app/shared/services/events.service';
+import { EventsService } from 'src/app/shared/services/app/events.service';
 import { UserInfoService } from 'src/app/shared/services/user-related/user-info.service';
 import { activityTypes } from 'src/app/shared/interfaces/user-activity.interface';
 import { WordsInQuiz } from '../interfaces/words-in-quiz.interface';
 import { NavController } from '@ionic/angular';
 import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
-import { ConfigService } from 'src/app/shared/services/config.service';
+import { ConfigService } from 'src/app/shared/services/app/config.service';
 
 @Component({
   selector: 'app-lesson-in-progress',

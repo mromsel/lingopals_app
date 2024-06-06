@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AdminPanelService } from '../services/admin-panel.service';
-import { EventsService } from 'src/app/shared/services/events.service';
+import { EventsService } from 'src/app/shared/services/app/events.service';
 import { LibreTranslateRequest } from './libre-translate-request.interface';
 import { LibreTranslateApiResponse } from './libre-translate-response.interface';
 

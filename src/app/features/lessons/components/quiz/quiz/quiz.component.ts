@@ -3,10 +3,10 @@ import { UserActivity, activityTypes } from 'src/app/shared/interfaces/user-acti
 import { WordsInQuiz } from '../../../interfaces/words-in-quiz.interface';
 import { QuizOption } from '../../../interfaces/quiz-option.interface';
 import { Utils } from 'src/app/shared/utils/utils';
-import { UserInfoService } from 'src/app/shared/services/user-info.service';
-import { UserActivityService } from 'src/app/shared/services/user-activity.service';
+import { UserInfoService } from 'src/app/shared/services/user-related/user-info.service';
+import { UserActivityService } from 'src/app/shared/services/user-related/user-activity.service';
 import { ActivityResult } from 'src/app/shared/interfaces/activity-result.interface';
-import { EventsService } from 'src/app/shared/services/events.service';
+import { EventsService } from 'src/app/shared/services/app/events.service';
 import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
 import { ActivityType } from 'src/app/shared/interfaces/activity-type.interface';
 import { UserLevelUpdate } from '../../../interfaces/user-level-update.interface';

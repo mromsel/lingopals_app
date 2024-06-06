@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserProgress } from 'src/app/shared/interfaces/user-progress.interface';
-import { UserInfoService } from 'src/app/shared/services/user-info.service';
+import { UserInfoService } from 'src/app/shared/services/user-related/user-info.service';
 
 @Component({
   selector: 'app-home-header',

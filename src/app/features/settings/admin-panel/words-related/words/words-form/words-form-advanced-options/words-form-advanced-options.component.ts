@@ -4,7 +4,7 @@ import { Word } from 'src/app/shared/interfaces/word.interface';
 import { LibreTranslateApiResponse } from '../../../../libre-translate-api/libre-translate-response.interface';
 import { Language } from 'src/app/shared/interfaces/language.interface';
 import { LibreTranslateRequest } from '../../../../libre-translate-api/libre-translate-request.interface';
-import { EventsService } from 'src/app/shared/services/events.service';
+import { EventsService } from 'src/app/shared/services/app/events.service';
 import { AdminPanelService } from '../../../../services/admin-panel.service';
 
 @Component({

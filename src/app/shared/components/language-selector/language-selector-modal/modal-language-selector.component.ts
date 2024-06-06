@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
-import { ConfigService } from 'src/app/shared/services/config.service';
-import { UserInfoService } from 'src/app/shared/services/user-info.service';
+import { ConfigService } from 'src/app/shared/services/app/config.service';
+import { UserInfoService } from 'src/app/shared/services/user-related/user-info.service';
 import { ModalUserLanguagesCreateComponent } from '../../modal-user-languages-create/modal-user-languages-create.component';
 
 @Component({

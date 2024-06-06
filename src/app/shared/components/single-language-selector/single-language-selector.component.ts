@@ -1,8 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MastersService } from '../../services/masters.service';
 import { Language } from '../../interfaces/language.interface';
-import { ConfigService } from '../../services/config.service';
-import { Subject, takeUntil } from 'rxjs';
+import { ConfigService } from '../../services/app/config.service';
+import { Subject } from 'rxjs';
 import { ModalController } from '@ionic/angular';
 import { ModalSingleLanguageSelectorComponent } from './modal-single-language-selector/modal-single-language-selector.component';
 
@@ -54,7 +54,6 @@ export class SingleLanguageSelectorComponent implements OnInit {
     const modal = await this._modalController.create({
       component: ModalSingleLanguageSelectorComponent,
       keyboardClose: true,
-      cssClass: 'small-modal'
     });
     return await modal.present();
   }
