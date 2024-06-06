@@ -14,6 +14,7 @@ import { DynamicMaterialTableComponent } from "../components/dynamic-material-ta
 import { MatTableModule } from "@angular/material/table";
 import { ModalUserLanguagesCreateComponent } from "../components/modal-user-languages-create/modal-user-languages-create.component";
 import { LanguageDisplayComponent } from "../components/language-display/language-display.component";
+import { CustomButtonComponent } from "../components/custom-button/custom-button.component";
 
 @NgModule({
     declarations: [
@@ -21,6 +22,7 @@ import { LanguageDisplayComponent } from "../components/language-display/languag
         ModalLanguageSelectorComponent,
         SpinnerComponent,
         BackButtonComponent,
+        CustomButtonComponent,
         SingleLanguageSelectorComponent,
         ModalSingleLanguageSelectorComponent,
         DynamicMaterialTableComponent,
@@ -44,6 +46,7 @@ import { LanguageDisplayComponent } from "../components/language-display/languag
         ModalLanguageSelectorComponent,
         SpinnerComponent,
         BackButtonComponent,
+        CustomButtonComponent,
         SingleLanguageSelectorComponent,
         ModalSingleLanguageSelectorComponent,
         DynamicMaterialTableComponent,
