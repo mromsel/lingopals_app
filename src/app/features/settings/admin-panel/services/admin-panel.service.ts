@@ -77,7 +77,7 @@ export class AdminPanelService {
   }
 
   getMasters() {
-    return this.http.get<Masters>(`${this.adminPanelURL}/masters`)
+    return this.http.get<Masters>(`${this.backendURL}/masters`)
   }
 
   getWordsRelated() {

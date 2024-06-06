@@ -1,9 +1,9 @@
 import { Inject, Injectable, LOCALE_ID } from '@angular/core';
-import { Language } from '../interfaces/language.interface';
-import { MastersService } from './masters.service';
+import { Language } from '../../interfaces/language.interface';
+import { MastersService } from '../masters.service';
 import { Subject } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
-import { UserLanguages } from '../interfaces/user-languages.interface';
+import { UserLanguages } from '../../interfaces/user-languages.interface';
 
 @Injectable({
   providedIn: 'root'
