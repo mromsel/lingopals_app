@@ -1,10 +1,10 @@
-import { ActivityType } from "src/app/shared/interfaces/activity-type.interface";
-import { GrammaticalCategory } from "src/app/shared/interfaces/grammatical-category.interface";
-import { LanguageLevel } from "src/app/shared/interfaces/language-level.interface";
-import { Language } from "src/app/shared/interfaces/language.interface";
-import { Profile } from "src/app/shared/interfaces/profile.interface";
-import { WritingSystem } from "src/app/shared/interfaces/writing-system.interface";
-import { XPLevel } from "src/app/shared/interfaces/xp-level.interface";
+import { ActivityType } from "src/app/shared/interfaces/masters/activity-type.interface";
+import { GrammaticalCategory } from "src/app/shared/interfaces/masters/grammatical-category.interface";
+import { LanguageLevel } from "src/app/shared/interfaces/masters/language-level.interface";
+import { Language } from "src/app/shared/interfaces/masters/language.interface";
+import { Profile } from "src/app/shared/interfaces/masters/profile.interface";
+import { WritingSystem } from "src/app/shared/interfaces/masters/writing-system.interface";
+import { XPLevel } from "src/app/shared/interfaces/masters/xp-level.interface";
 
 export interface Masters {
     activityTypes: ActivityType[],

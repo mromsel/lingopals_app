@@ -1,4 +1,4 @@
-import { Language } from "./language.interface";
+import { Language } from "../masters/language.interface";
 
 export interface User {
     idUser: number;

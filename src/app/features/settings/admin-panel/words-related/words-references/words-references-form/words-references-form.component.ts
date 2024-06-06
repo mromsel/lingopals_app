@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { WordReference } from 'src/app/shared/interfaces/word-reference.interface';
+import { WordReference } from 'src/app/shared/interfaces/words-related/word-reference.interface';
 import { AdminPanelService } from '../../../services/admin-panel.service';
 import { Router } from '@angular/router';
-import { LanguageLevel } from 'src/app/shared/interfaces/language-level.interface';
-import { GrammaticalCategory } from 'src/app/shared/interfaces/grammatical-category.interface';
+import { LanguageLevel } from 'src/app/shared/interfaces/masters/language-level.interface';
+import { GrammaticalCategory } from 'src/app/shared/interfaces/masters/grammatical-category.interface';
 
 @Component({
   selector: 'app-words-references-form',

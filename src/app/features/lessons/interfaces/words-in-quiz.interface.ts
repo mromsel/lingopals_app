@@ -1,4 +1,4 @@
-import { Word } from "src/app/shared/interfaces/word.interface";
+import { Word } from "src/app/shared/interfaces/words-related/word.interface";
 
 export interface WordsInQuiz {
     wordOrigin: Word,

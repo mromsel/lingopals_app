@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Word } from 'src/app/shared/interfaces/word.interface';
+import { Word } from 'src/app/shared/interfaces/words-related/word.interface';
 import { ConfigService } from 'src/app/shared/services/app/config.service';
 import { WordsService } from 'src/app/shared/services/words.service';
 

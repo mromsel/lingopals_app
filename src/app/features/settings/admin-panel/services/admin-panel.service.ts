@@ -7,9 +7,9 @@ import { Masters } from '../interfaces/masters.interface';
 import { WordsRelated } from '../interfaces/words-related.interface';
 import { LibreTranslateRequest } from '../libre-translate-api/libre-translate-request.interface';
 import { LibreTranslateApiResponse } from '../libre-translate-api/libre-translate-response.interface';
-import { Language } from 'src/app/shared/interfaces/language.interface';
-import { WordFull } from 'src/app/shared/interfaces/word-full.interface';
-import { WordReference } from 'src/app/shared/interfaces/word-reference.interface';
+import { Language } from 'src/app/shared/interfaces/masters/language.interface';
+import { WordFull } from 'src/app/shared/interfaces/words-related/word-full.interface';
+import { WordReference } from 'src/app/shared/interfaces/words-related/word-reference.interface';
 
 @Injectable({
   providedIn: 'root'

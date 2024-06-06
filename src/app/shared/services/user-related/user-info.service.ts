@@ -2,11 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { UserLanguages } from '../../interfaces/user-languages.interface';
+import { UserLanguages } from '../../interfaces/user-related/user-languages.interface';
 import { ConfigService } from '../app/config.service';
 import { UserLanguagesCreate } from '../../components/modal-user-languages-create/user-languages-create.interface';
-import { UserProgress } from '../../interfaces/user-progress.interface';
-import { User } from '../../interfaces/user.interface';
+import { UserProgress } from '../../interfaces/user-related/user-progress.interface';
+import { User } from '../../interfaces/user-related/user.interface';
 import { LocalStorageService } from '../app/local-storage.service';
 
 @Injectable({

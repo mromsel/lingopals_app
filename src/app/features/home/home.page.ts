@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { UserProgress } from 'src/app/shared/interfaces/user-progress.interface';
+import { UserProgress } from 'src/app/shared/interfaces/user-related/user-progress.interface';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 import { UserInfoService } from 'src/app/shared/services/user-related/user-info.service';
-import { User } from 'src/app/shared/interfaces/user.interface';
+import { User } from 'src/app/shared/interfaces/user-related/user.interface';
 
 @Component({
   selector: 'app-home',

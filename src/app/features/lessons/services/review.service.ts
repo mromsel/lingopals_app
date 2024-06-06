@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
+import { UserLanguages } from 'src/app/shared/interfaces/user-related/user-languages.interface';
 import { ReviewWords } from '../interfaces/review-words.interface';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';

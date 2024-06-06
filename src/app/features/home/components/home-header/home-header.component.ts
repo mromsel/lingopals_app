@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserProgress } from 'src/app/shared/interfaces/user-progress.interface';
+import { UserProgress } from 'src/app/shared/interfaces/user-related/user-progress.interface';
 import { UserInfoService } from 'src/app/shared/services/user-related/user-info.service';
 
 @Component({

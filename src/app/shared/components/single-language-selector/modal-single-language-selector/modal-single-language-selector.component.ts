@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
-import { Language } from 'src/app/shared/interfaces/language.interface';
+import { Language } from 'src/app/shared/interfaces/masters/language.interface';
 import { ConfigService } from 'src/app/shared/services/app/config.service';
 import { MastersService } from 'src/app/shared/services/masters.service';
 

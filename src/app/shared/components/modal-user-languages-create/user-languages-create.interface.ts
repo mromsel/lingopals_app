@@ -1,5 +1,5 @@
-import { LanguageLevel } from "../../interfaces/language-level.interface"
-import { Language } from "../../interfaces/language.interface"
+import { LanguageLevel } from "../../interfaces/masters/language-level.interface"
+import { Language } from "../../interfaces/masters/language.interface"
 
 export interface UserLanguagesCreate {
     idUser: number

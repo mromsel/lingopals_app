@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { MastersService } from '../../services/masters.service';
-import { Language } from '../../interfaces/language.interface';
+import { Language } from '../../interfaces/masters/language.interface';
 import { UserInfoService } from '../../services/user-related/user-info.service';
 import { UserLanguagesCreate } from './user-languages-create.interface';
-import { LanguageLevel } from '../../interfaces/language-level.interface';
+import { LanguageLevel } from '../../interfaces/masters/language-level.interface';
 import { ConfigService } from '../../services/app/config.service';
 
 @Component({

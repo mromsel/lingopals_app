@@ -2,8 +2,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, catchError, map, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { UserLogin } from '../interfaces/user-login.interface';
-import { UserSignUp } from '../interfaces/user-signup.interface';
+import { UserLogin } from '../interfaces/auth/user-login.interface';
+import { UserSignUp } from '../interfaces/auth/user-signup.interface';
 import { LocalStorageService } from '../services/app/local-storage.service';
 
 @Injectable({

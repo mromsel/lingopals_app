@@ -1,5 +1,5 @@
-import { GrammaticalCategory } from "./grammatical-category.interface";
-import { LanguageLevel } from "./language-level.interface";
+import { GrammaticalCategory } from "../masters/grammatical-category.interface";
+import { LanguageLevel } from "../masters/language-level.interface";
 
 export interface WordReference {
     idWordRef: number;

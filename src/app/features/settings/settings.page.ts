@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { AuthService } from 'src/app/shared/auth/auth.service';
-import { User } from 'src/app/shared/interfaces/user.interface';
+import { User } from 'src/app/shared/interfaces/user-related/user.interface';
 import { ConfigService } from 'src/app/shared/services/app/config.service';
 import { UserInfoService } from 'src/app/shared/services/user-related/user-info.service';
 

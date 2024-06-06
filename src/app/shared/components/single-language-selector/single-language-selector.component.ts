@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MastersService } from '../../services/masters.service';
-import { Language } from '../../interfaces/language.interface';
+import { Language } from '../../interfaces/masters/language.interface';
 import { ConfigService } from '../../services/app/config.service';
 import { Subject } from 'rxjs';
 import { ModalController } from '@ionic/angular';

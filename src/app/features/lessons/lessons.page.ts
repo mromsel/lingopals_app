@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Lesson } from 'src/app/shared/interfaces/lesson.interface';
 import { LessonsService } from './services/lessons.service';
 import { Subject, takeUntil } from 'rxjs';
-import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
+import { UserLanguages } from 'src/app/shared/interfaces/user-related/user-languages.interface';
 import { ConfigService } from 'src/app/shared/services/app/config.service';
 import { ModalUserLanguagesCreateComponent } from 'src/app/shared/components/modal-user-languages-create/modal-user-languages-create.component';
 import { ModalController } from '@ionic/angular';

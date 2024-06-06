@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Language } from '../interfaces/language.interface';
-import { LanguageLevel } from '../interfaces/language-level.interface';
+import { Language } from '../interfaces/masters/language.interface';
+import { LanguageLevel } from '../interfaces/masters/language-level.interface';
 import { Masters } from 'src/app/features/settings/admin-panel/interfaces/masters.interface';
-import { ActivityType } from '../interfaces/activity-type.interface';
-import { GrammaticalCategory } from '../interfaces/grammatical-category.interface';
-import { WritingSystem } from '../interfaces/writing-system.interface';
-import { XPLevel } from '../interfaces/xp-level.interface';
-import { Profile } from '../interfaces/profile.interface';
+import { ActivityType } from '../interfaces/masters/activity-type.interface';
+import { GrammaticalCategory } from '../interfaces/masters/grammatical-category.interface';
+import { WritingSystem } from '../interfaces/masters/writing-system.interface';
+import { XPLevel } from '../interfaces/masters/xp-level.interface';
+import { Profile } from '../interfaces/masters/profile.interface';
 import { Subject } from 'rxjs';
 
 @Injectable({

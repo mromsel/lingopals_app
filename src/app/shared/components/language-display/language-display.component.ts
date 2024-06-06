@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Language } from '../../interfaces/language.interface';
+import { Language } from '../../interfaces/masters/language.interface';
 
 @Component({
   selector: 'app-language-display',

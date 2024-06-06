@@ -5,10 +5,10 @@ import { LessonFull } from '../interfaces/lesson-full.interface';
 import { Lesson } from 'src/app/shared/interfaces/lesson.interface';
 import { EventsService } from 'src/app/shared/services/app/events.service';
 import { UserInfoService } from 'src/app/shared/services/user-related/user-info.service';
-import { activityTypes } from 'src/app/shared/interfaces/user-activity.interface';
+import { activityTypes } from 'src/app/shared/interfaces/user-related/user-activity.interface';
 import { WordsInQuiz } from '../interfaces/words-in-quiz.interface';
 import { NavController } from '@ionic/angular';
-import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
+import { UserLanguages } from 'src/app/shared/interfaces/user-related/user-languages.interface';
 import { ConfigService } from 'src/app/shared/services/app/config.service';
 
 @Component({

@@ -1,6 +1,6 @@
-import { ActivityResult } from "src/app/shared/interfaces/activity-result.interface"
+import { ActivityResult } from "src/app/features/lessons/interfaces/activity-result.interface"
 import { UserLanguages } from "./user-languages.interface"
-import { ActivityType } from "./activity-type.interface"
+import { ActivityType } from "../masters/activity-type.interface"
 
 export interface UserActivity {
     idUserActivity?: number,

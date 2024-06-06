@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UserActivity } from 'src/app/shared/interfaces/user-activity.interface';
+import { UserActivity } from 'src/app/shared/interfaces/user-related/user-activity.interface';
 import { WordsInQuiz } from '../../../interfaces/words-in-quiz.interface';
 import { UserLevelUpdate } from '../../../interfaces/user-level-update.interface';
-import { XPLevel } from 'src/app/shared/interfaces/xp-level.interface';
+import { XPLevel } from 'src/app/shared/interfaces/masters/xp-level.interface';
 
 @Component({
   selector: 'app-quiz-finished-card',

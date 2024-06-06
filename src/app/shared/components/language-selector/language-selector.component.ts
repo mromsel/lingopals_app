@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ModalLanguageSelectorComponent } from './language-selector-modal/modal-language-selector.component';
-import { UserLanguages } from '../../interfaces/user-languages.interface';
+import { UserLanguages } from '../../interfaces/user-related/user-languages.interface';
 import { ConfigService } from '../../services/app/config.service';
 import { UserInfoService } from '../../services/user-related/user-info.service';
 import { ModalUserLanguagesCreateComponent } from '../modal-user-languages-create/modal-user-languages-create.component';

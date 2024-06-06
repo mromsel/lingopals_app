@@ -1,5 +1,5 @@
 import { User } from "./user.interface";
-import { XPLevel } from "./xp-level.interface";
+import { XPLevel } from "../masters/xp-level.interface";
 
 export interface UserProgress {
     idUserProgressData: number,

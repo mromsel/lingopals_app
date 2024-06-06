@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserSignUp } from 'src/app/shared/interfaces/user-signup.interface';
+import { UserSignUp } from 'src/app/shared/interfaces/auth/user-signup.interface';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 import { ConfigService } from 'src/app/shared/services/app/config.service';
 import { Subject } from 'rxjs';

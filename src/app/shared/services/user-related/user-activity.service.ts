@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UserActivity } from '../../interfaces/user-activity.interface';
+import { UserActivity } from '../../interfaces/user-related/user-activity.interface';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
