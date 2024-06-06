@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
-import { UserInfo } from 'src/app/shared/interfaces/user-info.interface';
 import { UserProgress } from 'src/app/shared/interfaces/user-progress.interface';
+import { User } from 'src/app/shared/interfaces/user.interface';
 
 @Component({
   selector: 'app-progress-modal',
@@ -11,7 +11,7 @@ import { UserProgress } from 'src/app/shared/interfaces/user-progress.interface'
 export class ProgressModalComponent implements OnInit {
   @ViewChild(IonModal) modal: IonModal | undefined;
 
-  @Input() userInfo: UserInfo | undefined;
+  @Input() user: User | undefined;
   @Input() userProgress: UserProgress | undefined;
 
   constructor() { }

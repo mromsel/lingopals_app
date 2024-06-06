@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject, takeUntil } from 'rxjs';
-import { UserInfo } from 'src/app/shared/interfaces/user-info.interface';
+import { Subject } from 'rxjs';
 import { UserProgress } from 'src/app/shared/interfaces/user-progress.interface';
-import { AuthService } from 'src/app/shared/services/auth.service';
-import { UserInfoService } from 'src/app/shared/services/user-info.service';
+import { AuthService } from 'src/app/shared/auth/auth.service';
+import { UserInfoService } from 'src/app/shared/services/user-related/user-info.service';
+import { User } from 'src/app/shared/interfaces/user.interface';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +16,7 @@ export class HomePage {
   unsubscribe$: Subject<void> = new Subject<void>();
 
   idUser: number = 0;
-  userInfo: UserInfo | undefined;
+  user: User | undefined;
   userProgress: UserProgress | undefined;
 
   constructor(
@@ -26,19 +26,12 @@ export class HomePage {
   ) { }
 
   ionViewWillEnter() {
-    this.idUser = this.authService.getIdUser()
-
-    if (this.idUser != 0) {
-      this.userInfoService.getUserProgress(this.idUser)
-        .pipe(takeUntil(this.unsubscribe$))
-        .subscribe(userProgress => {
-          this.userProgress = userProgress
-          this.userInfo = userProgress.user
-        }
-        )
+    if (this.userInfoService.userProgress) {
+      this.userProgress = this.userInfoService.userProgress
+      this.user = this.userInfoService.user
     } else {
       this.authService.logout()
-      this.router.navigate(["/login"])
+      this.router.navigate(["/intro"])
     }
   }
 
