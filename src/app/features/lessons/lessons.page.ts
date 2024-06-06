@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Lesson } from 'src/app/shared/interfaces/lesson.interface';
+import { Lesson } from 'src/app/shared/interfaces/words-related/lesson.interface';
 import { LessonsService } from './services/lessons.service';
 import { Subject, takeUntil } from 'rxjs';
 import { UserLanguages } from 'src/app/shared/interfaces/user-related/user-languages.interface';

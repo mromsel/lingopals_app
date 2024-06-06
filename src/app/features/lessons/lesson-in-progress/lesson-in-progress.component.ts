@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { LessonsService } from '../services/lessons.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LessonFull } from '../interfaces/lesson-full.interface';
-import { Lesson } from 'src/app/shared/interfaces/lesson.interface';
+import { Lesson } from 'src/app/shared/interfaces/words-related/lesson.interface';
 import { EventsService } from 'src/app/shared/services/app/events.service';
 import { UserInfoService } from 'src/app/shared/services/user-related/user-info.service';
 import { activityTypes } from 'src/app/shared/interfaces/user-related/user-activity.interface';
