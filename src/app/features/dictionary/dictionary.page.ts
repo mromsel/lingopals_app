@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import { Subject, takeUntil } from 'rxjs';
+import { ModalUserLanguagesCreateComponent } from 'src/app/shared/components/modal-user-languages-create/modal-user-languages-create.component';
 import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
 import { Word } from 'src/app/shared/interfaces/word.interface';
-import { ConfigService } from 'src/app/shared/services/config.service';
-import { UserInfoService } from 'src/app/shared/services/user-info.service';
+import { ConfigService } from 'src/app/shared/services/app/config.service';
+import { UserInfoService } from 'src/app/shared/services/user-related/user-info.service';
 import { WordsService } from 'src/app/shared/services/words.service';
 
 @Component({
@@ -28,23 +30,27 @@ export class DictionaryPage {
     private wordsService: WordsService,
     private userInfoService: UserInfoService,
     private configService: ConfigService,
-    private router: Router
+    private router: Router,
+    private _modalController: ModalController,
   ) { }
 
   ionViewWillEnter() {
     let userLanguages = this.userInfoService.userLanguages
-    if (userLanguages) {
-      this.getAllWordsByLanguage(userLanguages.filter(userLanguage => userLanguage.preferred)[0])
-    }
 
-    this.configService.preferredUserLanguagesSubject
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(
-        preferredUserLanguages => {
-          this.preferredUserLanguages = preferredUserLanguages
-          this.getAllWordsByLanguage(this.preferredUserLanguages)
-        }
-      )
+    if (userLanguages && userLanguages.length > 0) {
+      this.getAllWordsByLanguage(userLanguages.filter(userLanguage => userLanguage.preferred)[0])
+
+      this.configService.preferredUserLanguagesSubject
+        .pipe(takeUntil(this.unsubscribe$))
+        .subscribe(
+          preferredUserLanguages => {
+            this.preferredUserLanguages = preferredUserLanguages
+            this.getAllWordsByLanguage(this.preferredUserLanguages)
+          }
+        )
+    } else {
+      this.openAddUserLanguagesModal()
+    }
   }
 
   getAllWordsByLanguage(preferredUserLanguages: UserLanguages) {
@@ -126,5 +132,13 @@ export class DictionaryPage {
         // this.toggleActive(sectionId)
       }
     }
+  }
+
+  async openAddUserLanguagesModal() {
+    const modal = await this._modalController.create({
+      component: ModalUserLanguagesCreateComponent,
+      keyboardClose: true,
+    });
+    return await modal.present();
   }
 }

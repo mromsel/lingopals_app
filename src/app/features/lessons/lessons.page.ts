@@ -3,7 +3,9 @@ import { Lesson } from 'src/app/shared/interfaces/lesson.interface';
 import { LessonsService } from './services/lessons.service';
 import { Subject, takeUntil } from 'rxjs';
 import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
-import { ConfigService } from 'src/app/shared/services/config.service';
+import { ConfigService } from 'src/app/shared/services/app/config.service';
+import { ModalUserLanguagesCreateComponent } from 'src/app/shared/components/modal-user-languages-create/modal-user-languages-create.component';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-lessons',
@@ -21,11 +23,16 @@ export class LessonsPage {
   constructor(
     private lessonsService: LessonsService,
     private configService: ConfigService,
+    private _modalController: ModalController,
   ) { }
 
   ionViewWillEnter() {
 
     this.preferredUserLanguages = this.configService.preferredUserLanguages
+    if (!this.preferredUserLanguages) {
+      this.openAddUserLanguagesModal()
+    }
+
     this.configService.preferredUserLanguagesSubject
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
@@ -45,11 +52,20 @@ export class LessonsPage {
           auxLesson.lessonName = "Lesson " + index
           this.lessons.push(auxLesson)
         }
+        this.lessons[0].isCompleted = true //DEBUG
       })
   }
 
   ionViewWillLeave() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+  }
+
+  async openAddUserLanguagesModal() {
+    const modal = await this._modalController.create({
+      component: ModalUserLanguagesCreateComponent,
+      keyboardClose: true,
+    });
+    return await modal.present();
   }
 }
