@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { MastersService } from '../../services/masters.service';
 import { Language } from '../../interfaces/language.interface';
-import { UserInfoService } from '../../services/user-info.service';
+import { UserInfoService } from '../../services/user-related/user-info.service';
 import { UserLanguagesCreate } from './user-languages-create.interface';
 import { LanguageLevel } from '../../interfaces/language-level.interface';
-import { ConfigService } from '../../services/config.service';
+import { ConfigService } from '../../services/app/config.service';
 
 @Component({
   selector: 'app-modal-user-languages-create',
@@ -37,10 +37,17 @@ export class ModalUserLanguagesCreateComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.languagesToSelect = this.mastersService.getLanguages()
-    console.log(this.languagesToSelect);
-
-    this.languageLevelsToSelect = this.mastersService.languageLevels
+    if (this.mastersService.languages && this.mastersService.languageLevels) {
+      this.languagesToSelect = this.mastersService.languages
+      this.languageLevelsToSelect = this.mastersService.languageLevels
+    } else {
+      this.mastersService.isDataReady.subscribe(
+        value => {
+          this.languagesToSelect = this.mastersService.languages
+          this.languageLevelsToSelect = this.mastersService.languageLevels
+        }
+      )
+    }
   }
 
   selectLanguage(index: number) {
@@ -50,17 +57,13 @@ export class ModalUserLanguagesCreateComponent implements OnInit {
 
     if (!this.languageOrigin) {
       this.languageOrigin = languageSelected
-      // this.languageOriginIndex = index;
-      // console.log(this.languageOriginIndex);
     } else if (!this.languageTarget && languageSelected.idLanguage != this.languageOrigin.idLanguage) {
       this.languageTarget = languageSelected
-      // this.languageTargetIndex = index;
-      // console.log(this.languageTargetIndex);
     }
   }
 
   createUserLanguages() {
-    let idUser = this.userInfoService.idUser
+    let idUser = this.userInfoService.user?.idUser
 
     if (this.languageOrigin && this.languageTarget && idUser !== undefined) {
       let userLanguagesToCreate: UserLanguagesCreate = {
@@ -76,6 +79,7 @@ export class ModalUserLanguagesCreateComponent implements OnInit {
         userLanguages => {
           this.userInfoService.userLanguages = userLanguages
           this.configService.setPreferredUserLanguages(userLanguages.filter(userLanguages => userLanguages.preferred)[0])
+          window.location.reload();
         }
       )
     }
@@ -88,8 +92,6 @@ export class ModalUserLanguagesCreateComponent implements OnInit {
   }
 
   clearSelection() {
-    // this.languageOriginIndex = undefined
-    // this.languageTargetIndex = undefined
     this.languageOrigin = undefined
     this.languageTarget = undefined
     this.languageLevelSelectedIndex = 0

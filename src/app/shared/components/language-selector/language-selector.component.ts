@@ -2,8 +2,8 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ModalLanguageSelectorComponent } from './language-selector-modal/modal-language-selector.component';
 import { UserLanguages } from '../../interfaces/user-languages.interface';
-import { ConfigService } from '../../services/config.service';
-import { UserInfoService } from '../../services/user-info.service';
+import { ConfigService } from '../../services/app/config.service';
+import { UserInfoService } from '../../services/user-related/user-info.service';
 import { ModalUserLanguagesCreateComponent } from '../modal-user-languages-create/modal-user-languages-create.component';
 import { Subject, takeUntil } from 'rxjs';
 
@@ -34,38 +34,33 @@ export class LanguageSelectorComponent implements OnInit, OnDestroy {
   ) {
   }
 
-
   ngOnInit() {
-    this.userInfoService.getUserLanguages()
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(
-        userLanguages => {
-          if (userLanguages.length > 0) {
-            this.preferredUserLanguages = userLanguages.filter(userLanguages => userLanguages.preferred)[0]
-            this.originLanguageFlag = this.filePrefix + this.preferredUserLanguages.languageOrigin.flag
-            this.targetLanguageFlag = this.filePrefix + this.preferredUserLanguages.languageTarget.flag
-          } else {
-            this.openAddUserLanguagesModal()
-          }
-        }
-      )
-    this.preferredUserLanguages = this.configService.preferredUserLanguages
-    if (this.preferredUserLanguages) {
+    let userLanguages = this.userInfoService.userLanguages
+    if (userLanguages && userLanguages.length > 0) {
+      this.preferredUserLanguages = userLanguages.filter(userLanguages => userLanguages.preferred)[0]
       this.originLanguageFlag = this.filePrefix + this.preferredUserLanguages.languageOrigin.flag
       this.targetLanguageFlag = this.filePrefix + this.preferredUserLanguages.languageTarget.flag
-    }
 
-    this.configService.preferredUserLanguagesSubject
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(
-        preferredUserLanguages => {
-          this.preferredUserLanguages = preferredUserLanguages
-          if (this.preferredUserLanguages) {
-            this.originLanguageFlag = this.filePrefix + this.preferredUserLanguages.languageOrigin.flag
-            this.targetLanguageFlag = this.filePrefix + this.preferredUserLanguages.languageTarget.flag
+      this.preferredUserLanguages = this.configService.preferredUserLanguages
+      if (this.preferredUserLanguages) {
+        this.originLanguageFlag = this.filePrefix + this.preferredUserLanguages.languageOrigin.flag
+        this.targetLanguageFlag = this.filePrefix + this.preferredUserLanguages.languageTarget.flag
+      }
+
+      this.configService.preferredUserLanguagesSubject
+        .pipe(takeUntil(this.unsubscribe$))
+        .subscribe(
+          preferredUserLanguages => {
+            this.preferredUserLanguages = preferredUserLanguages
+            if (this.preferredUserLanguages) {
+              this.originLanguageFlag = this.filePrefix + this.preferredUserLanguages.languageOrigin.flag
+              this.targetLanguageFlag = this.filePrefix + this.preferredUserLanguages.languageTarget.flag
+            }
           }
-        }
-      )
+        )
+    } else {
+      this.openAddUserLanguagesModal()
+    }
   }
 
   async openModal() {
@@ -75,7 +70,6 @@ export class LanguageSelectorComponent implements OnInit, OnDestroy {
         userLanguagesToSelect: this.listUserLanguages,
       },
       keyboardClose: true,
-      // cssClass: 'small-modal'
     });
     return await modal.present();
   }
@@ -84,7 +78,6 @@ export class LanguageSelectorComponent implements OnInit, OnDestroy {
     const modal = await this._modalController.create({
       component: ModalUserLanguagesCreateComponent,
       keyboardClose: true,
-      // cssClass: 'small-modal'
     });
     return await modal.present();
   }
