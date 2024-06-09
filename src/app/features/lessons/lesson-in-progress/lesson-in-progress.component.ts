@@ -1,17 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { LessonsService } from '../services/lessons.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LessonFull } from '../interfaces/lesson-full.interface';
-import { Lesson } from 'src/app/shared/interfaces/lesson.interface';
-import { EventsService } from 'src/app/shared/services/events.service';
-import { UserInfoService } from 'src/app/shared/services/user-info.service';
-import { activityTypes } from 'src/app/shared/interfaces/user-activity.interface';
-import { UserActivityService } from 'src/app/shared/services/user-activity.service';
+import { Lesson } from 'src/app/shared/interfaces/words-related/lesson.interface';
+import { EventsService } from 'src/app/shared/services/app/events.service';
+import { UserInfoService } from 'src/app/shared/services/user-related/user-info.service';
+import { activityTypes } from 'src/app/shared/interfaces/user-related/user-activity.interface';
 import { WordsInQuiz } from '../interfaces/words-in-quiz.interface';
 import { NavController } from '@ionic/angular';
-import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
-import { AuthService } from 'src/app/shared/services/auth.service';
-import { ConfigService } from 'src/app/shared/services/config.service';
+import { UserLanguages } from 'src/app/shared/interfaces/user-related/user-languages.interface';
+import { ConfigService } from 'src/app/shared/services/app/config.service';
 
 @Component({
   selector: 'app-lesson-in-progress',
@@ -36,9 +34,7 @@ export class LessonInProgressComponent {
     private eventsService: EventsService,
     private lessonsService: LessonsService,
     private userInfoService: UserInfoService,
-    private userActivityService: UserActivityService,
     private configService: ConfigService,
-    private authService: AuthService,
     private route: ActivatedRoute,
     private router: Router,
     private navController: NavController,
@@ -81,5 +77,4 @@ export class LessonInProgressComponent {
     this.navController.pop()
     this.router.navigate(['/app/lessons'])
   }
-
 }

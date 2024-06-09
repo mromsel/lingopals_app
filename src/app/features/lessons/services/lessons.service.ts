@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Lesson } from 'src/app/shared/interfaces/lesson.interface';
+import { Lesson } from 'src/app/shared/interfaces/words-related/lesson.interface';
 import { environment } from 'src/environments/environment';
 import { LessonFull } from '../interfaces/lesson-full.interface';
-import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
+import { UserLanguages } from 'src/app/shared/interfaces/user-related/user-languages.interface';
 
 @Injectable({
   providedIn: 'root'

@@ -1,21 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject, takeUntil } from 'rxjs';
-import { UserInfo } from 'src/app/shared/interfaces/user-info.interface';
-import { AuthService } from 'src/app/shared/services/auth.service';
-import { ConfigService } from 'src/app/shared/services/config.service';
-import { UserInfoService } from 'src/app/shared/services/user-info.service';
+import { Subject } from 'rxjs';
+import { AuthService } from 'src/app/shared/auth/auth.service';
+import { User } from 'src/app/shared/interfaces/user-related/user.interface';
+import { ConfigService } from 'src/app/shared/services/app/config.service';
+import { UserInfoService } from 'src/app/shared/services/user-related/user-info.service';
 
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.page.html',
   styleUrls: ['./settings.page.scss'],
 })
-export class SettingsPage implements OnInit {
+export class SettingsPage {
 
   unsubscribe$: Subject<void> = new Subject<void>();
 
-  userInfo: UserInfo | undefined;
+  user: User | undefined;
 
   constructor(
     private authService: AuthService,
@@ -24,23 +24,22 @@ export class SettingsPage implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
-    this.userInfoService.getUserInfo(this.authService.getIdUser())
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(userInfo => {
-        this.userInfo = userInfo
-        // userInfo.profileImageUrl = "https://ionicframework.com/docs/img/demos/card-media.png"
-        if (userInfo.profileImageUrl != null) {
-          let userProfileImage = document.getElementById("userProfileImage") as HTMLImageElement;
-          userProfileImage.src = userInfo.profileImageUrl
-        }
+
+  ionViewWillEnter() {
+    if (!this.userInfoService.user) {
+      this.logout()
+    } else {
+      this.user = this.userInfoService.user
+      if (this.user.profileImageUrl != null) {
+        let userProfileImage = document.getElementById("userProfileImage") as HTMLImageElement;
+        userProfileImage.src = this.user.profileImageUrl
       }
-      )
+    }
   }
 
   logout() {
     this.authService.logout()
-    this.router.navigate(["/login"])
+    this.router.navigate(["/intro"])
   }
 
   ionViewWillLeave() {

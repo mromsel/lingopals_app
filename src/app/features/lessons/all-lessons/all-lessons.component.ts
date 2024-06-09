@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
-import { Lesson } from 'src/app/shared/interfaces/lesson.interface';
+import { Lesson } from 'src/app/shared/interfaces/words-related/lesson.interface';
 import { LessonsService } from '../services/lessons.service';
 
 @Component({

@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SearchbarChangeEventDetail } from '@ionic/angular';
 import { IonSearchbarCustomEvent } from '@ionic/core';
-import { Word } from 'src/app/shared/interfaces/word.interface';
+import { Word } from 'src/app/shared/interfaces/words-related/word.interface';
 import { AdminPanelService } from '../../services/admin-panel.service';
-import { Language } from 'src/app/shared/interfaces/language.interface';
+import { Language } from 'src/app/shared/interfaces/masters/language.interface';
 import { Subject, takeUntil } from 'rxjs';
-import { WordReference } from 'src/app/shared/interfaces/word-reference.interface';
+import { WordReference } from 'src/app/shared/interfaces/words-related/word-reference.interface';
 
 @Component({
   selector: 'app-words',

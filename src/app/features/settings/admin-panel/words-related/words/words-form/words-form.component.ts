@@ -1,13 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Word } from 'src/app/shared/interfaces/word.interface';
+import { Word } from 'src/app/shared/interfaces/words-related/word.interface';
 import { AdminPanelService } from '../../../services/admin-panel.service';
-import { WordReference } from 'src/app/shared/interfaces/word-reference.interface';
+import { WordReference } from 'src/app/shared/interfaces/words-related/word-reference.interface';
 import { Subject, forkJoin, takeUntil } from 'rxjs';
-import { Language } from 'src/app/shared/interfaces/language.interface';
+import { Language } from 'src/app/shared/interfaces/masters/language.interface';
 import { LibreTranslateApiResponse } from '../../../libre-translate-api/libre-translate-response.interface';
-import { WordFull } from 'src/app/shared/interfaces/word-full.interface';
+import { WordFull } from 'src/app/shared/interfaces/words-related/word-full.interface';
 
 @Component({
   selector: 'app-words-form',

@@ -5,8 +5,8 @@
       <!-- Login form -->
       <form #loginForm="ngForm" (ngSubmit)="login()">
         <ion-item>
-          <ion-input label="{{'login.usernameOrEmail' | translate}}" name="usernameOrEmail" type="text"
-            [(ngModel)]="formData.usernameOrEmail" labelPlacement="floating" placeholder="{{'login.enterUsernameOrEmail' |
+          <ion-input label="{{'login.username' | translate}}" name="username" type="text"
+            [(ngModel)]="formData.username" labelPlacement="floating" placeholder="{{'login.enterUsername' |
             translate}}" required></ion-input>
         </ion-item>
         <ion-item>

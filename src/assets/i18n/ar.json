@@ -1,8 +1,15 @@
 {
+    "common": {
+        "buttonExitText": "خروج",
+        "buttonCancelText": "إلغاء",
+        "buttonOkText": "موافق",
+        "errorAlertTitle": "خطأ",
+        "genericErrorMessage": "حدثت مشكلة. حاول مرة أخرى لاحقًا."
+    },
     "login": {
         "login": "تسجيل الدخول",
-        "usernameOrEmail": "اسم المستخدم أو البريد الإلكتروني",
-        "enterUsernameOrEmail": "أدخل اسم المستخدم أو البريد الإلكتروني الخاص بك",
+        "username": "اسم المستخدم",
+        "enterUsername": "أدخل اسم المستخدم",
         "password": "كلمة المرور",
         "enterPassword": "أدخل كلمة المرور الخاصة بك",
         "errorLoginData": "يرجى إدخال اسم مستخدم وكلمة مرور صالحين",
@@ -19,7 +26,16 @@
         "enterPassword": "ادخل كلمة المرور الخاصة بك",
         "confirmPassword": "تأكيد كلمة المرور",
         "enterConfirmPassword": "أعد إدخال كلمة المرور الخاصة بك",
-        "goToLogin": "الانتقال إلى تسجيل الدخول"
+        "goToLogin": "الانتقال إلى تسجيل الدخول",
+        "successAlert": {
+            "header": "تم إنشاء الحساب",
+            "message": "يمكنك الآن تسجيل الدخول",
+            "buttonText": "قبول"
+        },
+        "errorAlert": {
+            "usernameError": "اسم المستخدم هذا موجود بالفعل.",
+            "emailError": "هذا البريد الإلكتروني مسجل بالفعل."
+        }
     },
     "tabs": {
         "home": "الصفحة الرئيسية",

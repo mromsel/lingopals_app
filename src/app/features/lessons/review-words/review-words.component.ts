@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { activityTypes } from 'src/app/shared/interfaces/user-activity.interface';
+import { Component } from '@angular/core';
+import { activityTypes } from 'src/app/shared/interfaces/user-related/user-activity.interface';
 import { WordsInQuiz } from '../interfaces/words-in-quiz.interface';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { UserInfoService } from 'src/app/shared/services/user-info.service';
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { UserInfoService } from 'src/app/shared/services/user-related/user-info.service';
 import { ReviewService } from '../services/review.service';
-import { EventsService } from 'src/app/shared/services/events.service';
+import { EventsService } from 'src/app/shared/services/app/events.service';
 import { ReviewWords } from '../interfaces/review-words.interface';
-import { UserLanguages } from 'src/app/shared/interfaces/user-languages.interface';
-import { ConfigService } from 'src/app/shared/services/config.service';
+import { UserLanguages } from 'src/app/shared/interfaces/user-related/user-languages.interface';
+import { ConfigService } from 'src/app/shared/services/app/config.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -33,7 +32,6 @@ export class ReviewWordsComponent {
   constructor(
     private reviewService: ReviewService,
     private userInfoService: UserInfoService,
-    private authService: AuthService,
     private configService: ConfigService,
     private eventsService: EventsService,
     private router: Router,
@@ -44,7 +42,7 @@ export class ReviewWordsComponent {
   }
 
   ionViewWillEnter() {
-    if (this.authService.getIdUser() && this.configService.preferredUserLanguages) {
+    if (this.userInfoService.user && this.configService.preferredUserLanguages) {
       this.usedUserLanguages = this.configService.preferredUserLanguages
       this.fetchWords()
     } else {
@@ -54,7 +52,7 @@ export class ReviewWordsComponent {
 
   fetchWords() {
 
-    if (this.authService.getIdUser() && this.usedUserLanguages) {
+    if (this.userInfoService.user && this.usedUserLanguages) {
       this.reviewService.getReviewWords(this.usedUserLanguages).subscribe(
         userReviewWords => {
           this.eventsService.showSpinner$.next(true);

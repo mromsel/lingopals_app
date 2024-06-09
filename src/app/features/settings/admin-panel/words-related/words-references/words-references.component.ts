@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WordReference } from 'src/app/shared/interfaces/word-reference.interface';
+import { WordReference } from 'src/app/shared/interfaces/words-related/word-reference.interface';
 import { AdminPanelService } from '../../services/admin-panel.service';
 import { Router } from '@angular/router';
 

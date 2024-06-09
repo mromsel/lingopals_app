@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../auth/auth.service';
 import { Observable, tap } from 'rxjs';
 
 @Injectable({
@@ -19,7 +19,8 @@ export class AuthGuard implements CanActivate {
         this.authService.isLoggedIn().subscribe(loggedIn => {
             isLogged = loggedIn;
             if (!isLogged) {
-                this.router.navigate(['/login']);
+                // this.router.navigate(['/login']);
+                this.router.navigate(['/intro']);
             }
         });
         return isLogged;

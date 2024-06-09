@@ -1,0 +1,34 @@
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-icon (click)="closeTutorial()" name="close" class="close-button" onKeyDown="closeTutorial()"></ion-icon>
+    <ion-text>{{tutorialScreens[currentPageIndex].title}}</ion-text>
+  </ion-header>
+
+  <div class="content">
+    <button id="back-arrow" class="nav-arrow" (click)="goToPreviousPage()" onkeypress="goToPreviousPage()">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </button>
+
+    <div class="body-container">
+      <div class="display-card">
+        <img src="{{tutorialScreens[currentPageIndex].image}}" alt="Example" class="example-img">
+
+        <ion-text class="card-text">
+          {{tutorialScreens[currentPageIndex].bodyText}}
+        </ion-text>
+      </div>
+
+      <div class="dots-container">
+        <ion-radio-group [value]="currentPageIndex" (ionChange)="goToPage($event)">
+          @for (tutorialScreen of tutorialScreens; track $index) {
+          <ion-radio [value]=[$index] (ionSelect)="goToPage($index)"></ion-radio>
+          }
+        </ion-radio-group>
+        <ion-text class="skip" (click)="skip()" onkeypress="skip()">Skip</ion-text>
+      </div>
+    </div>
+    <button id="next-arrow" class="nav-arrow" (click)="goToNextPage()" onkeypress="goToNextPage()">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </button>
+  </div>
+</ion-content>

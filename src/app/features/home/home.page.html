@@ -1,4 +1,4 @@
-<app-home-header></app-home-header>
+<app-home-header [userProgress]="userProgress"></app-home-header>
 <ion-content>
   <div class="main-container">
 
@@ -10,7 +10,7 @@
             style="max-height: 18rem;" />
           <div>
             <h1 style="font-weight: bold; font-size: 2rem;">
-              {{userInfo?.username}}
+              {{user?.username}}
             </h1>
           </div>
         </ion-card-content>
@@ -35,7 +35,7 @@
                 {{ 'home.myProgress' | translate}}
               </span>
             </ion-text>
-            <app-progress-modal [userInfo]="userInfo" [userProgress]="userProgress"></app-progress-modal>
+            <app-progress-modal [user]="user" [userProgress]="userProgress"></app-progress-modal>
           </ion-card-content>
         </ion-card>
       </div>

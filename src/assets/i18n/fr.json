@@ -1,8 +1,15 @@
 {
+    "common": {
+        "buttonExitText": "Quitter",
+        "buttonCancelText": "Annuler",
+        "buttonOkText": "OK",
+        "errorAlertTitle": "Erreur",
+        "genericErrorMessage": "Un problème est survenu. Veuillez réessayer plus tard."
+    },
     "login": {
         "login": "Connexion",
-        "usernameOrEmail": "Nom d'utilisateur ou Email",
-        "enterUsernameOrEmail": "Entrez votre nom d'utilisateur ou votre email",
+        "username": "Nom d'utilisateur",
+        "enterUsername": "Entrez le nom d'utilisateur",
         "password": "Mot de passe",
         "enterPassword": "Entrez votre mot de passe",
         "errorLoginData": "Veuillez entrer un nom d'utilisateur et un mot de passe valides",
@@ -19,7 +26,15 @@
         "enterPassword": "Entrez votre mot de passe",
         "confirmPassword": "Confirmer le mot de passe",
         "enterConfirmPassword": "Entrez à nouveau votre mot de passe",
-        "goToLogin": "Aller à la connexion"
+        "goToLogin": "Aller à la connexion",
+        "successAlert": {
+            "header": "Compte créé",
+            "message": "Vous pouvez maintenant vous connecter"
+        },
+        "errorAlert": {
+            "usernameError": "Ce nom d'utilisateur est déjà pris.",
+            "emailError": "Cet e-mail est déjà enregistré."
+        }
     },
     "tabs": {
         "home": "Accueil",

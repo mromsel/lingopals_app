@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
-import { EventsService } from '../../services/events.service';
+import { EventsService } from '../../services/app/events.service';
 
 @Component({
   selector: 'app-spinner',

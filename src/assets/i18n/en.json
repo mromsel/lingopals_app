@@ -1,8 +1,19 @@
 {
+    "common": {
+        "buttonExitText": "Exit",
+        "buttonCancelText": "Cancel",
+        "buttonOkText": "OK",
+        "errorAlertTitle": "Error",
+        "genericErrorMessage": "There was a problem. Please try again later."
+    },
+    "shared": {
+        "language-selector": "",
+        "single-language-selector": ""
+    },
     "login": {
         "login": "Login",
-        "usernameOrEmail": "Username or Email",
-        "enterUsernameOrEmail": "Enter username or email",
+        "username": "Username",
+        "enterUsername": "Enter username",
         "password": "Password",
         "enterPassword": "Enter your password",
         "errorLoginData": "Please enter valid username and password",
@@ -19,7 +30,15 @@
         "enterPassword": "Enter your password",
         "confirmPassword": "Confirm password",
         "enterConfirmPassword": "Enter your password again",
-        "goToLogin": "Go to login"
+        "goToLogin": "Go to login",
+        "successAlert": {
+            "header": "Account Created",
+            "message": "You can now log in"
+        },
+        "errorAlert": {
+            "usernameError": "This username is already taken.",
+            "emailError": "This email is already registered."
+        }
     },
     "tabs": {
         "home": "home",
@@ -69,9 +88,5 @@
             "about": "About LingoPals",
             "credits": "Credits"
         }
-    },
-    "shared": {
-        "language-selector": "",
-        "single-language-selector": ""
     }
 }

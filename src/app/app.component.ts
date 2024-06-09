@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from './shared/services/auth.service';
+import { AuthService } from './shared/auth/auth.service';
 import { Router } from '@angular/router';
-import { UserInfoService } from './shared/services/user-info.service';
+import { UserInfoService } from './shared/services/user-related/user-info.service';
 import { MastersService } from './shared/services/masters.service';
-import { ConfigService } from './shared/services/config.service';
+import { ConfigService } from './shared/services/app/config.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -27,12 +27,11 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.mastersService.fetchBasicMasters()
 
-    this.authService.isLoggedIn().subscribe(loggedIn => {
-      this.isLoggedIn = loggedIn;
+    this.authService.currentUserLoginOn.subscribe(currentUserLoginOn => {
+      this.isLoggedIn = currentUserLoginOn;
       if (!this.isLoggedIn) {
-        this.router.navigate(["/login"])
+        this.router.navigate(["/intro"])
       } else {
-        this.mastersService.fetchMasters()
         this.userInfoService.fetchData()
       }
     });

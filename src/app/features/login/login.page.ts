@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
-import { UserLogin } from 'src/app/shared/interfaces/user-login';
+import { UserLogin } from 'src/app/shared/interfaces/auth/user-login.interface';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { UserInfoService } from 'src/app/shared/services/user-info.service';
 

@@ -1,6 +1,7 @@
 <app-spinner></app-spinner>
 <ion-header>
-  <ion-icon (click)="closeUnfinishedQuiz()" name="close" class="back-button" onKeyDown="navigateBack()"></ion-icon>
+  <ion-icon (click)="closeUnfinishedQuiz()" name="close" class="back-button"
+    onKeyDown="closeUnfinishedQuiz()"></ion-icon>
 
   <app-quiz-header [headerTitle]="headerTitle" [showProgressBar]="stateInProgress"
     [progress]="progress"></app-quiz-header>

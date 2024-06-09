@@ -11,6 +11,16 @@ const routes: Routes = [
     loadChildren: () => import('./features/tabs/tabs.module').then(m => m.TabsPageModule),
     canActivate: [AuthGuard]
   },
+  // introduction page
+  {
+    path: 'intro',
+    loadChildren: () => import('./features/introduction/introduction.module').then(m => m.IntroductionPageModule)
+  },
+  // tutorial
+  {
+    path: 'tutorial',
+    loadChildren: () => import('./features/tutorial/tutorial.module').then(m => m.TutorialPageModule)
+  },
   // login
   {
     path: 'login',
@@ -34,6 +44,10 @@ const routes: Routes = [
     path: '',
     redirectTo: 'app',
     pathMatch: 'full'
+  },
+  {
+    path: 'test',
+    loadChildren: () => import('./features/test/test.module').then(m => m.TestPageModule)
   },
 ];
 @NgModule({
