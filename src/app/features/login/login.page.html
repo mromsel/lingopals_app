@@ -1,0 +1,37 @@
+<ion-content [fullscreen]="true">
+  <app-single-language-selector></app-single-language-selector>
+  <div class="main-container">
+    <div class="form-container">
+      <!-- Login form -->
+      <form #loginForm="ngForm" (ngSubmit)="login()">
+        <ion-item>
+          <ion-input label="{{'login.username' | translate}}" name="username" type="text"
+            [(ngModel)]="formData.username" labelPlacement="floating" placeholder="{{'login.enterUsername' |
+            translate}}" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="{{'login.password' | translate}}" name="password" type="password"
+            [(ngModel)]="formData.password" labelPlacement="floating" placeholder="{{'login.enterPassword' |
+            translate}}" required></ion-input>
+        </ion-item>
+        <div *ngIf="loggingFailed" class="error-message">
+          <p style="color: red;">{{ 'login.errorLoginData' | translate}}</p>
+        </div>
+        <ion-button type="submit" [disabled]="loginForm.invalid">{{ 'login.login' | translate}}</ion-button>
+      </form>
+    </div>
+
+    <!-- Go to password recovery -->
+    <a (click)="goToForgotPassword()">{{ 'login.forgotPassword' | translate}}</a>
+
+    <!-- Go to signup page -->
+    <div class="signup">
+      <span>
+        {{ 'login.createAccount' | translate}}
+      </span>
+      <ion-button (click)="goToSignUp()" onkeypress="goToSignUp()">
+        {{'signup.signUp' | translate}}
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

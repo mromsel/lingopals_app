@@ -1,0 +1,52 @@
+<!-- <ion-content>
+  <app-back-button></app-back-button>
+  <div class="main-container">
+
+    <div class="buttons-div">
+      <app-admin-panel-components-header [hasAdvancedSearch]=true (toggleShowForm)="toggleShowForm()"
+        (toggleShowSearchBar)="toggleShowSearchBar()"
+        (advancedForm)="goToAdvancedForm()"></app-admin-panel-components-header>
+    </div>
+
+    <div class="form-container" *ngIf="showForm">
+      <app-words-form [wordReferences]="wordReferences"></app-words-form>
+    </div>
+
+    <div class="finder" *ngIf="showSearchBar">
+      <ion-searchbar (ionChange)="onSearch($event)"></ion-searchbar>
+    </div>
+
+    <div class="language-select-container">
+      <ion-select [compareWith]="compareWith" [(ngModel)]="selectedLanguage" (ionChange)="onLanguageChange()" slot="end"
+        interface="popover">
+        <ion-select-option *ngFor="let language of languages"
+          [value]="language">{{language.languageName}}</ion-select-option>
+      </ion-select>
+    </div>
+
+    <div class="table-container">
+
+      <table class="table">
+        <thead>
+          <th *ngFor="let headerColumn of displayedColumns">
+            {{headerColumn}}
+          </th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let word of displayList">
+            <td>{{word.idWord}}</td>
+            <td>{{word.idLanguage}}</td>
+            <td>{{word.idWordRef}}</td>
+            <td>{{word.wordString}}</td>
+            <td>{{word.definition}}</td>
+            <td>
+              <ion-button (click)="deleteWord(word)" onkeypress="" class="action-button"><ion-icon
+                  name="trash-outline"></ion-icon></ion-button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</ion-content> -->

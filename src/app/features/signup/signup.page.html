@@ -1,0 +1,35 @@
+<ion-content [fullscreen]="true">
+  <app-single-language-selector></app-single-language-selector>
+  <div class="main-container">
+    <div class="form-container">
+      <!-- User creation form -->
+      <form #signupForm="ngForm" (ngSubmit)="signup()">
+        <ion-item>
+          <ion-input label="{{'signup.username' | translate}}" name="username" type="text"
+            [(ngModel)]="formData.username" labelPlacement="floating"
+            placeholder="{{'signup.enterUsername' | translate}}" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="{{'signup.email' | translate}}" name="email" type="text" [(ngModel)]="formData.email"
+            labelPlacement="floating" placeholder="{{'signup.enterEmail' | translate}}" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="{{'signup.password' | translate}}" name="password" type="password"
+            [(ngModel)]="formData.password" labelPlacement="floating"
+            placeholder="{{'signup.enterPassword' | translate}}" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="{{'signup.confirmPassword' | translate}}" name="confirmPassword" type="password"
+            [(ngModel)]="formData.confirmPassword" labelPlacement="floating"
+            placeholder="{{'signup.enterConfirmPassword' | translate}}" required></ion-input>
+        </ion-item>
+
+        <ion-button type="submit" [disabled]="signupForm.invalid">{{'signup.signUp' | translate}}</ion-button>
+      </form>
+    </div>
+
+    <ion-button (click)="goToLogin()" onkeypress="goToLogin()">{{ 'signup.goToLogin' | translate}}</ion-button>
+  </div>
+
+
+</ion-content>

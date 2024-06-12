@@ -1,0 +1,73 @@
+<ion-content [fullscreen]="true">
+
+  <ion-card class="header">
+    <ion-chip class="chip">
+      <ion-avatar>
+        <img id="userProfileImage" alt="User profile"
+          src="https://image.winudf.com/v2/image1/Y29tLm1pbmlhcmthbm8uY2F0cHJvZmlsZXBpY3R1cmVfc2NyZWVuXzBfMTY4OTc5NjQ1NF8wMTA/screen-0.jpg?fakeurl=1&type=.jpg" />
+      </ion-avatar>
+      <ion-label>{{user?.username}}</ion-label>
+    </ion-chip>
+    <app-single-language-selector></app-single-language-selector>
+  </ion-card>
+
+  <ion-card class="group" *ngIf="isAdmin">
+    <ion-card-title>Admin options</ion-card-title>
+
+    <ion-text routerLink="./admin-panel" class="item">
+      <ion-icon name="hammer-outline"></ion-icon>
+      <!-- <ion-icon name="cog"></ion-icon> -->
+      Admin panel
+    </ion-text>
+  </ion-card>
+
+  <!-- * User configuration * -->
+  <ion-card class="group">
+    <ion-card-title>{{ 'settings.group1.titleUserConfig' | translate}}</ion-card-title>
+
+    <ion-text class="item">
+      <ion-icon name="pencil-outline"></ion-icon>
+      {{ 'settings.group1.changeUsername' | translate}}
+    </ion-text>
+    <ion-text class="item">
+      <ion-icon name="medical"></ion-icon>
+      {{ 'settings.group1.changePassword' | translate}}
+    </ion-text>
+    <!-- <ion-text id="open-single-language-selector" class="item">
+      {{ 'settings.group1.changePrefLang' | translate}}
+    </ion-text> -->
+
+    <ion-text (click)="logout()" onkeypress="logout()" class="item"><ion-icon name="log-out-outline"></ion-icon>{{
+      'settings.group1.logout' | translate}}</ion-text>
+
+  </ion-card>
+
+  <!-- * Theme * -->
+  <!-- <ion-card class="group">
+    <ion-title>{{ 'settings.theme' | translate}}</ion-title>
+    <ion-segment value="default" (ionChange)="themeChanged($event)">
+      <ion-segment-button value="default">
+        <ion-label>{{ 'settings.lightTheme' | translate}}</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="dark-theme">
+        <ion-label>{{ 'settings.darkTheme' | translate}}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-card> -->
+
+  <!-- * Credits and help * -->
+  <ion-card class="group">
+    <ion-text class="item">
+      <ion-icon name="help-circle-outline"></ion-icon>
+      {{ 'settings.group3.getSupport' | translate}}
+    </ion-text>
+    <ion-text class="item">
+      <ion-icon name="information-circle-outline"></ion-icon>
+      {{ 'settings.group3.about' | translate}}
+    </ion-text>
+    <ion-text class="item">
+      <ion-icon name="gift-outline"></ion-icon>
+      {{ 'settings.group3.credits' | translate}}
+    </ion-text>
+  </ion-card>
+</ion-content>

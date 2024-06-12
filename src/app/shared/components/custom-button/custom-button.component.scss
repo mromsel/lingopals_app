@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+}
+
+$background: var(--ion-color-secondary);
+$color1: var(--ion-color-primary);
+$color2: var(--ion-color-primary-shade);
+$color3: var(--ion-color-light-shade);
+$color4: var(--ion-color-secondary-shade);
+$textColor: var(--ion-color-secondary-contrast);
+
+button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+button.button-style {
+    padding: 1.25em 2em;
+    border: 2px solid $color1;
+    border-radius: 0.75em;
+    font-weight: 700;
+    color: $textColor;
+    // text-transform: uppercase;
+    background: $background;
+    transform-style: preserve-3d;
+    transition: .15s cubic-bezier(0, 0, .6, 1);
+}
+
+button.button-style::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: $color2;
+    box-shadow: 0 0 0 2px $color1, 0 .625em 0 0 $color3;
+    transform: translate3d(0, .75em, -1em);
+    transition: .15s cubic-bezier(0, 0, .6, 1);
+}
+
+button.button-style:hover {
+    background: $color4;
+    transform: translate(0, .25em);
+}
+
+button.button-style:hover::before {
+    box-shadow: 0 0 0 2px $color1, 0 .5em 0 0 $color3;
+    transform: translate3d(0, .5em, -1em);
+}
+
+button.button-style:active {
+    background: $color4;
+    transform: translate(0, .75em);
+}
+
+button.button-style:active::before {
+    box-shadow: 0 0 0 2px $color1, 0 0 $color3;
+    transform: translate3d(0, 0, -1em);
+}

@@ -1,0 +1,11 @@
+.main-container {
+    display: flex;
+
+    * {
+        margin: auto 10px;
+    }
+
+    input {
+        flex-grow: 1;
+    }
+}

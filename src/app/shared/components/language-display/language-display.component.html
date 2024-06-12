@@ -1,0 +1,10 @@
+<div class="languages-badge">
+  <button ion-button expand="block" class="button" [ngClass]="{'selected': selected, 'not-selected' : !selected}">
+    @if (language.flag.imageBase64) {
+    <img [src]="'data:image/png;base64,' + language.flag.imageBase64" alt="Language flag" class="flag">
+    } @else {
+    <img src="../../../../assets/flags/blank.png" alt="Language flag" class="flag">
+    }
+    <p class="language-name" *ngIf="nameDisplay">{{language.languageName}}</p>
+  </button>
+</div>

@@ -1,0 +1,113 @@
+{
+    "common": {
+        "buttonExitText": "Salir",
+        "buttonCancelText": "Cancelar",
+        "buttonOkText": "Aceptar",
+        "errorAlertTitle": "Error",
+        "genericErrorMessage": "Hubo un problema. Por favor, inténtalo más tarde.",
+        "noUserLanguagesText": "¡Presiona el botón superior para seleccionar un idioma para aprender!"
+    },
+    "shared": {
+        "languageSelector": {
+            "modal": {
+                "title": "Selecciona el idioma para aprender"
+            }
+        },
+        "singleLanguageSelector": {
+            "modal": {
+                "title": "Selecciona tu idioma"
+            }
+        },
+        "modalUserLanguagesCreate": {
+            "pageTitle": "Selecciona el idioma para aprender",
+            "buttonCancelText": "Cancelar",
+            "clearSelectionButtonText": "Borrar selección",
+            "originLanguageAltText": "Idioma de origen",
+            "targetLanguageAltText": "Idioma objetivo",
+            "setPreferredCheckboxLabel": "Establecer predeterminado",
+            "startLearningLevelQuestion": "¿Desde qué nivel te gustaría empezar a aprender? (Puedes cambiarlo más tarde)",
+            "confirmButtonText": "Confirmar"
+        }
+    },
+    "login": {
+        "login": "Inicio de sesión",
+        "username": "Nombre de usuario",
+        "enterUsername": "Ingrese su nombre de usuario",
+        "password": "Contraseña",
+        "enterPassword": "Ingrese su contraseña",
+        "errorLoginData": "Por favor, ingrese un nombre de usuario y contraseña válidos",
+        "forgotPassword": "¿Olvidaste tu contraseña?",
+        "createAccount": "¿No tienes una cuenta?"
+    },
+    "signup": {
+        "signUp": "Registrarse",
+        "username": "Nombre de usuario",
+        "enterUsername": "Ingrese su nombre de usuario",
+        "email": "Email",
+        "enterEmail": "Ingrese su email",
+        "password": "Contraseña",
+        "enterPassword": "Ingrese su contraseña",
+        "confirmPassword": "Confirmar contraseña",
+        "enterConfirmPassword": "Ingrese su contraseña nuevamente",
+        "goToLogin": "Ir a inicio de sesión",
+        "successAlert": {
+            "header": "Cuenta creada",
+            "message": "Ya puedes iniciar sesión",
+            "buttonText": "Aceptar"
+        },
+        "errorAlert": {
+            "usernameError": "Este nombre de usuario ya está en uso.",
+            "emailError": "Este correo electrónico ya está registrado."
+        }
+    },
+    "tabs": {
+        "home": "Inicio",
+        "lessons": "Lecciones",
+        "dictionary": "Diccionario",
+        "settings": "Ajustes"
+    },
+    "home": {
+        "header": {
+            "days": "días",
+            "level": "Nivel"
+        },
+        "shop": "Tienda",
+        "myProgress": "Mi progreso"
+    },
+    "lessons": {
+        "defaultMessage": "¡Presiona el botón superior para comenzar a aprender!",
+        "reviewWords": "Repasar Palabras",
+        "quiz": {
+            "states": {
+                "start": "Comenzar lección",
+                "continue": "Continuar",
+                "nextWord": "Siguiente palabra",
+                "finishLesson": "Terminar lección",
+                "backToLessons": "Volver a Lecciones"
+            }
+        }
+    },
+    "dictionary": {
+        "search": "Buscar"
+    },
+    "settings": {
+        "groupAdmin": {},
+        "group1": {
+            "titleUserConfig": "Configuración de usuario",
+            "changeUsername": "Cambiar nombre de usuario",
+            "changePassword": "Cambiar contraseña",
+            "changePrefLang": "Cambiar idioma preferido",
+            "logout": "Cerrar sesión"
+        },
+        "group2": {
+            "theme": "Tema",
+            "lightTheme": "Claro",
+            "darkTheme": "Oscuro"
+        },
+        "group3": {
+            "getSupport": "Obtener soporte",
+            "about": "Acerca de LingoPals",
+            "credits": "Créditos"
+        }
+    }
+}

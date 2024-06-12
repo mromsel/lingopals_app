@@ -1,0 +1,27 @@
+<form class="form" (ngSubmit)="findWord()">
+  <label for="searchedWord">Word to search</label>
+  <input type="text" name="searchedWord" [(ngModel)]="searchedWord" placeholder="hello" required>
+  <ion-button type="submit">Find</ion-button>
+
+</form>
+<div class="result">
+
+  <div class="nodata" *ngIf="!dictionaryApiWordData">
+    No data available, please search something
+  </div>
+
+  <div class="data" *ngIf="dictionaryApiWordData">
+
+    <ion-button (click)="setWord(dictionaryApiWordData.word)" onkeypress="setWord(dictionaryApiWordData.word)">
+      Word: {{dictionaryApiWordData.word}}
+    </ion-button>
+    <ion-list>
+      <ion-item *ngFor="let meaning of dictionaryApiWordData.meanings">
+        <ion-button (click)="setDefinition(meaning.definitions[0].definition)"
+          onkeypress="setDefinition(meaning.definitions[0].definition)">
+          ({{meaning.partOfSpeech}}) {{meaning.definitions[0].definition}}
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
+</div>

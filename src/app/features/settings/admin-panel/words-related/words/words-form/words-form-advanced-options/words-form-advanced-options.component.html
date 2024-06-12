@@ -1,0 +1,79 @@
+<app-spinner></app-spinner>
+<div class="main-container">
+  <div class="nav-div">
+    <!-- * Segment to select between views* -->
+    <ion-segment value="default" (ionChange)="switchAdvancedOptionsView()">
+      <ion-segment-button value="default">
+        <ion-label>View words list</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="dark-theme">
+        <ion-label>View translation box</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <ion-content>
+    <ion-infinite-scroll>
+      <!-- * List of words in the selected language * -->
+      <div class="word-details" *ngIf="showWordListView">
+        @for (word of wordsList; track $index) {
+        <ion-item>
+          {{word.idWordRef}} -
+          {{word.wordString}}
+        </ion-item>
+        } @empty {
+        <span>empty</span>
+        }
+      </div>
+    </ion-infinite-scroll>
+
+    <div class="translation-box" *ngIf="showTranslationBox">
+
+      <!-- * Selected Word Reference card * -->
+      @if (selectedWordReference) {
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>
+            {{selectedWordReference.englishWord}}
+          </ion-card-title>
+          <ion-card-subtitle>
+            id: {{selectedWordReference.idWordRef}}
+          </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          ({{selectedWordReference.grammaticalCategory.name}})
+          {{selectedWordReference.englishDefinition}}
+        </ion-card-content>
+      </ion-card>
+
+      <ion-button (click)="translateWordReference()" onkeypress="translateWordReference()">Translate</ion-button>
+
+      <!-- * Libre translate response * -->
+      @if (libreTranslateResponse) {
+      <div>
+
+        <ion-text>Response: </ion-text>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              en - {{selectedLanguage?.isoCode}}
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            {{libreTranslateResponse.translatedText}}
+          </ion-card-content>
+        </ion-card>
+      </div>
+
+      <ion-button (click)="setValues()" onkeypress="setValues()">Set values</ion-button>
+      }
+
+
+      } @else { <!-- * If !selectedWordReference * -->
+      <ion-text>
+        Select a word reference to continue
+      </ion-text>
+      }
+    </div>
+  </ion-content>
+</div>

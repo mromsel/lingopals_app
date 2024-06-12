@@ -1,0 +1,34 @@
+<ion-header>
+  <div class="language-selector">
+    <app-language-selector [preferredUserLanguages]="preferredUserLanguages"></app-language-selector>
+  </div>
+  <ion-button routerLink="./review" color="secondary" style="font-weight: bold;"
+    *ngIf="preferredUserLanguages">{{'lessons.reviewWords' |
+    translate}}</ion-button>
+</ion-header>
+
+<ion-content>
+  <div class="main-container">
+    @if(preferredUserLanguages) {
+
+    <div class="lessons-div">
+      @for (lesson of lessons; track $index) {
+      <div class="lesson-container" [class.even]="$index % 2 === 0" [class.odd]="$index % 2 !== 0">
+        <div class="line" *ngIf="$index !== 0"></div>
+        <div class="lesson">
+          <app-custom-button [buttonText]="lesson.lessonName" routerLink="./{{lesson.idLesson}}"></app-custom-button>
+          <ion-progress-bar [value]="lesson.userCompletedLesson?.progressPercent ?? 0"></ion-progress-bar>
+        </div>
+      </div>
+      }
+    </div>
+    <!-- <ion-button routerLink="./all-lessons" expand="block">See all lessons</ion-button> -->
+    } @else {
+    <ion-text>
+      {{'common.noUserLanguagesText' |
+      translate}}
+    </ion-text>
+    }
+  </div>
+
+</ion-content>

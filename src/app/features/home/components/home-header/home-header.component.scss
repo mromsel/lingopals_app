@@ -1,0 +1,53 @@
+@import '../../../../shared/styles/constants.scss';
+
+.header-container {
+    background-color: var(--ion-color-primary);
+    color: var(--ion-color-primary-contrast);
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    ion-item {
+        --background: var(--ion-color-primary-tint);
+        --color: var(--ion-color-primary-contrast);
+        border-radius: 1rem;
+        text-align: center;
+        max-width: 33%;
+
+        ion-icon {
+            color: var(--ion-color-primary-contrast);
+        }
+    }
+
+    .level {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        * {
+            margin: 0.5rem
+        }
+
+        ion-progress-bar {
+            --background: var(--ion-color-secondary-shade);
+            --progress-background: var(--ion-color-secondary-tint);
+            border-radius: 1rem;
+            width: 5rem;
+            height: 1rem;
+        }
+    }
+}
+
+@media (max-width: $small-device-max-w) {
+
+    /* Smartphones and tablets in vertical orientation */
+    .level {
+        ion-progress-bar {
+            display: none;
+        }
+    }
+}

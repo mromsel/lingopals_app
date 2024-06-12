@@ -1,0 +1,8 @@
+<!-- * Nav with links to letters * -->
+<ion-content>
+  <div class="letters">
+    <ion-item *ngFor="let letter of alphabet; index as i">
+      <button (click)="scrollToElement(letter)" [ngClass]="{'active': i === 0}">{{letter}}</button>
+    </ion-item>
+  </div>
+</ion-content>

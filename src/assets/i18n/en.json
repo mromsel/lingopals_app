@@ -1,0 +1,112 @@
+{
+    "common": {
+        "buttonExitText": "Exit",
+        "buttonCancelText": "Cancel",
+        "buttonOkText": "OK",
+        "errorAlertTitle": "Error",
+        "genericErrorMessage": "There was a problem. Please try again later.",
+        "noUserLanguagesText": "Press the top button to select a language to learn!"
+    },
+    "shared": {
+        "languageSelector": {
+            "modal": {
+                "title": "Select the language to learn"
+            }
+        },
+        "singleLanguageSelector": {
+            "modal": {
+                "title": "Select your language"
+            }
+        },
+        "modalUserLanguagesCreate": {
+            "pageTitle": "Select the language to learn",
+            "buttonCancelText": "Cancel",
+            "clearSelectionButtonText": "Clear selection",
+            "originLanguageAltText": "Origin language",
+            "targetLanguageAltText": "Target language",
+            "setPreferredCheckboxLabel": "Set default",
+            "startLearningLevelQuestion": "From which level would you want to start learning? (You can change this later)",
+            "confirmButtonText": "Confirm"
+        }
+    },
+    "login": {
+        "login": "Login",
+        "username": "Username",
+        "enterUsername": "Enter username",
+        "password": "Password",
+        "enterPassword": "Enter your password",
+        "errorLoginData": "Please enter valid username and password",
+        "forgotPassword": "Forgot password?",
+        "createAccount": "Don't have an account?"
+    },
+    "signup": {
+        "signUp": "Sign Up",
+        "username": "Username",
+        "enterUsername": "Enter username",
+        "email": "Email",
+        "enterEmail": "Enter email",
+        "password": "Password",
+        "enterPassword": "Enter your password",
+        "confirmPassword": "Confirm password",
+        "enterConfirmPassword": "Enter your password again",
+        "goToLogin": "Go to login",
+        "successAlert": {
+            "header": "Account Created",
+            "message": "You can now log in"
+        },
+        "errorAlert": {
+            "usernameError": "This username is already taken.",
+            "emailError": "This email is already registered."
+        }
+    },
+    "tabs": {
+        "home": "home",
+        "lessons": "lessons",
+        "dictionary": "dictionary",
+        "settings": "settings"
+    },
+    "home": {
+        "header": {
+            "days": "days",
+            "level": "Level"
+        },
+        "shop": "Shop",
+        "myProgress": "My progress"
+    },
+    "lessons": {
+        "defaultMessage": "Press the top button to start learning!",
+        "reviewWords": "Review Words",
+        "quiz": {
+            "states": {
+                "start": "Start lesson",
+                "continue": "Continue",
+                "nextWord": "Next word",
+                "finishLesson": "Finish lesson",
+                "backToLessons": "Go back to Lessons"
+            }
+        }
+    },
+    "dictionary": {
+        "search": "Search"
+    },
+    "settings": {
+        "groupAdmin": {},
+        "group1": {
+            "titleUserConfig": "User configuration",
+            "changeUsername": "Change username",
+            "changePassword": "Change password",
+            "changePrefLang": "Change preferred language",
+            "logout": "Log out"
+        },
+        "group2": {
+            "theme": "Theme",
+            "lightTheme": "Light",
+            "darkTheme": "Dark"
+        },
+        "group3": {
+            "getSupport": "Get support",
+            "about": "About LingoPals",
+            "credits": "Credits"
+        }
+    }
+}

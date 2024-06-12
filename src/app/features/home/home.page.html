@@ -1,0 +1,45 @@
+<app-home-header [userProgress]="userProgress"></app-home-header>
+<ion-content>
+  <div class="main-container">
+
+    <div class="profile-div">
+      <ion-card class="profile">
+        <ion-card-content>
+          <img alt="User profile"
+            src="https://image.winudf.com/v2/image1/Y29tLm1pbmlhcmthbm8uY2F0cHJvZmlsZXBpY3R1cmVfc2NyZWVuXzBfMTY4OTc5NjQ1NF8wMTA/screen-0.jpg?fakeurl=1&type=.jpg"
+            style="max-height: 18rem;" />
+          <div>
+            <h1 style="font-weight: bold; font-size: 2rem;">
+              {{user?.username}}
+            </h1>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <div class="buttons-div">
+      <!-- <div class="item-div">
+        <ion-card class="item">
+          <ion-card-content>
+            <ion-text (click)="goToShop()" expand="block" onKeyPress="goToShop()">
+              {{ 'home.shop' | translate}}
+            </ion-text>
+          </ion-card-content>
+        </ion-card>
+      </div> -->
+      <div class="item-div">
+        <ion-card class="item">
+          <ion-card-content>
+            <ion-text id="open-progress-modal" expand="block">
+              <span>
+                {{ 'home.myProgress' | translate}}
+              </span>
+            </ion-text>
+            <app-progress-modal [user]="user" [userProgress]="userProgress"></app-progress-modal>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

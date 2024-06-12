@@ -1,0 +1,17 @@
+<div class="language-selector">
+  <div class="languages-badge">
+    <button ion-button (click)="openModal()" expand="block" class="button" color="secondary">
+      @if (preferredUserLanguages) {
+      <img [src]="'data:image/png;base64,' + preferredUserLanguages.languageOrigin.flag.imageBase64"
+        alt="Origin language" class="flag">
+      <ion-icon name="arrow-forward" class="arrow"></ion-icon>
+      <img [src]="'data:image/png;base64,' + preferredUserLanguages.languageTarget.flag.imageBase64"
+        alt="Target language" class="flag">
+      } @else {
+      <img src="../../../../assets/flags/blank.png" alt="Language flag" class="flag">
+      <ion-icon name="arrow-forward" class="arrow"></ion-icon>
+      <img src="../../../../assets/flags/blank.png" alt="Language flag" class="flag">
+      }
+    </button>
+  </div>
+</div>

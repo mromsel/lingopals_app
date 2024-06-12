@@ -1,0 +1,117 @@
+@import '../../shared/styles/constants.scss';
+
+$lessonButtonTranslate: 30%;
+$lineRotate: 75deg;
+
+ion-header {
+    background-color: var(--ion-color-primary);
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+
+    .language-selector {
+        width: 50%;
+    }
+
+    ion-button {
+        background-image: url("../../../assets/resources/next-lesson.svg");
+    }
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    height: 100%;
+
+    .lessons-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        .lesson-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &.even {
+                align-items: flex-end;
+                padding-right: $lessonButtonTranslate;
+
+                .line {
+                    transform: rotate($lineRotate);
+                }
+            }
+
+            &.odd {
+                align-items: flex-start;
+                padding-left: $lessonButtonTranslate;
+
+                .line {
+                    transform: rotate(-$lineRotate);
+                }
+            }
+
+            .line {
+                position: absolute;
+                top: -12rem;
+                left: 50%;
+                width: 2px;
+                // height: 370%;
+                height: 50vh;
+                background-color: var(--ion-color-primary);
+                transform: translateX(-50%);
+                z-index: -1;
+            }
+
+            .lesson {
+                // width: 30%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                ion-progress-bar {
+                    margin-top: 3rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $small-device-max-w) {
+
+    /* Smartphones and tablets in vertical orientation */
+
+    app-custom-button {
+        // width: 50%;
+    }
+
+    .line {
+        display: none;
+    }
+
+    .lesson-container {
+        margin-bottom: 1rem;
+
+        &.even {
+            .img {
+                right: -50%;
+            }
+        }
+
+        &.odd {
+            .img {
+                left: -50%;
+            }
+        }
+    }
+}
+
+@media (min-width: $large-device-min-w) {
+
+    /* Laptops and tablets in horizontal orientation */
+}

@@ -1,0 +1,90 @@
+@import '../../styles/constants.scss';
+
+ion-header {
+
+    .result {
+        margin: auto;
+        display: flex;
+        align-items: center;
+
+        padding: 1rem;
+
+        .languages-selected-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .language-selected {
+                background-color: var(--ion-color-medium);
+                padding: 0 0.4rem;
+                height: 10vh;
+                width: 10vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+ion-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    .selection {
+        background-color: var(--ion-color-background);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        height: 100%;
+    }
+
+    .language-level-selection {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        text-wrap: wrap;
+
+        .language-level-radio-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .language-level-radio {}
+        }
+    }
+}
+
+@media (max-width: $small-device-max-w) {
+
+    /* Smartphones and tablets in vertical orientation */
+    .result {
+        flex-direction: column;
+        justify-content: center;
+
+        >* {
+            // padding-top: 0.3rem;
+        }
+    }
+
+    .language-level-selection {
+        ion-text {
+            padding: 2rem;
+        }
+    }
+}
+
+@media (min-width: $large-device-min-w) {
+
+    /* Laptops and tablets in horizontal orientation */
+    .result {
+        justify-content: space-between;
+    }
+}

@@ -1,0 +1,33 @@
+<ion-content>
+  <app-back-button [backRoute]="backRoute"></app-back-button>
+  <div class="main-container">
+
+    <div class="masters">
+      <ion-text *ngFor="let master of mastersNamesList" color="tertiary" routerLink="../{{master}}"
+        [ngClass]="{'selected': master === currentMaster}">
+        {{master}}
+      </ion-text>
+      <!-- (click)="changeMaster(master)" -->
+      <!-- onkeypress="changeMaster(master)" -->
+    </div>
+
+    <app-admin-panel-components-header (toggleShowForm)="toggleShowForm()"
+      (toggleShowSearchBar)="toggleShowSearchBar()"></app-admin-panel-components-header>
+
+    <div class="form-container" *ngIf="showForm">
+      <!-- <app-words-references-form></app-words-references-form> -->
+    </div>
+
+    <div class="finder" *ngIf="showSearchBar">
+      <ion-searchbar (ionChange)="onSearch($event)"></ion-searchbar>
+      <ion-select [(ngModel)]="selectedProperty" (ionChange)="onSelectChange($event)">
+        <ion-select-option *ngFor="let column of displayColumns" [value]="column">{{column}}</ion-select-option>
+      </ion-select>
+    </div>
+
+    <div class="table-container">
+      <app-dynamic-material-table [dataSource]="displayList"></app-dynamic-material-table>
+    </div>
+
+  </div>
+</ion-content>

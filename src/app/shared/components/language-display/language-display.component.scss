@@ -1,0 +1,32 @@
+.languages-badge {
+    margin: 0.5rem;
+    padding: 0.5rem;
+
+    .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid black;
+        border-radius: 1rem;
+        padding: 0.5rem 1rem;
+
+        .flag {
+            width: 10vh;
+            height: auto;
+            margin: 0 10px;
+            padding: 5px;
+        }
+    }
+}
+
+.selected {
+    background-color: var(--ion-color-primary);
+
+    ion-icon {
+        color: var(--ion-color-primary-contrast);
+    }
+}
+
+.not-selected {
+    background-color: var(--ion-color-light);
+}

@@ -1,0 +1,18 @@
+<ion-card>
+  <ion-card-title>
+    Level {{currentLevel?.levelNumber}}
+    <ion-progress-bar [value]="progressValue"></ion-progress-bar>
+  </ion-card-title>
+  <ion-card-content>
+
+    <ion-list *ngIf="userActivityResult && listWords">
+      <ion-item *ngFor="let word of listWords; index as i" class="item">
+        <span
+          [ngClass]="{'correct': userActivityResult.results[i].result,'incorrect': !userActivityResult.results[i].result}">
+          {{word.wordTarget.wordString}}
+        </span>
+        &nbsp;= {{word.wordOrigin.wordString}}
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>

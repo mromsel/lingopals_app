@@ -1,0 +1,66 @@
+<div class="main-container">
+  <app-back-button *ngIf="isAdvanced"></app-back-button>
+
+  <div class="form-container">
+    <form [formGroup]="wordReferenceForm" (ngSubmit)="onSubmit()">
+      <div class="item">
+        <label for="englishWord">English Word</label>
+        <input type="text" formControlName="englishWord" id="englishWord" placeholder="hello" required>
+      </div>
+      <div class="item textarea">
+        <label for="englishDefinition">English Definition</label>
+        <textarea type="text" formControlName="englishDefinition" id="englishDefinition" required></textarea>
+      </div>
+
+      <div class="item">
+        <label for="grammaticalCategory">Grammatical Category</label>
+        <select formControlName="grammaticalCategory" id="grammaticalCategory" required>
+          @if (grammaticalCategories[0]) {
+          @for (grammaticalCategory of grammaticalCategories; track $index) {
+          <option value="{{$index}}">{{grammaticalCategory.name}}</option>
+          }
+          } @else {
+          <option value="">No data available</option>
+          }
+        </select>
+      </div>
+      <div class="item">
+        <label for="languageLevel">Language Level</label>
+        <select formControlName="languageLevel" id="languageLevel" required>
+          @if (languageLevels[0]) {
+          @for (languageLevel of languageLevels; track $index) {
+          <option value="{{$index}}">{{languageLevel.levelName}}</option>
+          }
+          } @else {
+          <option value="">No data available</option>
+          }
+        </select>
+      </div>
+      <div class="item">
+        <label for="semanticCategory">Semantic Category</label>
+        <select formControlName="semanticCategory" id="semanticCategory" required>
+          @if (semanticCategories[0]) {
+          @for (semanticCategory of semanticCategories; track $index) {
+          <option value="{{$index}}">{{semanticCategory.englishName}}</option>
+          }
+          } @else {
+          <option value="">No data available</option>
+          }
+        </select>
+      </div>
+
+      <div class="item">
+        <label for="imageUrl">Image URL</label>
+        <input type="text" formControlName="imageUrl" id="imageUrl">
+      </div>
+      <button type="submit" class="submit-button">Add Word Reference</button>
+    </form>
+  </div>
+
+  <div class="word-details" *ngIf="isAdvanced">
+
+    <app-dictionary-api (wordReferenceWordString)="setEnglishWord($event)"
+      (wordReferenceDefinition)="setDefinition($event)"></app-dictionary-api>
+
+  </div>
+</div>

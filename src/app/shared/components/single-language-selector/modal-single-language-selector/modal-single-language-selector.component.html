@@ -1,0 +1,29 @@
+<div class="main-container">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        <span style="text-overflow:ellipsis;white-space:nowrap;">
+          {{'shared.singleLanguageSelector.modal.title' |
+          translate}}
+        </span>
+      </ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="closeModal()" onkeypress="closeModal()" [strong]="true">{{'common.buttonCancelText' |
+          translate}}</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <div class="languages-container">
+
+      <div class="languages-badge" *ngFor="let language of languagesToSelect; index as i">
+        <button ion-button expand="block" class="button" (click)="select(i)"
+          [ngClass]="{'selected': language.isoCode == preferredIsoCode, 'not-selected' : language.isoCode != preferredIsoCode}">
+          <img [src]="'data:image/png;base64,' + language.flag.imageBase64" alt="Origin language" class="flag">
+          <p class="language-name">{{language.languageName}}</p>
+        </button>
+      </div>
+
+    </div>
+  </ion-content>
+</div>

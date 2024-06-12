@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{'shared.languageSelector.modal.title' |
+      translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()" onkeypress="closeModal()" [strong]="true">{{'common.buttonCancelText' |
+        translate}}</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  @for (language of userLanguagesToSelect; track $index) {
+  <div class="row">
+    <div class="languages-badge">
+      <button ion-button class="badge" (click)="select($index)"
+        [ngClass]="{'selected': preferredIndex == $index, 'not-selected' : preferredIndex != $index}">
+        <img [src]="'data:image/png;base64,' + language.languageOrigin.flag.imageBase64" alt="Origin language"
+          class="flag">
+        <ion-icon name="arrow-forward" class="arrow"></ion-icon>
+        <img [src]="'data:image/png;base64,' + language.languageTarget.flag.imageBase64" alt="Target language"
+          class="flag">
+      </button>
+
+      <ion-button class="delete-button" color="danger">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </div>
+
+  </div>
+  }
+</ion-content>
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button (click)="openAddUserLanguagesModal()" onkeypress="openAddUserLanguagesModal()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

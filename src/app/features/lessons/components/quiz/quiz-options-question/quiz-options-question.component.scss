@@ -1,0 +1,107 @@
+@import '../../../../../shared/styles/constants.scss';
+
+ion-card {
+    background-color: var(--ion-color-primary-contrast);
+    border-radius: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    ion-card-title {
+        padding: 1rem;
+
+        span {
+            font-weight: bold;
+        }
+    }
+
+    ion-card-content {
+        flex-grow: 1;
+        width: 80%;
+
+        .options-div {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 10px;
+            height: 100%;
+            justify-items: center;
+            align-items: center;
+
+            .option {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: none;
+                padding: 1rem;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                width: 100%;
+                height: 100%;
+                border: 1px solid black;
+                text-align: center;
+                border-radius: 1rem;
+
+                ion-text {
+                    color: var(--ion-color-dark);
+                    border-radius: 2rem;
+                }
+            }
+        }
+    }
+}
+
+.default-button {
+    background-color: var(--ion-color-primary-contrast);
+}
+
+.correct-answer {
+    background-color: var(--ion-color-success);
+}
+
+.correct-answer-not-selected {
+    background-color: var(--ion-color-success-shade);
+}
+
+.wrong-answer {
+    background-color: var(--ion-color-danger);
+}
+
+.wrong-answer-not-selected {
+    background-color: var(--ion-color-danger-shade);
+}
+
+@media (max-width: $small-device-max-w) {
+
+    /* Smartphones and tablets in vertical orientation */
+    ion-card-title {
+
+        span {
+            font-size: 2rem;
+        }
+    }
+
+    .option-text {
+        // font-size: 2rem;
+    }
+
+}
+
+@media (min-width: $large-device-min-w) {
+
+    /* Laptops and tablets in horizontal orientation */
+    ion-card-title {
+
+        span {
+            font-size: 2.5rem;
+        }
+    }
+
+    .option-text {
+        font-size: 1.5rem;
+    }
+
+}

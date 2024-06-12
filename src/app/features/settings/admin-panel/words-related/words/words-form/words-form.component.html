@@ -1,0 +1,55 @@
+<div class="main-container">
+  <app-back-button *ngIf="isAdvanced"></app-back-button>
+
+  <div class="form-container">
+    <form [formGroup]="wordForm" (ngSubmit)="onSubmit()">
+
+      <div class="item">
+        <label for="language">Language</label>
+        <ion-select [compareWith]="compareWith" (ionChange)="onLanguageChange($event)" slot="end" interface="popover"
+          formControlName="language" id="language" required>
+          <ion-select-option *ngFor="let language of languages"
+            [value]="language">{{language.languageName}}</ion-select-option>
+        </ion-select>
+      </div>
+
+      <div class="item">
+        <label for="wordString">Word (text)</label>
+        <input type="text" formControlName="wordString" id="wordString" placeholder="hello" required>
+      </div>
+      <div class="item textarea">
+        <label for="definition">Definition</label>
+        <textarea type="text" formControlName="definition" id="definition" required></textarea>
+      </div>
+
+      <div class="item">
+        <label for="wordRef">Word Reference</label>
+
+        <ion-select formControlName="wordRef" id="wordRef" required (ionChange)="onWordReferenceChange($event)"
+          interface="popover">
+          @if (availableWordReferences[0]) {
+          <ion-select-option [value]="null">Select a word reference</ion-select-option>
+          @for (wordReference of availableWordReferences; track $index) {
+          <ion-select-option [value]="wordReference">
+            {{wordReference.idWordRef}} -
+            {{wordReference.englishWord}}</ion-select-option>
+          }
+          } @else {
+          <ion-select-option checked="true">
+            There's no word references left!
+          </ion-select-option>
+          }
+        </ion-select>
+        <ion-toggle (ionChange)="changeEditMode()">Edit mode</ion-toggle>
+
+      </div>
+      <button type="submit" class="submit-button">Add Word</button>
+    </form>
+  </div>
+
+  <div class="advanced-options" *ngIf="isAdvanced">
+    <app-words-form-advanced-options [wordsList]="wordsList" [wordReferences]="wordReferences"
+      [selectedWordReference]="selectedWordReference" [selectedLanguage]="selectedLanguage"
+      (wordAndDefinitionValue)="setWordAndDefinitionValues($event)"></app-words-form-advanced-options>
+  </div>
+</div>
