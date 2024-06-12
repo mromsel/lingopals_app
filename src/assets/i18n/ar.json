@@ -4,7 +4,30 @@
         "buttonCancelText": "إلغاء",
         "buttonOkText": "موافق",
         "errorAlertTitle": "خطأ",
-        "genericErrorMessage": "حدثت مشكلة. حاول مرة أخرى لاحقًا."
+        "genericErrorMessage": "حدثت مشكلة. حاول مرة أخرى لاحقًا.",
+        "noUserLanguagesText": "اضغط على الزر العلوي لتحديد لغة للتعلم!"
+    },
+    "shared": {
+        "languageSelector": {
+            "modal": {
+                "title": "اختر اللغة لتتعلمها"
+            }
+        },
+        "singleLanguageSelector": {
+            "modal": {
+                "title": "اختر لغتك"
+            }
+        },
+        "modalUserLanguagesCreate": {
+            "pageTitle": "اختر اللغة لتتعلمها",
+            "buttonCancelText": "إلغاء",
+            "clearSelectionButtonText": "مسح التحديد",
+            "originLanguageAltText": "اللغة الأصلية",
+            "targetLanguageAltText": "اللغة المستهدفة",
+            "setPreferredCheckboxLabel": "تعيين كافتراضي",
+            "startLearningLevelQuestion": "من أي مستوى ترغب في بدء التعلم؟ (يمكنك تغيير هذا لاحقًا)",
+            "confirmButtonText": "تأكيد"
+        }
     },
     "login": {
         "login": "تسجيل الدخول",
@@ -52,6 +75,7 @@
         "myProgress": "تقدمي"
     },
     "lessons": {
+        "defaultMessage": "اضغط على الزر العلوي لبدء التعلم!",
         "reviewWords": "مراجعة الكلمات",
         "quiz": {
             "states": {

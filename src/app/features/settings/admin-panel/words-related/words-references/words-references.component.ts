@@ -14,7 +14,7 @@ export class WordsReferencesComponent implements OnInit {
 
   data: WordReference[] = [];
 
-  displayedColumns: string[] = ['idWordRef', 'englishWord', 'englishDefinition', 'grammaticalCategory', 'languageLevel', 'actions']; //private String imageUrl; 'category'
+  displayedColumns: string[] = ['idWordRef', 'englishWord', 'englishDefinition', 'grammaticalCategory', 'languageLevel', 'semanticCategory', 'actions']; //private String imageUrl; 'category'
 
   displayList: WordReference[] = [];
 

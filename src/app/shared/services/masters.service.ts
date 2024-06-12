@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import { Language } from '../interfaces/masters/language.interface';
 import { LanguageLevel } from '../interfaces/masters/language-level.interface';
 import { Masters } from 'src/app/features/settings/admin-panel/interfaces/masters.interface';
@@ -10,13 +9,15 @@ import { WritingSystem } from '../interfaces/masters/writing-system.interface';
 import { XPLevel } from '../interfaces/masters/xp-level.interface';
 import { Profile } from '../interfaces/masters/profile.interface';
 import { Subject } from 'rxjs';
+import { backendURL } from '../utils/environment';
+import { SemanticCategory } from '../interfaces/masters/semantic-category.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MastersService {
 
-  backendURL: string = environment.backendURL
+  backendURL: string = backendURL
 
   isDataReady = new Subject<boolean>()
 
@@ -27,6 +28,7 @@ export class MastersService {
   languages: Language[] = []
   languageLevels: LanguageLevel[] = []
   profiles: Profile[] = []
+  semanticCategories: SemanticCategory[] = []
   writingSystems: WritingSystem[] = []
   xpLevels: XPLevel[] = []
 
@@ -39,6 +41,7 @@ export class MastersService {
         this.languages = masters.languages
         this.languageLevels = masters.languageLevels
         this.profiles = masters.profiles
+        this.semanticCategories = masters.semanticCategories
         this.writingSystems = masters.writingSystems
         this.xpLevels = masters.xpLevels
 

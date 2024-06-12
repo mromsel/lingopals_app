@@ -2,16 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Lesson } from 'src/app/shared/interfaces/words-related/lesson.interface';
-import { environment } from 'src/environments/environment';
 import { LessonFull } from '../interfaces/lesson-full.interface';
 import { UserLanguages } from 'src/app/shared/interfaces/user-related/user-languages.interface';
+import { LessonDisplay } from '../interfaces/lesson-display.interface';
+import { backendURL } from 'src/app/shared/utils/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LessonsService {
 
-  backendURL: string = environment.backendURL
+  backendURL: string = backendURL
 
   constructor(private http: HttpClient) { }
 
@@ -20,6 +21,10 @@ export class LessonsService {
   }
 
   getLesson(idLesson: number, userLanguages: UserLanguages): Observable<LessonFull> {
-    return this.http.get<LessonFull>(`${this.backendURL}/lessons/${idLesson}/${userLanguages.languageOrigin.isoCode}/${userLanguages.languageTarget.isoCode}`)
+    return this.http.get<LessonFull>(`${this.backendURL}/lessons/${idLesson}/${userLanguages.idUserLanguages}`)
+  }
+
+  getLessonsToDisplay(idUserLanguages: number): Observable<LessonDisplay[]> {
+    return this.http.get<LessonDisplay[]>(`${this.backendURL}/lessons/display/${idUserLanguages}`)
   }
 }

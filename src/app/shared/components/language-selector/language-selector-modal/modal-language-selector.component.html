@@ -1,9 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Select the language to learn</ion-title>
-    <!-- TODO: TRANSLATEEE -->
+    <ion-title>{{'shared.languageSelector.modal.title' |
+      translate}}</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="closeModal()" onkeypress="closeModal()" [strong]="true">Close</ion-button>
+      <ion-button (click)="closeModal()" onkeypress="closeModal()" [strong]="true">{{'common.buttonCancelText' |
+        translate}}</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -13,9 +14,11 @@
     <div class="languages-badge">
       <button ion-button class="badge" (click)="select($index)"
         [ngClass]="{'selected': preferredIndex == $index, 'not-selected' : preferredIndex != $index}">
-        <img src={{filePrefix}}{{language.languageOrigin.flag}} alt="Origin language" class="flag">
+        <img [src]="'data:image/png;base64,' + language.languageOrigin.flag.imageBase64" alt="Origin language"
+          class="flag">
         <ion-icon name="arrow-forward" class="arrow"></ion-icon>
-        <img src={{filePrefix}}{{language.languageTarget.flag}} alt="Target language" class="flag">
+        <img [src]="'data:image/png;base64,' + language.languageTarget.flag.imageBase64" alt="Target language"
+          class="flag">
       </button>
 
       <ion-button class="delete-button" color="danger">

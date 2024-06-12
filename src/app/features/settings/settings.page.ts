@@ -17,6 +17,8 @@ export class SettingsPage {
 
   user: User | undefined;
 
+  isAdmin = false
+
   constructor(
     private authService: AuthService,
     private configService: ConfigService,
@@ -34,6 +36,7 @@ export class SettingsPage {
         let userProfileImage = document.getElementById("userProfileImage") as HTMLImageElement;
         userProfileImage.src = this.user.profileImageUrl
       }
+      this.isAdmin = this.user.profile.idProfile == 1
     }
   }
 

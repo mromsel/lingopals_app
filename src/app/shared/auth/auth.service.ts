@@ -1,10 +1,10 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, catchError, map, tap, throwError } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { UserLogin } from '../interfaces/auth/user-login.interface';
 import { UserSignUp } from '../interfaces/auth/user-signup.interface';
 import { LocalStorageService } from '../services/app/local-storage.service';
+import { backendURL } from '../utils/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class AuthService {
 
   private token: string = ""
 
-  backendURL: string = environment.backendURL
+  backendURL: string = backendURL
 
   constructor(
     private http: HttpClient,

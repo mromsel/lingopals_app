@@ -36,11 +36,14 @@ const routes: Routes = [
       {
         path: '',
         redirectTo: 'home',
+        // redirectTo: 'settings/admin-panel/words-related/word-references',
+        // redirectTo: 'lessons',
+        // redirectTo: 'dictionary',
+        // redirectTo: 'dictionary/word-details/1',
         pathMatch: 'full',
       },
     ]
   },
-
 ];
 
 @NgModule({

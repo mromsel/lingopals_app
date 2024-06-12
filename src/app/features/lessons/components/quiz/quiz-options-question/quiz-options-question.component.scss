@@ -50,15 +50,6 @@ ion-card {
                     border-radius: 2rem;
                 }
             }
-
-            // .option:hover {
-            //     background-color: var(--ion-color-secondary);
-            // }
-
-            // display: flex;
-            // flex-direction: column;
-            // align-items: center;
-            // justify-content: center;
         }
     }
 }
@@ -105,12 +96,12 @@ ion-card {
     ion-card-title {
 
         span {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
         }
     }
 
     .option-text {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
     }
 
 }

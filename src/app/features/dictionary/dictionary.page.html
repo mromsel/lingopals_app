@@ -1,15 +1,16 @@
-@if (preferredUserLanguages) {
 <ion-header>
   <div class="header">
     <app-language-selector [preferredUserLanguages]="preferredUserLanguages"></app-language-selector>
-    <ion-searchbar (ionChange)="onSearch($event)" style="position: sticky;"
-      placeholder="{{ 'dictionary.search' | translate}}"></ion-searchbar>
-    <ion-button color="secondary">{{ 'dictionary.search' | translate}}</ion-button>
+    <div class="searcher">
+      <ion-searchbar (ionChange)="onSearch($event)" placeholder="{{ 'dictionary.search' | translate}}"></ion-searchbar>
+      <ion-button color="secondary">{{ 'dictionary.search' | translate}}</ion-button>
+    </div>
   </div>
   <!-- <app-letters-scroll></app-letters-scroll> -->
 </ion-header>
 
 <ion-content class="main-container">
+  @if (preferredUserLanguages) {
 
   <div class="dictionary-container">
     <div class="word-list-container">
@@ -30,5 +31,12 @@
       }
     </div>
   </div>
+  } @else {
+  <div style="display:flex; justify-content: center; height: 100%; margin-top: 1rem;">
+    <ion-text>
+      {{'common.noUserLanguagesText' |
+      translate}}
+    </ion-text>
+  </div>
+  }
 </ion-content>
-}

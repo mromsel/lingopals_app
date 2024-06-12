@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { UserActivity } from '../../interfaces/user-related/user-activity.interface';
-import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserLevelUpdate } from 'src/app/features/lessons/interfaces/user-level-update.interface';
+import { backendURL } from '../../utils/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserActivityService {
 
-  backendURL: string = environment.backendURL
+  backendURL: string = backendURL
 
   constructor(private http: HttpClient) { }
 

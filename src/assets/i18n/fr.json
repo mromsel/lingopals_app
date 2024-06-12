@@ -4,7 +4,30 @@
         "buttonCancelText": "Annuler",
         "buttonOkText": "OK",
         "errorAlertTitle": "Erreur",
-        "genericErrorMessage": "Un problème est survenu. Veuillez réessayer plus tard."
+        "genericErrorMessage": "Un problème est survenu. Veuillez réessayer plus tard.",
+        "noUserLanguagesText": "Appuyez sur le bouton du haut pour sélectionner une langue à apprendre !"
+    },
+    "shared": {
+        "languageSelector": {
+            "modal": {
+                "title": "Sélectionnez la langue à apprendre"
+            }
+        },
+        "singleLanguageSelector": {
+            "modal": {
+                "title": "Sélectionnez votre langue"
+            }
+        },
+        "modalUserLanguagesCreate": {
+            "pageTitle": "Sélectionnez la langue à apprendre",
+            "buttonCancelText": "Annuler",
+            "clearSelectionButtonText": "Effacer la sélection",
+            "originLanguageAltText": "Langue d'origine",
+            "targetLanguageAltText": "Langue cible",
+            "setPreferredCheckboxLabel": "Définir par défaut",
+            "startLearningLevelQuestion": "À partir de quel niveau souhaitez-vous commencer à apprendre ? (Vous pouvez changer cela plus tard)",
+            "confirmButtonText": "Confirmer"
+        }
     },
     "login": {
         "login": "Connexion",
@@ -51,6 +74,7 @@
         "myProgress": "Mon progrès"
     },
     "lessons": {
+        "defaultMessage": "Appuyez sur le bouton du haut pour commencer à apprendre !",
         "quiz": {
             "states": {
                 "start": "Commencer la leçon",

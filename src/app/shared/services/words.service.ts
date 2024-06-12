@@ -1,15 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { Word } from '../interfaces/words-related/word.interface';
+import { backendURL } from '../utils/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WordsService {
 
-  backendURL: string = environment.backendURL
+  backendURL: string = backendURL
 
   constructor(private http: HttpClient) { }
 

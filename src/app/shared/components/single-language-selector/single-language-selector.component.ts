@@ -20,6 +20,8 @@ export class SingleLanguageSelectorComponent implements OnInit {
   languageFlag: string = "flag_en.png";
   languageFlagSrc = this.filePrefix + this.languageFlag
 
+  base64Prefix = "data:image/png;base64,"
+
   constructor(
     private _modalController: ModalController,
     private mastersService: MastersService,
@@ -28,7 +30,11 @@ export class SingleLanguageSelectorComponent implements OnInit {
   }
   ngOnInit(): void {
     let preferredLanguage = this.configService.preferredLanguage
-    if (preferredLanguage) this.setPreferredLanguage(preferredLanguage)
+    if (preferredLanguage) {
+      this.setPreferredLanguage(preferredLanguage)
+    } else {
+      this.setPreferredLanguage(this.mastersService.languages[0])
+    }
 
     this.configService.preferredLanguageSubject
       // .pipe(takeUntil(this.unsubscribe$))
@@ -41,8 +47,8 @@ export class SingleLanguageSelectorComponent implements OnInit {
 
   setPreferredLanguage(language: Language) {
     this.preferredLanguage = language
-    this.languageFlag = this.preferredLanguage.flag
-    this.languageFlagSrc = this.filePrefix + this.languageFlag
+    this.languageFlag = this.preferredLanguage.flag.imageBase64
+    // this.languageFlagSrc = "this.filePrefix" + this.languageFlag
   }
 
   ionViewWillExit() {

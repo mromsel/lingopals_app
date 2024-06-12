@@ -12,9 +12,12 @@ export class LanguageDisplayComponent implements OnInit {
   @Input() selected: boolean = false;
   @Input() nameDisplay: boolean = false;
 
-  filePrefix = "../../../../assets/flags/"
+  filePrefix = "../../../../assets/flags/flag_"
 
-  constructor() { }
+  constructor() {
+    // console.log(this.language.flag.imageBase64);
+
+  }
 
   ngOnInit() { }
 

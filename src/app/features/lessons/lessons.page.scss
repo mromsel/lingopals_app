@@ -1,5 +1,8 @@
 @import '../../shared/styles/constants.scss';
 
+$lessonButtonTranslate: 30%;
+$lineRotate: 75deg;
+
 ion-header {
     background-color: var(--ion-color-primary);
     padding: 0.5rem;
@@ -36,67 +39,64 @@ ion-header {
 
             &.even {
                 align-items: flex-end;
-                padding-right: 20%;
+                padding-right: $lessonButtonTranslate;
 
                 .line {
-                    transform: rotate(45deg);
+                    transform: rotate($lineRotate);
                 }
             }
 
             &.odd {
                 align-items: flex-start;
-                padding-left: 20%;
+                padding-left: $lessonButtonTranslate;
 
                 .line {
-                    transform: rotate(-45deg);
+                    transform: rotate(-$lineRotate);
                 }
-            }
-
-            .img {
-                position: absolute;
-                width: 15vh;
-                height: 15vh;
             }
 
             .line {
                 position: absolute;
-                top: -5rem;
+                top: -12rem;
                 left: 50%;
                 width: 2px;
-                height: 150%;
+                // height: 370%;
+                height: 50vh;
                 background-color: var(--ion-color-primary);
                 transform: translateX(-50%);
-                z-index: 1;
+                z-index: -1;
             }
 
             .lesson {
-                background-color: var(--ion-color-primary);
-                color: var(--ion-color-primary-contrast);
-                border-radius: 50%;
-                border: 1px solid black;
-                text-align: center;
-                width: 12vh;
-                height: 12vh;
+                // width: 30%;
                 display: flex;
+                flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                margin: 1rem 0;
-                padding: 1vh;
-                z-index: 2;
+
+                ion-progress-bar {
+                    margin-top: 3rem;
+                }
             }
         }
     }
-}
-
-.completed-lesson {
-    background-color: greenyellow;
 }
 
 @media (max-width: $small-device-max-w) {
 
     /* Smartphones and tablets in vertical orientation */
 
+    app-custom-button {
+        // width: 50%;
+    }
+
+    .line {
+        display: none;
+    }
+
     .lesson-container {
+        margin-bottom: 1rem;
+
         &.even {
             .img {
                 right: -50%;
@@ -114,19 +114,4 @@ ion-header {
 @media (min-width: $large-device-min-w) {
 
     /* Laptops and tablets in horizontal orientation */
-    .lesson-container {
-        width: 40%;
-
-        &.even {
-            .img {
-                right: 10%;
-            }
-        }
-
-        &.odd {
-            .img {
-                left: 10%;
-            }
-        }
-    }
 }

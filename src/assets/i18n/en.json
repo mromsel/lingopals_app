@@ -4,11 +4,30 @@
         "buttonCancelText": "Cancel",
         "buttonOkText": "OK",
         "errorAlertTitle": "Error",
-        "genericErrorMessage": "There was a problem. Please try again later."
+        "genericErrorMessage": "There was a problem. Please try again later.",
+        "noUserLanguagesText": "Press the top button to select a language to learn!"
     },
     "shared": {
-        "language-selector": "",
-        "single-language-selector": ""
+        "languageSelector": {
+            "modal": {
+                "title": "Select the language to learn"
+            }
+        },
+        "singleLanguageSelector": {
+            "modal": {
+                "title": "Select your language"
+            }
+        },
+        "modalUserLanguagesCreate": {
+            "pageTitle": "Select the language to learn",
+            "buttonCancelText": "Cancel",
+            "clearSelectionButtonText": "Clear selection",
+            "originLanguageAltText": "Origin language",
+            "targetLanguageAltText": "Target language",
+            "setPreferredCheckboxLabel": "Set default",
+            "startLearningLevelQuestion": "From which level would you want to start learning? (You can change this later)",
+            "confirmButtonText": "Confirm"
+        }
     },
     "login": {
         "login": "Login",
@@ -55,6 +74,7 @@
         "myProgress": "My progress"
     },
     "lessons": {
+        "defaultMessage": "Press the top button to start learning!",
         "reviewWords": "Review Words",
         "quiz": {
             "states": {

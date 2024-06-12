@@ -28,6 +28,8 @@ export class QuizComponent {
 
   backRoute: string = '/app/lessons'
 
+  isAdminOrDebugger = false
+
   @Output() eventFinishQuiz = new EventEmitter<any>;
 
   @Input() type: string = "";
@@ -78,6 +80,10 @@ export class QuizComponent {
     private router: Router,
     private translate: TranslateService,
   ) {
+    this.isAdminOrDebugger = this.userInfoService.user?.profile.idProfile == 1 || this.userInfoService.user?.profile.idProfile == 2
+    console.log("admin o debug: " + this.isAdminOrDebugger);
+
+
     this.lessonStates = [
       this.translate.instant('lessons.quiz.states.start'),
       this.translate.instant('lessons.quiz.states.continue'),
@@ -172,11 +178,11 @@ export class QuizComponent {
   }
 
   submitResults() {
-    let idUser = this.userInfoService.idUser
+    let idUser = this.userInfoService.user?.idUser
 
-    if (idUser && this.usedUserLanguages) {
+    if (this.usedUserLanguages) {
       this.userActivityResult = {
-        idUser: idUser,
+        idUser: idUser ?? 0,
         userLanguages: this.usedUserLanguages,
         activityType: this.activityType,
         results: this.userResults,

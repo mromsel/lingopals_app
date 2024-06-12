@@ -1,5 +1,6 @@
 import { GrammaticalCategory } from "../masters/grammatical-category.interface";
 import { LanguageLevel } from "../masters/language-level.interface";
+import { SemanticCategory } from "../masters/semantic-category.interface";
 
 export interface WordReference {
     idWordRef: number;
@@ -7,6 +8,6 @@ export interface WordReference {
     englishDefinition: string;
     grammaticalCategory: GrammaticalCategory;
     languageLevel: LanguageLevel;
-    // category?: any;
+    semanticCategory: SemanticCategory;
     imageUrl: string;
 }

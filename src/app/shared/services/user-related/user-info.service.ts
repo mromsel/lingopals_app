@@ -8,13 +8,14 @@ import { UserLanguagesCreate } from '../../components/modal-user-languages-creat
 import { UserProgress } from '../../interfaces/user-related/user-progress.interface';
 import { User } from '../../interfaces/user-related/user.interface';
 import { LocalStorageService } from '../app/local-storage.service';
+import { backendURL } from '../../utils/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserInfoService {
 
-  backendURL: string = environment.backendURL
+  backendURL: string = backendURL
 
   idUser: number | undefined;
 

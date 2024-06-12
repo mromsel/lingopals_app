@@ -1,4 +1,5 @@
 import { Language } from "../masters/language.interface";
+import { Profile } from "../masters/profile.interface";
 
 export interface User {
     idUser: number;
@@ -7,4 +8,5 @@ export interface User {
     profileImageUrl: string;
     preferredLanguage: Language;
     timeZone: string;
+    profile: Profile
 }

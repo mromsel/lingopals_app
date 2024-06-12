@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { adminPanelDropdownParents, adminPanelMasters, adminPanelUsersRelated, adminPanelWordsRelated } from './interfaces/admin-panel-constants';
+import { adminPanelDropdownParents, adminPanelImagesRelated, adminPanelMasters, adminPanelUsersRelated, adminPanelWordsRelated } from './interfaces/admin-panel-constants';
 import { AdminPanelService } from './services/admin-panel.service';
 
 @Component({
@@ -18,6 +18,8 @@ export class AdminPanelPage {
   wordsRelated: string[] = adminPanelWordsRelated
 
   usersRelated: string[] = adminPanelUsersRelated
+
+  imagesRelated: string[] = adminPanelImagesRelated
 
   constructor(
     private adminPanelService: AdminPanelService,

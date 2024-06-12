@@ -6,8 +6,8 @@
   <app-quiz-header [headerTitle]="headerTitle" [showProgressBar]="stateInProgress"
     [progress]="progress"></app-quiz-header>
 
-  <ion-button *ngIf="stateInProgress" (click)="goToLastQuestion()" class="debug-button" color="secondary" slot="end"
-    onKeyDown="goToLastQuestion()"><ion-icon name="bug"></ion-icon><span>Last
+  <ion-button *ngIf="stateInProgress && isAdminOrDebugger" (click)="goToLastQuestion()" class="debug-button"
+    color="secondary" slot="end" onKeyDown="goToLastQuestion()"><ion-icon name="bug"></ion-icon><span>Last
       question</span></ion-button>
 </ion-header>
 

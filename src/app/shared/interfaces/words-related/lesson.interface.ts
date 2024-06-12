@@ -9,4 +9,13 @@ export interface Lesson {
     },
     listWordsOrigin: Array<Word>,
     listWordsDestiny: Array<Word>,
+    isCompleted: boolean,
+    semanticCategory: SemanticCategoryFull
+}
+
+export interface SemanticCategoryFull {
+    idSemanticCategory: number
+    englishName: string
+    nameInOriginLanguage: string
+    nameInTargetLanguage: string
 }

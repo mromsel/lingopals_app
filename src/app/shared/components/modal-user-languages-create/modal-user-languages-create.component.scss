@@ -33,7 +33,9 @@ ion-content {
     align-items: center;
     justify-content: center;
 
+
     .selection {
+        background-color: var(--ion-color-background);
         display: flex;
         justify-content: center;
         align-items: center;

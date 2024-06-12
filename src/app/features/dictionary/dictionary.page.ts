@@ -32,25 +32,20 @@ export class DictionaryPage {
     private configService: ConfigService,
     private router: Router,
     private _modalController: ModalController,
-  ) { }
-
-  ionViewWillEnter() {
-    let userLanguages = this.userInfoService.userLanguages
-
-    if (userLanguages && userLanguages.length > 0) {
-      this.getAllWordsByLanguage(userLanguages.filter(userLanguage => userLanguage.preferred)[0])
-
-      this.configService.preferredUserLanguagesSubject
-        .pipe(takeUntil(this.unsubscribe$))
-        .subscribe(
-          preferredUserLanguages => {
-            this.preferredUserLanguages = preferredUserLanguages
-            this.getAllWordsByLanguage(this.preferredUserLanguages)
-          }
-        )
-    } else {
-      this.openAddUserLanguagesModal()
+  ) {
+    this.preferredUserLanguages = this.configService.preferredUserLanguages
+    if (this.preferredUserLanguages) {
+      this.getAllWordsByLanguage(this.preferredUserLanguages)
     }
+
+    this.configService.preferredUserLanguagesSubject
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(
+        preferredUserLanguages => {
+          this.preferredUserLanguages = preferredUserLanguages
+          this.getAllWordsByLanguage(this.preferredUserLanguages)
+        }
+      )
   }
 
   getAllWordsByLanguage(preferredUserLanguages: UserLanguages) {
@@ -60,12 +55,12 @@ export class DictionaryPage {
         data => {
           this.words = data
           // #TEST
-          this.words.forEach(element => {
-            this.words.push(element)
-          });
-          this.words.forEach(element => {
-            this.words.push(element)
-          });
+          // this.words.forEach(element => {
+          //   this.words.push(element)
+          // });
+          // this.words.forEach(element => {
+          //   this.words.push(element)
+          // });
           // #END TEST
 
           this.sortWords();

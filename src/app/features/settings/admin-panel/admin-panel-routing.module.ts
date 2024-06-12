@@ -53,6 +53,10 @@ const routes: Routes = [
     path: 'users-related/:type',
     component: UsersRelatedComponent,
   },
+  {
+    path: 'images',
+    component: UsersRelatedComponent,
+  },
 ];
 
 @NgModule({

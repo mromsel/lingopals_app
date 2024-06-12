@@ -4,7 +4,30 @@
         "buttonCancelText": "Cancelar",
         "buttonOkText": "Aceptar",
         "errorAlertTitle": "Error",
-        "genericErrorMessage": "Hubo un problema. Por favor, inténtalo más tarde."
+        "genericErrorMessage": "Hubo un problema. Por favor, inténtalo más tarde.",
+        "noUserLanguagesText": "¡Presiona el botón superior para seleccionar un idioma para aprender!"
+    },
+    "shared": {
+        "languageSelector": {
+            "modal": {
+                "title": "Selecciona el idioma para aprender"
+            }
+        },
+        "singleLanguageSelector": {
+            "modal": {
+                "title": "Selecciona tu idioma"
+            }
+        },
+        "modalUserLanguagesCreate": {
+            "pageTitle": "Selecciona el idioma para aprender",
+            "buttonCancelText": "Cancelar",
+            "clearSelectionButtonText": "Borrar selección",
+            "originLanguageAltText": "Idioma de origen",
+            "targetLanguageAltText": "Idioma objetivo",
+            "setPreferredCheckboxLabel": "Establecer predeterminado",
+            "startLearningLevelQuestion": "¿Desde qué nivel te gustaría empezar a aprender? (Puedes cambiarlo más tarde)",
+            "confirmButtonText": "Confirmar"
+        }
     },
     "login": {
         "login": "Inicio de sesión",
@@ -52,6 +75,7 @@
         "myProgress": "Mi progreso"
     },
     "lessons": {
+        "defaultMessage": "¡Presiona el botón superior para comenzar a aprender!",
         "reviewWords": "Repasar Palabras",
         "quiz": {
             "states": {

@@ -11,7 +11,7 @@
     <app-single-language-selector></app-single-language-selector>
   </ion-card>
 
-  <ion-card class="group">
+  <ion-card class="group" *ngIf="isAdmin">
     <ion-card-title>Admin options</ion-card-title>
 
     <ion-text routerLink="./admin-panel" class="item">

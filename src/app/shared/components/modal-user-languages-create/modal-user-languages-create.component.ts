@@ -45,9 +45,13 @@ export class ModalUserLanguagesCreateComponent implements OnInit {
         value => {
           this.languagesToSelect = this.mastersService.languages
           this.languageLevelsToSelect = this.mastersService.languageLevels
+          console.log(this.languagesToSelect);
+
         }
       )
     }
+    console.log(this.languagesToSelect);
+
   }
 
   selectLanguage(index: number) {

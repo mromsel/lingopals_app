@@ -19,6 +19,8 @@ export class ModalLanguageSelectorComponent {
 
   filePrefix = "../../../../assets/flags/"
 
+  base64Prefix = "data:image/png;base64,"
+
   constructor(
     private _modalController: ModalController,
     private userInfoService: UserInfoService,

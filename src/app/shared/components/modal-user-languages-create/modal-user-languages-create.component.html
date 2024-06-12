@@ -1,41 +1,50 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Select the language to learn</ion-title>
-    <!-- TODO: TRANSLATEEE -->
+    <ion-title>{{'shared.modalUserLanguagesCreate.pageTitle' |
+      translate}}</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="closeModal()" onkeypress="closeModal()" [strong]="true">Close</ion-button>
+      <ion-button (click)="closeModal()" onkeypress="closeModal()" [strong]="true">{{'common.buttonCancelText' |
+        translate}}</ion-button>
     </ion-buttons>
   </ion-toolbar>
 
   <div class="result">
-    <ion-button (click)="clearSelection()">Clear selection</ion-button>
+    <ion-button (click)="clearSelection()"
+      onkeypress="clearSelection()">{{'shared.modalUserLanguagesCreate.clearSelectionButtonText' |
+      translate}}</ion-button>
     <div class="languages-selected-display">
 
       <div class="language-selected" id="languageOrigin">
-        <img src={{filePrefix}}{{languageOrigin.flag}} alt="Origin language" class="flag" *ngIf="languageOrigin">
+        <img [src]="'data:image/png;base64,' + languageOrigin.flag.imageBase64" alt="Origin language" class="flag"
+          *ngIf="languageOrigin">
       </div>
       <ion-icon name="arrow-forward" class="arrow"></ion-icon>
       <div class="language-selected" id="languageTarget">
-        <img src={{filePrefix}}{{languageTarget.flag}} alt="Target language" class="flag" *ngIf="languageTarget">
+        <img [src]="'data:image/png;base64,' + languageTarget.flag.imageBase64" alt="Target language" class="flag"
+          *ngIf="languageTarget">
       </div>
     </div>
-    <ion-checkbox [checked]="setPreferred" (ionChange)="changeSetPreferred()" labelPlacement="end">Set
-      default</ion-checkbox>
+    <ion-checkbox [checked]="setPreferred" (ionChange)="changeSetPreferred()"
+      labelPlacement="end">{{'shared.modalUserLanguagesCreate.setPreferredCheckboxLabel' |
+      translate}}</ion-checkbox>
   </div>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
   <div class="selection">
     @if (languageOrigin && languageTarget) {
     <div class="language-level-selection">
-      <ion-text>From which level would you want to start learning? (You can change this later)</ion-text>
+      <ion-text>{{'shared.modalUserLanguagesCreate.startLearningLevelQuestion' |
+        translate}}</ion-text>
       <ion-radio-group [value]="languageLevelSelectedIndex" (ionChange)="selectLanguageLevel($event)"
         class="language-level-radio-group">
         @for (languageLevel of languageLevelsToSelect; track $index) {
         <ion-radio [value]="$index" class="language-level-radio">{{languageLevel.levelName}}</ion-radio>
         }
       </ion-radio-group>
-      <ion-button (click)="createUserLanguages()" onkeypress="createUserLanguages()">Confirm</ion-button>
+      <ion-button (click)="createUserLanguages()"
+        onkeypress="createUserLanguages()">{{'shared.modalUserLanguagesCreate.confirmButtonText' |
+        translate}}</ion-button>
     </div>
     } @else {
     @for (language of languagesToSelect; track $index) {

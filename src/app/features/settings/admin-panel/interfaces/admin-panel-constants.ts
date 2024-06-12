@@ -1,7 +1,8 @@
 export const adminPanelDropdownParents: string[] = [
     "Masters",
     "Words related",
-    "Users related"
+    "Users related",
+    "Images"
 ]
 
 export const adminPanelMasters: string[] = [
@@ -10,6 +11,7 @@ export const adminPanelMasters: string[] = [
     "language-levels",
     "languages",
     "profiles",
+    "semantic-categories",
     "writing-systems",
     "xp-levels"
 ]
@@ -22,4 +24,9 @@ export const adminPanelWordsRelated: string[] = [
 export const adminPanelUsersRelated: string[] = [
     "users",
     "users-progress"
+]
+
+export const adminPanelImagesRelated: string[] = [
+    "add images",
+    "view images"
 ]

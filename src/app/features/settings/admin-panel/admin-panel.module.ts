@@ -19,6 +19,8 @@ import { AdminPanelComponentsHeaderComponent } from './components/admin-panel-co
 import { WordsFormComponent } from './words-related/words/words-form/words-form.component';
 import { LibreTranslateApiComponent } from './libre-translate-api/libre-translate-api.component';
 import { WordsFormAdvancedOptionsComponent } from './words-related/words/words-form/words-form-advanced-options/words-form-advanced-options.component';
+import { ImagesComponent } from './images/images.component';
+import { ImagesFormComponent } from './images/images-form/images-form.component';
 
 @NgModule({
   imports: [
@@ -40,6 +42,8 @@ import { WordsFormAdvancedOptionsComponent } from './words-related/words/words-f
     WordsFormComponent,
     WordsFormAdvancedOptionsComponent,
     UsersRelatedComponent,
+    ImagesComponent,
+    ImagesFormComponent,
     DictionaryApiComponent,
     LibreTranslateApiComponent,
   ]

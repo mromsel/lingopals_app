@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import { DictionaryApiWordData } from '../dictionary-api/dictionary-api-word-data.interface';
 import { Subject } from 'rxjs';
 import { Masters } from '../interfaces/masters.interface';
@@ -10,6 +9,7 @@ import { LibreTranslateApiResponse } from '../libre-translate-api/libre-translat
 import { Language } from 'src/app/shared/interfaces/masters/language.interface';
 import { WordFull } from 'src/app/shared/interfaces/words-related/word-full.interface';
 import { WordReference } from 'src/app/shared/interfaces/words-related/word-reference.interface';
+import { backendURL } from 'src/app/shared/utils/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class AdminPanelService {
   dictionaryApiURL = "https://api.dictionaryapi.dev/api/v2/entries/en"
   libreTranslateApiURL = "http://localhost:5000"
 
-  backendURL: string = environment.backendURL
+  backendURL: string = backendURL
   adminPanelURL = this.backendURL + "/admin-panel"
 
   masters = new Subject<Masters>();

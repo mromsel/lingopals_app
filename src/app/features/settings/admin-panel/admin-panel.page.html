@@ -30,10 +30,13 @@
           <ion-item slot="header" color="light">
             <ion-label>Users related</ion-label>
           </ion-item>
-          <div class="ion-padding element" slot="content" *ngFor="let userRelated of usersRelated; index as i"
-            [routerLink]="['./users-related/', userRelated]">{{usersRelated[i]}}</div>
+          <div class="ion-padding element" slot="content" *ngFor="let imagesItem of imagesRelated; index as i"
+            [routerLink]="['./images']">{{imagesItem}}</div>
         </ion-accordion>
 
+        <ion-accordion value="images">
+
+        </ion-accordion>
       </ion-accordion-group>
     </div>
   </div>
