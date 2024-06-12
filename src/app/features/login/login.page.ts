@@ -29,11 +29,6 @@ export class LoginPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.formData.usernameOrEmail = "prueba4"
-    // this.formData.password = "prueba4"
-    // this.login()
-    this.formData.username = "admin"
-    this.formData.password = "mimidilo"
   }
 
   ionViewWillEnter() {
